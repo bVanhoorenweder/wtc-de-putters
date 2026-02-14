@@ -4,9 +4,8 @@ import Hero from '../components/Hero.astro';
 import EventCard from '../components/EventCard.astro';
 import { events } from '../data/events';
 
-// Sort events by category and date
-const upcomingEvents = events.filter(e => e.category === 'upcoming').sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
-const annualEvents = events.filter(e => e.category === 'annual').sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+// Sort all events by date
+const sortedEvents = events.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 ---
 
 <BaseLayout title="Events - WTC De Putters">
@@ -17,37 +16,35 @@ const annualEvents = events.filter(e => e.category === 'annual').sort((a, b) => 
     variant="default"
   />
 
-  <!-- Upcoming Events -->
-  {upcomingEvents.length > 0 && (
-    <section class="section-padding bg-white" data-cue="fadeIn">
-      <div class="container mx-auto px-4">
-        <h2 class="section-title">Binnenkort</h2>
-        <p class="section-subtitle max-w-2xl mx-auto">
-          Deze events staan binnenkort op de agenda
-        </p>
-
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {upcomingEvents.map((event, index) => (
-            <div data-cue="slideInUp" data-cue-delay={index * 100}>
-              <EventCard event={event} />
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  )}
-
-  <!-- Annual Events -->
-  <section class="section-padding bg-encox-gray-bg" data-cue="fadeIn">
+  <!-- All Events Section -->
+  <section class="section-padding bg-white" data-cue="fadeIn">
     <div class="container mx-auto px-4">
-      <h2 class="section-title">Jaarlijkse Evenementen</h2>
-      <p class="section-subtitle max-w-2xl mx-auto">
-        Deze events organiseren we elk jaar opnieuw
-      </p>
+      <!-- Filter Buttons -->
+      <div class="flex flex-wrap justify-center gap-4 mb-12">
+        <button
+          class="event-filter px-8 py-3 rounded-full font-heading font-bold text-lg transition-all duration-300 bg-gradient-to-r from-encox-primary to-encox-secondary text-white shadow-lg hover:shadow-xl hover:scale-105"
+          data-filter="all"
+        >
+          📅 Alle Events
+        </button>
+        <button
+          class="event-filter px-8 py-3 rounded-full font-heading font-bold text-lg transition-all duration-300 bg-white border-2 border-encox-primary text-encox-primary hover:bg-encox-primary hover:text-white"
+          data-filter="upcoming"
+        >
+          ✨ Binnenkort
+        </button>
+        <button
+          class="event-filter px-8 py-3 rounded-full font-heading font-bold text-lg transition-all duration-300 bg-white border-2 border-encox-secondary text-encox-secondary hover:bg-encox-secondary hover:text-white"
+          data-filter="annual"
+        >
+          🔄 Jaarlijks WTC Events
+        </button>
+      </div>
 
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-        {annualEvents.map((event, index) => (
-          <div data-cue="slideInUp" data-cue-delay={index * 100}>
+      <!-- Events Grid -->
+      <div id="events-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {sortedEvents.map((event, index) => (
+          <div data-cue="slideInUp" data-cue-delay={index * 50} class="h-full event-item" data-category={event.category}>
             <EventCard event={event} />
           </div>
         ))}
@@ -121,9 +118,10 @@ const annualEvents = events.filter(e => e.category === 'annual').sort((a, b) => 
     </div>
   </section>
 
-  <!-- Initialize ScrollCue -->
+  <!-- Initialize ScrollCue and Filters -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
+      // Initialize ScrollCue
       // @ts-ignore
       if (typeof scrollCue !== 'undefined') {
         // @ts-ignore
@@ -133,6 +131,53 @@ const annualEvents = events.filter(e => e.category === 'annual').sort((a, b) => 
           percentage: 0.8
         });
       }
+
+      // Event filtering
+      const filterButtons = document.querySelectorAll('.event-filter');
+      const eventItems = document.querySelectorAll('.event-item');
+
+      filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const filter = button.getAttribute('data-filter');
+
+          // Update button styles
+          filterButtons.forEach(btn => {
+            if (btn === button) {
+              btn.classList.remove('bg-white', 'border-2', 'border-encox-primary', 'border-encox-secondary', 'text-encox-primary', 'text-encox-secondary');
+              btn.classList.add('bg-gradient-to-r', 'from-encox-primary', 'to-encox-secondary', 'text-white', 'shadow-lg');
+            } else {
+              btn.classList.remove('bg-gradient-to-r', 'from-encox-primary', 'to-encox-secondary', 'text-white', 'shadow-lg');
+              const filterType = btn.getAttribute('data-filter');
+              if (filterType === 'upcoming') {
+                btn.classList.add('bg-white', 'border-2', 'border-encox-primary', 'text-encox-primary');
+              } else if (filterType === 'annual') {
+                btn.classList.add('bg-white', 'border-2', 'border-encox-secondary', 'text-encox-secondary');
+              } else {
+                btn.classList.add('bg-white', 'border-2', 'border-encox-primary', 'text-encox-primary');
+              }
+            }
+          });
+
+          // Filter events
+          eventItems.forEach(item => {
+            const category = item.getAttribute('data-category');
+            if (filter === 'all' || category === filter) {
+              item.style.display = 'block';
+              // Re-trigger animation
+              item.setAttribute('data-cue', 'slideInUp');
+            } else {
+              item.style.display = 'none';
+            }
+          });
+
+          // Re-initialize ScrollCue for newly visible items
+          // @ts-ignore
+          if (typeof scrollCue !== 'undefined') {
+            // @ts-ignore
+            scrollCue.update();
+          }
+        });
+      });
     });
   </script>
 </BaseLayout>

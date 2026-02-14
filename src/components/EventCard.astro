@@ -15,23 +15,22 @@ const formattedDate = eventDate.toLocaleDateString('nl-BE', {
   year: 'numeric'
 });
 
-// Category colors
-const categoryColors = {
-  upcoming: { bg: 'from-encox-orange to-red-500', badge: 'bg-encox-orange' },
-  annual: { bg: 'from-encox-primary to-green-500', badge: 'bg-encox-primary' },
-  past: { bg: 'from-gray-400 to-gray-500', badge: 'bg-gray-400' }
-};
-
-const colors = categoryColors[event.category];
+// Use same gradient as sponsors for all events
+const headerGradient = 'from-encox-primary to-encox-secondary';
 ---
 
-<div class="group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-400 overflow-hidden hover:-translate-y-2">
+<div class="h-full flex flex-col group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-400 overflow-hidden hover:-translate-y-2" data-category={event.category}>
   <!-- Date Header with Gradient -->
-  <div class={`bg-gradient-to-r ${colors.bg} text-white p-6 relative overflow-hidden`}>
+  <div class={`bg-gradient-to-r ${headerGradient} text-white p-6 relative overflow-hidden flex-shrink-0`}>
     <div class="absolute top-0 right-0 text-9xl opacity-10 select-none">📅</div>
     <div class="relative z-10">
-      <div class="text-sm font-semibold uppercase tracking-wider opacity-90">
-        {event.category === 'upcoming' ? 'Binnenkort' : event.category === 'annual' ? 'Jaarlijks Event' : 'Afgelopen'}
+      <div class="flex items-center justify-between mb-2">
+        <div class="text-sm font-semibold uppercase tracking-wider opacity-90">
+          {event.category === 'upcoming' ? 'Binnenkort' : event.category === 'annual' ? 'Jaarlijks Event' : 'Afgelopen'}
+        </div>
+        <div class="bg-white/20 px-3 py-1 rounded-full text-xs font-bold">
+          {event.category === 'annual' ? '🔄 WTC Event' : '✨ Extern'}
+        </div>
       </div>
       <div class="text-3xl font-heading font-bold mt-1">{formattedDate}</div>
       {event.time && (
@@ -41,7 +40,7 @@ const colors = categoryColors[event.category];
   </div>
 
   <!-- Content -->
-  <div class="p-6">
+  <div class="flex-1 flex flex-col p-6">
     <h3 class="text-2xl font-heading font-bold text-encox-heading mb-3 group-hover:text-encox-primary transition-colors">
       {event.title}
     </h3>
@@ -71,21 +70,23 @@ const colors = categoryColors[event.category];
     </div>
 
     <!-- Description -->
-    <p class="text-encox-text leading-relaxed mb-6">
+    <p class="text-encox-text leading-relaxed mb-6 flex-1">
       {event.description}
     </p>
 
     <!-- CTA -->
-    {event.category === 'upcoming' || event.category === 'annual' ? (
-      <a
-        href="mailto:bestuur@wtcdeputters.be?subject=Interesse%20in%20{encodeURIComponent(event.title)}"
-        class="inline-flex items-center gap-2 text-encox-primary font-bold hover:text-encox-secondary transition-colors group"
-      >
-        <span>Meer info / Inschrijven</span>
-        <span class="group-hover:translate-x-1 transition-transform">→</span>
-      </a>
-    ) : (
-      <span class="text-gray-400 italic">Event afgelopen</span>
-    )}
+    <div class="mt-auto">
+      {event.category === 'upcoming' || event.category === 'annual' ? (
+        <a
+          href="mailto:bestuur@wtcdeputters.be?subject=Interesse%20in%20{encodeURIComponent(event.title)}"
+          class="inline-flex items-center gap-2 text-encox-primary font-bold hover:text-encox-secondary transition-colors group"
+        >
+          <span>Meer info / Inschrijven</span>
+          <span class="group-hover:translate-x-1 transition-transform">→</span>
+        </a>
+      ) : (
+        <span class="text-gray-400 italic">Event afgelopen</span>
+      )}
+    </div>
   </div>
 </div>

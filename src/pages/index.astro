@@ -3,6 +3,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import GroupCard from '../components/GroupCard.astro';
 import SponsorCarousel from '../components/SponsorCarousel.astro';
 import { groups } from '../data/groups';
+import { events } from '../data/events';
+
+// Find next upcoming event
+const now = new Date();
+const futureEvents = events
+  .filter(e => new Date(e.date) >= now)
+  .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+const nextEvent = futureEvents[0];
+
+// Format next event date if exists
+let nextEventDate = '';
+if (nextEvent) {
+  const eventDate = new Date(nextEvent.date);
+  nextEventDate = eventDate.toLocaleDateString('nl-BE', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+}
 ---
 
 <BaseLayout>
@@ -73,36 +93,68 @@ import { groups } from '../data/groups';
     </div>
   </section>
 
-  <!-- Section 2: About / Ploeggeest -->
-  <section class="section-padding bg-encox-gray-bg" data-cue="fadeIn">
+  <!-- Section 2: Why Choose Us -->
+  <section class="section-padding bg-white" data-cue="fadeIn">
     <div class="container mx-auto px-4">
-      <div class="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-        <!-- Content Left -->
-        <div>
-          <h2 class="text-h2 font-heading font-bold text-encox-heading mb-6">Ploeggeest boven alles</h2>
-          <p class="text-lg text-encox-text leading-relaxed mb-6">
-            Bij WTC De Putters staat de clubgeest centraal. We zijn een inclusieve vereniging voor alle niveaus,
-            waar ploeggeest boven competitie staat. Of je nu een beginneling bent of een ervaren renner,
-            bij ons ben je welkom!
+      <div class="max-w-6xl mx-auto">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+          <h2 class="text-h2 font-heading font-bold text-encox-heading mb-4">Waarom WTC De Putters?</h2>
+          <p class="text-lg text-encox-text max-w-2xl mx-auto">
+            Ontdek wat ons uniek maakt als wielertoeristenclub
           </p>
-          <div class="bg-white rounded-lg p-6 shadow-md border-l-4 border-encox-primary">
-            <p class="text-xl font-heading font-semibold text-encox-primary italic">
-              "Samen Uit, Samen Thuis"
+        </div>
+
+        <!-- Feature Cards Grid -->
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+          <!-- Feature 1 -->
+          <div class="text-center p-8 bg-gradient-to-br from-encox-primary/5 to-encox-primary/10 rounded-xl hover:shadow-lg transition-shadow duration-300" data-cue="slideInUp">
+            <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-encox-primary to-green-500 rounded-full flex items-center justify-center">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-heading font-bold text-encox-heading mb-3">Ploeggeest</h3>
+            <p class="text-encox-text">
+              "Samen Uit, Samen Thuis" - Niemand wordt achtergelaten, we steunen elkaar bij pech
             </p>
-            <p class="text-encox-text mt-2">
-              Niemand wordt achtergelaten, we steunen elkaar bij pech.
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="text-center p-8 bg-gradient-to-br from-encox-secondary/5 to-encox-secondary/10 rounded-xl hover:shadow-lg transition-shadow duration-300" data-cue="slideInUp" data-cue-delay="100">
+            <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-encox-secondary to-pink-500 rounded-full flex items-center justify-center">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-heading font-bold text-encox-heading mb-3">Voor Iedereen</h3>
+            <p class="text-encox-text">
+              4 groepen van recreatief tot sportief - iedereen vindt zijn niveau bij ons
+            </p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="text-center p-8 bg-gradient-to-br from-encox-blue/5 to-encox-blue/10 rounded-xl hover:shadow-lg transition-shadow duration-300" data-cue="slideInUp" data-cue-delay="200">
+            <div class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-encox-blue to-blue-500 rounded-full flex items-center justify-center">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-heading font-bold text-encox-heading mb-3">Wekelijkse Ritten</h3>
+            <p class="text-encox-text">
+              Woensdag en zondag rijden we uit - altijd een moment om te fietsen!
             </p>
           </div>
         </div>
 
-        <!-- Image/Illustration Right -->
-        <div class="relative">
-          <div class="bg-gradient-to-br from-encox-primary/20 to-encox-blue/20 rounded-2xl p-12 flex items-center justify-center shadow-lg">
-            <div class="text-center">
-              <div class="text-9xl mb-4">🚴‍♂️</div>
-              <p class="text-2xl font-heading font-bold text-encox-heading">Inclusief & Gezellig</p>
-            </div>
-          </div>
+        <!-- Quote Banner -->
+        <div class="bg-gradient-to-r from-encox-primary to-encox-secondary text-white rounded-2xl p-10 text-center shadow-xl" data-cue="zoomIn">
+          <p class="text-3xl font-heading font-bold mb-3 italic">
+            "Samen Uit, Samen Thuis"
+          </p>
+          <p class="text-lg opacity-90">
+            Ons motto dat onze ploeggeest perfect samenvat
+          </p>
         </div>
       </div>
     </div>
@@ -118,7 +170,7 @@ import { groups } from '../data/groups';
 
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {groups.map((group, index) => (
-          <div data-cue="slideInUp" data-cue-delay={index * 100}>
+          <div data-cue="slideInUp" data-cue-delay={index * 100} class="h-full">
             <GroupCard group={group} />
           </div>
         ))}
@@ -157,6 +209,103 @@ import { groups } from '../data/groups';
     </div>
   </section>
 
+  <!-- Section 4.5: Next Event -->
+  {nextEvent && (
+    <section class="py-16 bg-white" data-cue="fadeIn">
+      <div class="container mx-auto px-4">
+        <div class="max-w-4xl mx-auto">
+          <!-- Header -->
+          <div class="text-center mb-8">
+            <div class="inline-block bg-gradient-to-r from-encox-secondary to-pink-500 text-white px-6 py-2 rounded-full font-heading font-bold text-sm uppercase tracking-wider mb-4">
+              📅 Volgend Event
+            </div>
+            <h2 class="text-h2 font-heading font-bold text-encox-heading mb-2">
+              {nextEvent.title}
+            </h2>
+            <p class="text-2xl text-encox-primary font-heading font-bold">
+              {nextEventDate}
+            </p>
+            {nextEvent.time && (
+              <p class="text-lg text-encox-text mt-2">
+                ⏰ {nextEvent.time}
+              </p>
+            )}
+          </div>
+
+          <!-- Event Details Card -->
+          <div class="bg-gradient-to-br from-encox-gray-bg to-white rounded-2xl shadow-xl p-8 border-2 border-encox-primary/20">
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+              <!-- Location -->
+              <div class="flex items-start gap-3">
+                <span class="text-3xl">📍</span>
+                <div>
+                  <div class="font-heading font-bold text-encox-heading mb-1">Locatie</div>
+                  <div class="text-encox-text">{nextEvent.location}</div>
+                </div>
+              </div>
+
+              <!-- Distance -->
+              {nextEvent.distance && (
+                <div class="flex items-start gap-3">
+                  <span class="text-3xl">🚴</span>
+                  <div>
+                    <div class="font-heading font-bold text-encox-heading mb-1">Afstand</div>
+                    <div class="text-encox-text">{nextEvent.distance}</div>
+                  </div>
+                </div>
+              )}
+
+              <!-- Price -->
+              {nextEvent.price && (
+                <div class="flex items-start gap-3">
+                  <span class="text-3xl">💰</span>
+                  <div>
+                    <div class="font-heading font-bold text-encox-heading mb-1">Prijs</div>
+                    <div class="text-encox-text">{nextEvent.price}</div>
+                  </div>
+                </div>
+              )}
+
+              <!-- Category -->
+              <div class="flex items-start gap-3">
+                <span class="text-3xl">{nextEvent.category === 'annual' ? '🔄' : '✨'}</span>
+                <div>
+                  <div class="font-heading font-bold text-encox-heading mb-1">Type</div>
+                  <div class="text-encox-text">
+                    {nextEvent.category === 'annual' ? 'Jaarlijks WTC Event' : 'Eenmalig Event'}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Description -->
+            <div class="mb-6 pt-6 border-t border-gray-200">
+              <p class="text-encox-text text-lg leading-relaxed">
+                {nextEvent.description}
+              </p>
+            </div>
+
+            <!-- CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href={`mailto:bestuur@wtcdeputters.be?subject=Interesse%20in%20${encodeURIComponent(nextEvent.title)}`}
+                class="px-8 py-4 bg-gradient-to-r from-encox-secondary to-pink-500 text-white rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center"
+              >
+                📧 Inschrijven / Meer Info
+              </a>
+              <a
+                href="/events"
+                class="px-8 py-4 bg-transparent border-2 border-encox-primary text-encox-primary rounded-full font-heading font-bold text-lg hover:bg-encox-primary hover:text-white transition-all duration-300 text-center"
+              >
+                Bekijk Alle Events
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- Section 5: CTA Cards -->
   <section class="section-padding bg-encox-gray-bg" data-cue="fadeIn">
     <div class="container mx-auto px-4">
@@ -174,15 +323,15 @@ import { groups } from '../data/groups';
           </div>
         </div>
 
-        <!-- Groepen Card -->
-        <div class="card-hover bg-gradient-to-br from-encox-primary to-cyan-500 text-white rounded-2xl shadow-lg p-10 relative overflow-hidden">
-          <div class="absolute top-0 right-0 text-9xl opacity-10">🚴</div>
+        <!-- Ritten Card -->
+        <div class="card-hover bg-gradient-to-br from-encox-primary to-green-600 text-white rounded-2xl shadow-lg p-10 relative overflow-hidden">
+          <div class="absolute top-0 right-0 text-9xl opacity-10">📍</div>
           <div class="relative z-10">
-            <h2 class="text-4xl font-heading font-bold mb-4">Onze Groepen</h2>
-            <p class="text-xl mb-6 opacity-90">Van recreatief tot sportief - er is een groep voor elk niveau.</p>
-            <p class="text-lg mb-6 font-semibold">4 groepen: 27 tot 37+ km/h</p>
-            <a href="/groepen" class="inline-block px-8 py-4 bg-white text-encox-primary rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-              Bekijk Groepen
+            <h2 class="text-4xl font-heading font-bold mb-4">Download Ritten</h2>
+            <p class="text-xl mb-6 opacity-90">Ontdek onze mooiste routes en download GPX-bestanden voor je fietscomputer.</p>
+            <p class="text-lg mb-6 font-semibold">10+ routes beschikbaar</p>
+            <a href="/ritten" class="inline-block px-8 py-4 bg-white text-encox-primary rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+              Bekijk Ritten
             </a>
           </div>
         </div>
@@ -190,27 +339,7 @@ import { groups } from '../data/groups';
     </div>
   </section>
 
-  <!-- Section 6: Safety Banner -->
-  <section class="py-16 bg-gradient-to-r from-orange-50 to-red-50" data-cue="fadeIn">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-10 border-l-8 border-red-500">
-        <div class="flex items-start gap-6">
-          <div class="text-6xl">⚠️</div>
-          <div>
-            <h3 class="text-3xl font-heading font-bold mb-4 text-red-600">Veiligheid eerst!</h3>
-            <p class="text-xl text-encox-text">
-              Voor iedereen <strong class="text-red-600 font-bold">VERPLICHT</strong> om een fietshelm te dragen bij de ritten.
-            </p>
-            <p class="text-encox-text mt-3">
-              Veiligheid staat bij ons voorop. Help mee om onze club veilig te houden voor iedereen!
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Section 7: Sponsors Carousel -->
+  <!-- Section 6: Sponsors Carousel -->
   <SponsorCarousel />
 
   <!-- Initialize Swiper for Hero -->

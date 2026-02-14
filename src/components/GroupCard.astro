@@ -18,9 +18,9 @@ const groupColors = {
 const colors = groupColors[group.name as keyof typeof groupColors] || { from: 'from-encox-primary', to: 'to-encox-blue' };
 ---
 
-<div class="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
+<div class="h-full flex flex-col group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
   <!-- Image/Icon Section -->
-  <div class="overflow-hidden h-48 bg-encox-gray-bg relative">
+  <div class="overflow-hidden h-48 bg-encox-gray-bg relative flex-shrink-0">
     <div class={`w-full h-full bg-gradient-to-br ${colors.from} ${colors.to} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`}>
       <div class="text-center text-white">
         <span class="text-7xl font-heading font-bold drop-shadow-lg">{group.name.split(' ')[1]}</span>
@@ -35,11 +35,11 @@ const colors = groupColors[group.name as keyof typeof groupColors] || { from: 'f
   </div>
 
   <!-- Content Section -->
-  <div class="p-6">
+  <div class="flex-1 flex flex-col p-6">
     <h3 class="text-2xl font-heading font-bold text-encox-heading mb-3">
       {group.name}
     </h3>
-    <p class="text-encox-text mb-6 leading-relaxed">{group.description}</p>
+    <p class="text-encox-text mb-6 leading-relaxed flex-1">{group.description}</p>
 
     <!-- Stats Grid -->
     <div class="space-y-3 border-t border-gray-200 pt-4">

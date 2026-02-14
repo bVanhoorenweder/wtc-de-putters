@@ -12,59 +12,87 @@ export interface Event {
 
 export const events: Event[] = [
   {
-    title: 'Ontbijtrit 2026',
-    date: '2026-05-10',
+    title: 'KBK (Kustpijlronde)',
+    date: '2026-02-28',
+    time: '09:00',
+    location: 'Kust, België',
+    description: 'Klassieke kustrit georganiseerd door de KBK. Een mooie uitdaging langs de Belgische kust met typisch vlak parcours.',
+    distance: 'Meerdere afstanden',
+    category: 'upcoming'
+  },
+  {
+    title: 'Ontbijtrit',
+    date: '2026-03-01',
     time: '08:00',
     location: 'Parking De Valkaart, Oostkamp',
-    description: 'Traditionele ontbijtrit met aansluitend gezellig samenzijn en heerlijk ontbijt. Voor alle niveaus.',
+    description: 'Traditionele ontbijtrit met aansluitend gezellig samenzijn en heerlijk ontbijt. Voor alle niveaus en perfect om het seizoen te starten.',
     distance: '40-80 km (meerdere routes)',
     price: '€15 per persoon',
     category: 'annual'
   },
   {
-    title: 'Putters Classic',
-    date: '2026-06-15',
-    time: '08:00',
-    location: 'Oostkamp Centrum',
-    description: 'Jaarlijks wielerevenement voor recreatieve fietsers. Drie verschillende afstanden beschikbaar.',
-    distance: '50 / 75 / 100 km',
-    price: '€12 inschrijving',
-    category: 'annual'
-  },
-  {
-    title: 'Wielerweekend Ardennen',
-    date: '2026-09-20',
-    time: 'Volledig weekend',
-    location: 'Ardennen, België',
-    description: 'Sportief weekend in de Ardennen met mooie klimritten. Overnachting en maaltijden inbegrepen.',
-    distance: '100-150 km per dag',
-    price: '€180 all-in',
+    title: 'Jempi Monseré Classic',
+    date: '2026-03-14',
+    time: '09:00',
+    location: 'Zevekote / De Haan',
+    description: 'Eerbetoon aan Jempi Monseré, wereldkampioen wielrennen 1970. Mooie toeristische rit door West-Vlaanderen.',
+    distance: 'Verschillende afstanden',
     category: 'upcoming'
   },
   {
-    title: 'Nieuwjaarsreceptie 2027',
-    date: '2027-01-10',
-    time: '18:00',
-    location: 'Clubhuis Oostkamp',
-    description: 'Gezellige nieuwjaarsreceptie met alle leden, bestuursleden en sponsors. Terugblik op 2026 en vooruitblik op 2027.',
+    title: 'Ronde van Vlaanderen',
+    date: '2026-04-04',
+    time: 'Hele dag',
+    location: 'Oost-Vlaanderen',
+    description: 'Meefietsen met de legendarische Ronde van Vlaanderen! Volg (delen van) het parcours van de profs en ervaar de hellingen.',
+    distance: 'Verschillende parcours mogelijk',
+    category: 'upcoming'
+  },
+  {
+    title: 'Puttersdag',
+    date: '2026-05-01',
+    time: 'Hele dag',
+    location: 'Parking De Valkaart, Oostkamp',
+    description: 'Dé dag van WTC De Putters! Jaarlijks clubevenement met ritten voor alle niveaus, gezelligheid en samenhorigheid.',
+    distance: 'Meerdere routes beschikbaar',
     category: 'annual'
   },
   {
-    title: 'Club Kampioenschap',
-    date: '2026-08-05',
-    time: '09:00',
-    location: 'Rond Oostkamp',
-    description: 'Jaarlijks clubkampioenschap - sportieve rit met tijdsregistratie voor wie wil. Gezelligheid staat voorop!',
-    distance: '60 km',
-    category: 'annual'
+    title: 'Trois Ballons 2026',
+    date: '2026-06-06',
+    time: 'Weekend',
+    location: 'Vogezen, Frankrijk',
+    description: 'Sportief wielerweekend in de prachtige Vogezen. Drie iconische cols en prachtige natuur. Uitdagend maar onvergetelijk!',
+    distance: '100-150 km met bergen',
+    price: 'Info volgt',
+    category: 'upcoming'
   },
   {
-    title: 'BBQ &Family Day',
+    title: '8 uur van Spa-Francorchamps',
     date: '2026-07-25',
-    time: '16:00',
-    location: 'Clubhuis Oostkamp',
-    description: 'Gezinsnamiddag met BBQ, spelletjes voor kinderen en gezellig samenzijn. Voor leden en hun families.',
-    price: '€10 per volwassene, kinderen gratis',
-    category: 'annual'
+    time: '09:00',
+    location: 'Circuit Spa-Francorchamps',
+    description: 'Fietsen op het legendarische F1-circuit van Spa! Een unieke ervaring met uitdagende hellingen zoals Eau Rouge en Raidillon.',
+    distance: 'Rondes op circuit',
+    category: 'upcoming'
+  },
+  {
+    title: 'Criq (Criterium Ingooigem)',
+    date: '2026-08-22',
+    time: '09:00',
+    location: 'Ingooigem',
+    description: 'Traditioneel wielerevenement in Ingooigem. Criteriumsfeer met meerdere parcoursmogelijkheden voor verschillende niveaus.',
+    distance: 'Verschillende afstanden',
+    category: 'upcoming'
+  },
+  {
+    title: 'Picardie Weekend',
+    date: '2026-09-21',
+    time: 'Weekend',
+    location: 'Picardië, Frankrijk',
+    description: 'Wielerweekend in de Noord-Franse regio Picardië. Mooie landschappen, golvend parcours en Franse gezelligheid.',
+    distance: '80-120 km per dag',
+    price: 'Info volgt',
+    category: 'upcoming'
   }
 ];

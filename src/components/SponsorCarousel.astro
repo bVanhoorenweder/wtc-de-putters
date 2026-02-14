@@ -2,69 +2,56 @@
 import { sponsors } from '../data/sponsors';
 ---
 
-<section class="py-section-padding bg-white">
+<section class="section-padding bg-gradient-to-br from-encox-gray-bg to-white" data-cue="fadeIn">
   <div class="container mx-auto px-4">
-    <h2 class="section-title">Onze Sponsors</h2>
-    <p class="section-subtitle max-w-2xl mx-auto">
-      Bedankt aan onze trouwe sponsors die ons helpen om samen te fietsen
-    </p>
+    <!-- Header with decorative elements -->
+    <div class="text-center mb-16 relative">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-8 text-8xl opacity-5">🤝</div>
+      <h2 class="text-h2 font-heading font-bold text-encox-heading mb-4 relative">Onze Sponsors</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-encox-primary to-encox-secondary mx-auto mb-4"></div>
+      <p class="text-lg text-encox-text max-w-2xl mx-auto">
+        Met trots stellen we onze partners voor die ons helpen groeien
+      </p>
+    </div>
 
-    <!-- Swiper Carousel -->
-    <div class="swiper sponsor-carousel mt-8">
-      <div class="swiper-wrapper">
-        {sponsors.map((sponsor) => (
-          <div class="swiper-slide">
-            <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 p-8 flex items-center justify-center h-32 border border-gray-100">
-              <span class="text-center font-heading font-semibold text-encox-heading hover:text-encox-primary transition-colors">
-                {sponsor.name}
-              </span>
-            </div>
+    <!-- Sponsors Grid with enhanced styling -->
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">
+      {sponsors.map((sponsor, index) => (
+        <div
+          class="group relative bg-white rounded-xl p-8 flex flex-col items-center justify-center hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-encox-primary overflow-hidden min-h-[140px]"
+          data-cue="zoomIn"
+          data-cue-delay={index * 75}
+        >
+          <!-- Decorative gradient background on hover -->
+          <div class="absolute inset-0 bg-gradient-to-br from-encox-primary/5 to-encox-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+          <!-- Sponsor name -->
+          <div class="relative text-center font-heading font-bold text-encox-heading group-hover:text-encox-primary transition-colors duration-300 text-base leading-snug">
+            {sponsor.name}
           </div>
-        ))}
-      </div>
 
-      <!-- Pagination Dots -->
-      <div class="swiper-pagination mt-8"></div>
+          <!-- Hover decoration -->
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-encox-primary to-encox-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+        </div>
+      ))}
+    </div>
+
+    <!-- CTA with enhanced design -->
+    <div class="text-center">
+      <div class="inline-block bg-gradient-to-r from-encox-primary/10 to-encox-secondary/10 rounded-full p-1">
+        <a
+          href="/sponsors"
+          class="block px-10 py-4 bg-white hover:bg-gradient-to-r hover:from-encox-primary hover:to-encox-secondary text-encox-primary hover:text-white rounded-full font-heading font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
+        >
+          <span class="flex items-center gap-2">
+            <span>Bekijk Alle Sponsors</span>
+            <span class="text-xl">→</span>
+          </span>
+        </a>
+      </div>
     </div>
   </div>
 </section>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // @ts-ignore - Swiper is loaded via CDN
-    if (typeof Swiper !== 'undefined') {
-      // @ts-ignore
-      new Swiper('.sponsor-carousel', {
-        slidesPerView: 2,
-        spaceBetween: 20,
-        loop: true,
-        autoplay: {
-          delay: 3000,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        },
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        breakpoints: {
-          640: {
-            slidesPerView: 3,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 4,
-            spaceBetween: 24,
-          },
-          1024: {
-            slidesPerView: 5,
-            spaceBetween: 30,
-          },
-        },
-      });
-    }
-  });
-</script>
 
 <style>
   /* Swiper Pagination Styling */

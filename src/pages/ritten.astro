@@ -21,29 +21,6 @@ const difficulties = getDifficultyLevels();
   <section class="py-12 bg-white border-b border-gray-200">
     <div class="container mx-auto px-4">
       <div class="max-w-7xl mx-auto">
-        <!-- Group Filters -->
-        <div class="mb-6">
-          <h3 class="font-heading font-bold text-encox-heading mb-3 text-sm uppercase tracking-wider">
-            Filter op Groep:
-          </h3>
-          <div class="flex flex-wrap gap-3">
-            <button
-              class="filter-btn group-filter active px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-encox-primary text-white"
-              data-filter="all"
-            >
-              Alle Groepen
-            </button>
-            {groups.map(group => (
-              <button
-                class="filter-btn group-filter px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-encox-gray-bg text-encox-text hover:bg-encox-primary hover:text-white"
-                data-filter={`group-${group}`}
-              >
-                Groep {group}
-              </button>
-            ))}
-          </div>
-        </div>
-
         <!-- Distance Filters -->
         <div class="mb-6">
           <h3 class="font-heading font-bold text-encox-heading mb-3 text-sm uppercase tracking-wider">
@@ -100,7 +77,7 @@ const difficulties = getDifficultyLevels();
         <div id="ritten-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {ritten.map((rit, index) => (
             <div
-              class="rit-item"
+              class="rit-item h-full"
               data-groups={rit.groups.join(',')}
               data-distance={rit.distance}
               data-difficulty={rit.difficulty}
@@ -248,7 +225,6 @@ const difficulties = getDifficultyLevels();
   <!-- Filtering Script -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      let activeGroupFilter = 'all';
       let activeDistanceFilter = 'all';
       let activeDifficultyFilter = 'all';
 
@@ -259,12 +235,8 @@ const difficulties = getDifficultyLevels();
         let visibleCount = 0;
 
         ritItems.forEach((item) => {
-          const groups = (item.getAttribute('data-groups') || '').split(',');
           const distance = parseInt(item.getAttribute('data-distance') || '0');
           const difficulty = item.getAttribute('data-difficulty') || '';
-
-          // Check group filter
-          const groupMatch = activeGroupFilter === 'all' || groups.includes(activeGroupFilter.replace('group-', ''));
 
           // Check distance filter
           let distanceMatch = true;
@@ -277,7 +249,7 @@ const difficulties = getDifficultyLevels();
           const difficultyMatch = activeDifficultyFilter === 'all' || difficulty === activeDifficultyFilter.replace('difficulty-', '');
 
           // Show/hide item
-          if (groupMatch && distanceMatch && difficultyMatch) {
+          if (distanceMatch && difficultyMatch) {
             (item as HTMLElement).style.display = 'block';
             visibleCount++;
           } else {
@@ -290,22 +262,6 @@ const difficulties = getDifficultyLevels();
           noResults.classList.toggle('hidden', visibleCount > 0);
         }
       }
-
-      // Group filter buttons
-      document.querySelectorAll('.group-filter').forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          const target = e.currentTarget as HTMLElement;
-          document.querySelectorAll('.group-filter').forEach(b => {
-            b.classList.remove('active', 'bg-encox-primary', 'text-white');
-            b.classList.add('bg-encox-gray-bg', 'text-encox-text');
-          });
-          target.classList.add('active', 'bg-encox-primary', 'text-white');
-          target.classList.remove('bg-encox-gray-bg', 'text-encox-text');
-
-          activeGroupFilter = target.getAttribute('data-filter') || 'all';
-          filterRitten();
-        });
-      });
 
       // Distance filter buttons
       document.querySelectorAll('.distance-filter').forEach(btn => {

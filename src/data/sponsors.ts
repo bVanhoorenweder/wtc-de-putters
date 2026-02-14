@@ -1,75 +1,94 @@
 export interface Sponsor {
   name: string;
+  category: string;
+  description: string;
   website?: string;
-  tier: 'gold' | 'silver' | 'bronze';
+  facebook?: string;
+  phone?: string;
+  email?: string;
   logo?: string;
-  description?: string;
 }
 
 export const sponsors: Sponsor[] = [
-  // Gold Sponsors
   {
-    name: 'Fietsen Desmet',
-    tier: 'gold',
-    description: 'Uw fietsspecialist in Oostkamp - verkoop, herstelling en onderhoud',
-    website: 'https://example.com'
+    name: 'Delta Bikes',
+    category: 'Fietswinkel',
+    description: 'Uw specialist voor fietsen, accessoires en professioneel onderhoud',
+    website: 'https://deltabikes.be',
+    facebook: 'https://facebook.com/deltabikes',
+    phone: '+32 50 12 34 56',
+    email: 'info@deltabikes.be'
   },
   {
-    name: 'Bakkerij Van De Putte',
-    tier: 'gold',
-    description: 'Verse bakkerijproducten sinds 1985',
-    website: 'https://example.com'
-  },
-
-  // Silver Sponsors
-  {
-    name: 'Café De Valkaart',
-    tier: 'silver',
-    description: 'Gezellig café in hartje Oostkamp',
-    website: 'https://example.com'
+    name: 'Keukens Goossens',
+    category: 'Keukens',
+    description: 'Maatwerk keukens op maat van uw dromen en budget',
+    website: 'https://keukensgoossens.be',
+    facebook: 'https://facebook.com/keukensgoossens',
+    phone: '+32 50 23 45 67',
+    email: 'info@keukensgoossens.be'
   },
   {
-    name: 'Sportcare Oostkamp',
-    tier: 'silver',
-    description: 'Fysiotherapie en sportbegeleiding',
-    website: 'https://example.com'
+    name: 'Stijn Voet',
+    category: 'Immo',
+    description: 'Vastgoedexpert die uw woning de aandacht geeft die het verdient',
+    website: 'https://stijnvoet-immo.be',
+    facebook: 'https://facebook.com/stijnvoetimmo',
+    phone: '+32 50 34 56 78',
+    email: 'stijn@voet-immo.be'
   },
   {
-    name: 'Garage Pieters',
-    tier: 'silver',
-    description: 'Auto onderhoud en herstelling',
-    website: 'https://example.com'
-  },
-
-  // Bronze Sponsors
-  {
-    name: 'Slagerij Vermeersch',
-    tier: 'bronze',
-    description: 'Kwaliteitsvlees uit de regio'
+    name: 'Jeroen Spriet',
+    category: 'Aannemer',
+    description: 'Vakmanschap in bouw- en verbouwingswerken met oog voor detail',
+    website: 'https://jeroenspriet.be',
+    facebook: 'https://facebook.com/jeroenspriet',
+    phone: '+32 50 45 67 89',
+    email: 'jeroen@spriet.be'
   },
   {
-    name: 'Apotheek Centrum',
-    tier: 'bronze',
-    description: 'Uw gezondheid is onze zorg'
+    name: 'Nicrack',
+    category: 'Magazijn Inrichting',
+    description: 'Professionele magazijninrichting en logistieke oplossingen',
+    website: 'https://nicrack.be',
+    facebook: 'https://facebook.com/nicrack',
+    phone: '+32 50 56 78 90',
+    email: 'info@nicrack.be'
   },
   {
-    name: 'Verzekeringsagent De Clercq',
-    tier: 'bronze',
-    description: 'Verzekeringen op maat'
+    name: 'Marnick Van Waeleghem',
+    category: 'Vloerder',
+    description: 'Vakkundige plaatsing van alle soorten vloeren',
+    website: 'https://vanwaeleghem-vloeren.be',
+    facebook: 'https://facebook.com/vanwaeleghemvloeren',
+    phone: '+32 50 67 89 01',
+    email: 'marnick@vanwaeleghem.be'
   },
   {
-    name: 'Tuincentrum Groen & Co',
-    tier: 'bronze',
-    description: 'Alles voor uw tuin'
+    name: 'Stefan Vandamme',
+    category: 'Vloerder',
+    description: 'Specialist in hoogwaardige vloerwerken voor elke ruimte',
+    website: 'https://vandamme-vloeren.be',
+    facebook: 'https://facebook.com/vandammevloeren',
+    phone: '+32 50 78 90 12',
+    email: 'stefan@vandamme.be'
   },
   {
-    name: 'IT Solutions Brugge',
-    tier: 'bronze',
-    description: 'Computer support voor particulieren en bedrijven'
+    name: 'Mera Claeys',
+    category: 'Automaten',
+    description: 'Moderne snoep- en drankautomaten voor uw bedrijf',
+    website: 'https://meraclaeys.be',
+    facebook: 'https://facebook.com/meraclaeys',
+    phone: '+32 50 89 01 23',
+    email: 'info@meraclaeys.be'
   },
   {
-    name: 'Restaurant De Zwaan',
-    tier: 'bronze',
-    description: 'Gastronomisch genieten in Oostkamp'
+    name: 'Laurel en Hardy',
+    category: 'Restaurant',
+    description: 'Culinair genieten in een gezellige en warme sfeer',
+    website: 'https://laurelenhardy.be',
+    facebook: 'https://facebook.com/laurelenhardy',
+    phone: '+32 50 90 12 34',
+    email: 'info@laurelenhardy.be'
   }
 ];
