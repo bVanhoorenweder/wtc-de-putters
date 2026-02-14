@@ -1,0 +1,188 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TeamCard from '../components/TeamCard.astro';
+import { board } from '../data/board';
+---
+
+<BaseLayout title="Structuur - WTC De Putters">
+  <!-- Hero Section -->
+  <Hero
+    title="Onze Structuur"
+    subtitle="Raad van Bestuur en Sportieve cel zorgen voor een goede werking"
+    variant="default"
+  />
+
+  <!-- Board Section -->
+  <section class="section-padding bg-encox-gray-bg" data-cue="fadeIn">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title">Raad van Bestuur</h2>
+      <p class="section-subtitle max-w-2xl mx-auto">
+        Ons bestuur bestaat uit 6 leden die de club leiden en de werking verzekeren
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {board.map((member, index) => (
+          <div data-cue="slideInUp" data-cue-delay={index * 50}>
+            <TeamCard member={member} />
+          </div>
+        ))}
+      </div>
+
+      <!-- Board Info Box -->
+      <div class="max-w-4xl mx-auto mt-12">
+        <div class="bg-white rounded-lg shadow-md p-8">
+          <h3 class="text-2xl font-heading font-bold text-encox-heading mb-4 flex items-center gap-2">
+            <span class="text-encox-primary">📋</span>
+            Taken van het Bestuur
+          </h3>
+          <ul class="space-y-3 text-encox-text list-checkmark">
+            <li>Algemene leiding en visie van de club</li>
+            <li>Organisatie van wekelijkse ritten</li>
+            <li>Financieel beheer en lidmaatschappen</li>
+            <li>Communicatie naar leden en sponsors</li>
+            <li>Organisatie van events en activiteiten</li>
+            <li>Onderhoud van clubmateriaal en -uitrusting</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sportieve cel Section -->
+  <section class="section-padding bg-gradient-to-br from-encox-blue/10 to-encox-primary/10" data-cue="fadeIn">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-h2 font-heading font-bold text-encox-heading mb-6 text-center">Sportieve cel</h2>
+        <p class="text-lg text-encox-text text-center mb-12 leading-relaxed">
+          De Sportieve cel ondersteunt de dagelijkse werking van de club en organiseert speciale activiteiten
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Sportieve cel Card 1 -->
+          <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="flex items-start gap-4">
+              <div class="text-5xl">🌅</div>
+              <div>
+                <h3 class="text-xl font-heading font-bold text-encox-heading mb-3">Ontbijtrit</h3>
+                <p class="text-encox-text">
+                  Organisatie van de jaarlijkse ontbijtrit - een gezellige combinatie van fietsen en samen genieten.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sportieve cel Card 2 -->
+          <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="flex items-start gap-4">
+              <div class="text-5xl">🏆</div>
+              <div>
+                <h3 class="text-xl font-heading font-bold text-encox-heading mb-3">Putters Classic</h3>
+                <p class="text-encox-text">
+                  Coördinatie van het jaarlijkse wielerevent voor recreatieve fietsers uit de regio.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sportieve cel Card 3 -->
+          <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="flex items-start gap-4">
+              <div class="text-5xl">🎉</div>
+              <div>
+                <h3 class="text-xl font-heading font-bold text-encox-heading mb-3">Events</h3>
+                <p class="text-encox-text">
+                  Planning en uitvoering van clubevenementen, uitstappen en sociale activiteiten.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sportieve cel Card 4 -->
+          <div class="bg-white rounded-lg shadow-md p-8">
+            <div class="flex items-start gap-4">
+              <div class="text-5xl">📊</div>
+              <div>
+                <h3 class="text-xl font-heading font-bold text-encox-heading mb-3">Ondersteuning</h3>
+                <p class="text-encox-text">
+                  Bijstand aan het bestuur bij de dagelijkse werking en besluitvorming van de club.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- General Assembly Section -->
+  <section class="section-padding bg-white" data-cue="fadeIn">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-gradient-to-br from-encox-primary/5 to-encox-blue/5 rounded-2xl p-10 border-l-4 border-encox-primary">
+          <h2 class="text-3xl font-heading font-bold text-encox-heading mb-6 flex items-center gap-3">
+            <span class="text-4xl">🗳️</span>
+            Algemene Vergadering
+          </h2>
+          <div class="space-y-4 text-encox-text">
+            <p class="leading-relaxed">
+              De Algemene Vergadering is het hoogste beslissingsorgaan van WTC De Putters. Alle leden kunnen deelnemen
+              en hun stem laten horen over belangrijke beslissingen.
+            </p>
+            <div class="grid md:grid-cols-2 gap-6 mt-6">
+              <div class="bg-white rounded-lg p-6 shadow-sm">
+                <h4 class="font-heading font-bold text-encox-heading mb-2">Wanneer?</h4>
+                <p>Jaarlijks, meestal in het voorjaar</p>
+              </div>
+              <div class="bg-white rounded-lg p-6 shadow-sm">
+                <h4 class="font-heading font-bold text-encox-heading mb-2">Wat?</h4>
+                <p>Goedkeuring jaarverslag, budget en toekomstplannen</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact CTA Section -->
+  <section class="py-16 bg-encox-gray-bg">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center bg-gradient-to-br from-encox-secondary to-pink-500 text-white rounded-2xl p-12">
+        <h3 class="text-4xl font-heading font-bold mb-6">Vragen?</h3>
+        <p class="text-xl mb-8 opacity-90">
+          Neem contact op met ons bestuur - we helpen je graag verder!
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="mailto:bestuur@wtcdeputters.be"
+            class="px-10 py-4 bg-white text-encox-secondary rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+          >
+            📧 Email Bestuur
+          </a>
+          <a
+            href="/lid-worden"
+            class="px-10 py-4 bg-transparent border-2 border-white text-white rounded-full font-heading font-bold text-lg hover:bg-white hover:text-encox-secondary transition-all duration-300"
+          >
+            Word Lid
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Initialize ScrollCue -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // @ts-ignore
+      if (typeof scrollCue !== 'undefined') {
+        // @ts-ignore
+        scrollCue.init({
+          duration: 600,
+          interval: -0.7,
+          percentage: 0.8
+        });
+      }
+    });
+  </script>
+</BaseLayout>

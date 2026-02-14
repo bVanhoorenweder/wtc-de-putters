@@ -1,0 +1,174 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import SponsorCard from '../components/SponsorCard.astro';
+import { sponsors } from '../data/sponsors';
+
+// Group sponsors by tier
+const goldSponsors = sponsors.filter(s => s.tier === 'gold');
+const silverSponsors = sponsors.filter(s => s.tier === 'silver');
+const bronzeSponsors = sponsors.filter(s => s.tier === 'bronze');
+---
+
+<BaseLayout title="Sponsors - WTC De Putters">
+  <!-- Hero Section -->
+  <Hero
+    title="Onze Sponsors"
+    subtitle="Bedankt aan onze trouwe partners die ons helpen groeien"
+    variant="default"
+  />
+
+  <!-- Thank You Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <div class="text-6xl mb-6">🙏</div>
+        <h2 class="text-3xl font-heading font-bold text-encox-heading mb-6">
+          Zonder hen waren we niet waar we vandaag zijn
+        </h2>
+        <p class="text-lg text-encox-text leading-relaxed">
+          WTC De Putters wordt mogelijk gemaakt door onze geweldige sponsors. Hun steun stelt ons in staat
+          om wekelijkse ritten te organiseren, events te plannen en onze leden de beste wielerbeleving te bieden.
+          Bedankt voor jullie vertrouwen en support!
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gold Sponsors -->
+  {goldSponsors.length > 0 && (
+    <section class="section-padding bg-gradient-to-br from-yellow-50 to-amber-50" data-cue="fadeIn">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <div class="text-6xl mb-4">🥇</div>
+          <h2 class="text-h2 font-heading font-bold text-encox-heading mb-4">
+            GOLD PARTNERS
+          </h2>
+          <p class="text-lg text-encox-text max-w-2xl mx-auto">
+            Onze premium partners die ons maximaal ondersteunen
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          {goldSponsors.map((sponsor, index) => (
+            <div data-cue="slideInUp" data-cue-delay={index * 100}>
+              <SponsorCard sponsor={sponsor} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Silver Sponsors -->
+  {silverSponsors.length > 0 && (
+    <section class="section-padding bg-white" data-cue="fadeIn">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <div class="text-6xl mb-4">🥈</div>
+          <h2 class="text-h2 font-heading font-bold text-encox-heading mb-4">
+            SILVER PARTNERS
+          </h2>
+          <p class="text-lg text-encox-text max-w-2xl mx-auto">
+            Belangrijke partners in onze clubwerking
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {silverSponsors.map((sponsor, index) => (
+            <div data-cue="slideInUp" data-cue-delay={index * 100}>
+              <SponsorCard sponsor={sponsor} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Bronze Sponsors -->
+  {bronzeSponsors.length > 0 && (
+    <section class="section-padding bg-encox-gray-bg" data-cue="fadeIn">
+      <div class="container mx-auto px-4">
+        <div class="text-center mb-12">
+          <div class="text-6xl mb-4">🥉</div>
+          <h2 class="text-h2 font-heading font-bold text-encox-heading mb-4">
+            BRONZE PARTNERS
+          </h2>
+          <p class="text-lg text-encox-text max-w-2xl mx-auto">
+            Lokale ondernemers die ons een warm hart toedragen
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+          {bronzeSponsors.map((sponsor, index) => (
+            <div data-cue="slideInUp" data-cue-delay={index * 50}>
+              <SponsorCard sponsor={sponsor} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Become Sponsor CTA -->
+  <section class="section-padding bg-gradient-to-br from-encox-secondary to-pink-600 text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-heading font-bold mb-6">Word ook sponsor!</h2>
+        <p class="text-xl mb-8 opacity-90 leading-relaxed">
+          Wil uw bedrijf ook WTC De Putters ondersteunen? We bieden verschillende sponsorpakketten aan.
+          Neem contact op voor de mogelijkheden en voorwaarden.
+        </p>
+
+        <!-- Sponsor Benefits -->
+        <div class="grid md:grid-cols-3 gap-6 mb-10 text-left">
+          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+            <div class="text-3xl mb-3">👥</div>
+            <h3 class="font-heading font-bold text-lg mb-2">Zichtbaarheid</h3>
+            <p class="text-sm opacity-90">
+              Uw logo op onze website, sociale media en bij events
+            </p>
+          </div>
+
+          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+            <div class="text-3xl mb-3">🤝</div>
+            <h3 class="font-heading font-bold text-lg mb-2">Netwerk</h3>
+            <p class="text-sm opacity-90">
+              Toegang tot een actief netwerk van 100+ sportieve leden
+            </p>
+          </div>
+
+          <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+            <div class="text-3xl mb-3">💚</div>
+            <h3 class="font-heading font-bold text-lg mb-2">Lokaal</h3>
+            <p class="text-sm opacity-90">
+              Steun de lokale sportgemeenschap en toon uw betrokkenheid
+            </p>
+          </div>
+        </div>
+
+        <a
+          href="mailto:bestuur@wtcdeputters.be?subject=Interesse%20in%20sponsoring"
+          class="inline-block px-10 py-4 bg-white text-encox-secondary rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+        >
+          📧 Contacteer Ons
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Initialize ScrollCue -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // @ts-ignore
+      if (typeof scrollCue !== 'undefined') {
+        // @ts-ignore
+        scrollCue.init({
+          duration: 600,
+          interval: -0.7,
+          percentage: 0.8
+        });
+      }
+    });
+  </script>
+</BaseLayout>

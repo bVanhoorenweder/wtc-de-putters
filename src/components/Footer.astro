@@ -1,0 +1,129 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-encox-footer text-gray-300">
+  <!-- Main Footer Content -->
+  <div class="container mx-auto px-4 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Column 1: About -->
+      <div>
+        <div class="mb-4">
+          <img
+            src="/assets/logo.png"
+            alt="WTC De Putters logo"
+            class="h-16 w-auto mb-3"
+          />
+        </div>
+        <p class="text-sm leading-relaxed mb-4">
+          Wielertoeristenclub uit Oostkamp waar ploeggeest boven alles staat.
+          Samen fietsen, samen plezier!
+        </p>
+        <p class="text-sm font-semibold text-encox-primary">
+          "Samen Uit, Samen Thuis"
+        </p>
+      </div>
+
+      <!-- Column 2: Navigation -->
+      <div>
+        <h3 class="text-white font-heading font-bold text-xl mb-4">Navigatie</h3>
+        <ul class="space-y-2">
+          <li><a href="/" class="text-sm hover:text-encox-primary transition-colors">Home</a></li>
+          <li><a href="/werking" class="text-sm hover:text-encox-primary transition-colors">Werking</a></li>
+          <li><a href="/groepen" class="text-sm hover:text-encox-primary transition-colors">Groepen</a></li>
+          <li><a href="/structuur" class="text-sm hover:text-encox-primary transition-colors">Structuur</a></li>
+          <li><a href="/lid-worden" class="text-sm hover:text-encox-primary transition-colors">Lid worden</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Contact -->
+      <div>
+        <h3 class="text-white font-heading font-bold text-xl mb-4">Contact</h3>
+        <ul class="space-y-3">
+          <li class="flex items-start gap-2">
+            <span class="text-encox-primary mt-1">📧</span>
+            <div>
+              <div class="text-sm font-semibold text-white">Email</div>
+              <a href="mailto:bestuur@wtcdeputters.be" class="text-sm hover:text-encox-primary transition-colors">
+                bestuur@wtcdeputters.be
+              </a>
+            </div>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-encox-primary mt-1">📍</span>
+            <div>
+              <div class="text-sm font-semibold text-white">Vertrekpunt</div>
+              <div class="text-sm">Parking De Valkaart</div>
+              <div class="text-sm">Oostkamp, België</div>
+            </div>
+          </li>
+          <li class="flex items-start gap-2">
+            <span class="text-encox-primary mt-1">🕐</span>
+            <div>
+              <div class="text-sm font-semibold text-white">Ritten</div>
+              <div class="text-sm">Woensdag: 18:00</div>
+              <div class="text-sm">Zondag: 09:00</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Social & Info -->
+      <div>
+        <h3 class="text-white font-heading font-bold text-xl mb-4">Volg Ons</h3>
+        <div class="flex gap-4 mb-6">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener"
+            class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-encox-primary transition-colors"
+            aria-label="Facebook"
+          >
+            <span class="text-white font-bold">f</span>
+          </a>
+          <a
+            href="https://twitter.com"
+            target="_blank"
+            rel="noopener"
+            class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-encox-primary transition-colors"
+            aria-label="Twitter"
+          >
+            <span class="text-white font-bold">t</span>
+          </a>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener"
+            class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-encox-primary transition-colors"
+            aria-label="Instagram"
+          >
+            <span class="text-white font-bold">i</span>
+          </a>
+        </div>
+        <div class="bg-white/5 rounded-lg p-4">
+          <div class="text-sm font-semibold text-white mb-2">Lidgeld 2026</div>
+          <div class="text-sm">Individueel: €60</div>
+          <div class="text-sm">Familie: €80</div>
+          <a href="/lid-worden" class="inline-block mt-3 text-sm text-encox-primary hover:underline">
+            Word lid →
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Copyright Bar -->
+  <div class="border-t border-white/10">
+    <div class="container mx-auto px-4 py-6">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+        <div>
+          © {currentYear} WTC De Putters. Alle rechten voorbehouden.
+        </div>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-encox-primary transition-colors">Privacy</a>
+          <a href="#" class="hover:text-encox-primary transition-colors">Voorwaarden</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

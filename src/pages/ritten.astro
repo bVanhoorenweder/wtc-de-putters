@@ -1,0 +1,343 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import RitCard from '../components/RitCard.astro';
+import { ritten, getAllGroups, getDistanceCategories, getDifficultyLevels } from '../data/ritten';
+
+const groups = getAllGroups();
+const distanceCategories = getDistanceCategories();
+const difficulties = getDifficultyLevels();
+---
+
+<BaseLayout title="Ritten - WTC De Putters">
+  <!-- Hero Section -->
+  <Hero
+    title="Onze Ritten"
+    subtitle="Download GPX-bestanden en verken de mooiste routes met je groep"
+    variant="default"
+  />
+
+  <!-- Filters Section -->
+  <section class="py-12 bg-white border-b border-gray-200">
+    <div class="container mx-auto px-4">
+      <div class="max-w-7xl mx-auto">
+        <!-- Group Filters -->
+        <div class="mb-6">
+          <h3 class="font-heading font-bold text-encox-heading mb-3 text-sm uppercase tracking-wider">
+            Filter op Groep:
+          </h3>
+          <div class="flex flex-wrap gap-3">
+            <button
+              class="filter-btn group-filter active px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-encox-primary text-white"
+              data-filter="all"
+            >
+              Alle Groepen
+            </button>
+            {groups.map(group => (
+              <button
+                class="filter-btn group-filter px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-encox-gray-bg text-encox-text hover:bg-encox-primary hover:text-white"
+                data-filter={`group-${group}`}
+              >
+                Groep {group}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Distance Filters -->
+        <div class="mb-6">
+          <h3 class="font-heading font-bold text-encox-heading mb-3 text-sm uppercase tracking-wider">
+            Filter op Afstand:
+          </h3>
+          <div class="flex flex-wrap gap-3">
+            <button
+              class="filter-btn distance-filter active px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-encox-secondary text-white"
+              data-filter="all"
+            >
+              Alle Afstanden
+            </button>
+            {distanceCategories.map(category => (
+              <button
+                class="filter-btn distance-filter px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-encox-gray-bg text-encox-text hover:bg-encox-secondary hover:text-white"
+                data-filter={`distance-${category.min}-${category.max}`}
+              >
+                {category.label}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <!-- Difficulty Filters -->
+        <div>
+          <h3 class="font-heading font-bold text-encox-heading mb-3 text-sm uppercase tracking-wider">
+            Filter op Moeilijkheid:
+          </h3>
+          <div class="flex flex-wrap gap-3">
+            <button
+              class="filter-btn difficulty-filter active px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-encox-blue text-white"
+              data-filter="all"
+            >
+              Alle Niveaus
+            </button>
+            {difficulties.map(difficulty => (
+              <button
+                class="filter-btn difficulty-filter px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-encox-gray-bg text-encox-text hover:bg-encox-blue hover:text-white"
+                data-filter={`difficulty-${difficulty}`}
+              >
+                {difficulty}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Ritten Grid -->
+  <section class="section-padding bg-encox-gray-bg" data-cue="fadeIn">
+    <div class="container mx-auto px-4">
+      <div class="max-w-7xl mx-auto">
+        <div id="ritten-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {ritten.map((rit, index) => (
+            <div
+              class="rit-item"
+              data-groups={rit.groups.join(',')}
+              data-distance={rit.distance}
+              data-difficulty={rit.difficulty}
+              data-cue="slideInUp"
+              data-cue-delay={index * 100}
+            >
+              <RitCard rit={rit} />
+            </div>
+          ))}
+        </div>
+
+        <!-- No Results Message -->
+        <div id="no-results" class="hidden text-center py-16">
+          <div class="text-6xl mb-4">🔍</div>
+          <h3 class="text-2xl font-heading font-bold text-encox-heading mb-3">
+            Geen ritten gevonden
+          </h3>
+          <p class="text-encox-text">
+            Probeer een andere filtercombinatie
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Info Section -->
+  <section class="section-padding bg-white" data-cue="fadeIn">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-h2 font-heading font-bold text-encox-heading text-center mb-12">
+          Hoe GPX-bestanden gebruiken?
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Step 1 -->
+          <div class="text-center" data-cue="slideInUp">
+            <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-encox-primary to-green-500 text-white rounded-full flex items-center justify-center text-3xl font-heading font-bold">
+              1
+            </div>
+            <h3 class="font-heading font-bold text-encox-heading mb-3 text-lg">
+              Download GPX
+            </h3>
+            <p class="text-encox-text text-sm">
+              Klik op de download knop bij de gewenste rit om het GPX-bestand op te slaan
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="text-center" data-cue="slideInUp" data-cue-delay="100">
+            <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-encox-secondary to-pink-500 text-white rounded-full flex items-center justify-center text-3xl font-heading font-bold">
+              2
+            </div>
+            <h3 class="font-heading font-bold text-encox-heading mb-3 text-lg">
+              Upload naar Device
+            </h3>
+            <p class="text-encox-text text-sm">
+              Importeer het bestand in je Garmin, Wahoo of andere fietscomputer
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="text-center" data-cue="slideInUp" data-cue-delay="200">
+            <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-encox-blue to-blue-500 text-white rounded-full flex items-center justify-center text-3xl font-heading font-bold">
+              3
+            </div>
+            <h3 class="font-heading font-bold text-encox-heading mb-3 text-lg">
+              Start je Rit
+            </h3>
+            <p class="text-encox-text text-sm">
+              Volg de route op je device en geniet van een vlotte rit met de club
+            </p>
+          </div>
+        </div>
+
+        <!-- Additional Info -->
+        <div class="mt-12 bg-blue-50 border-l-4 border-encox-blue p-6 rounded-lg">
+          <h4 class="font-heading font-bold text-encox-heading mb-3 flex items-center gap-2">
+            <span class="text-2xl">💡</span>
+            Tips voor GPX-gebruik
+          </h4>
+          <ul class="space-y-2 text-encox-text text-sm">
+            <li class="flex items-start gap-2">
+              <span class="text-encox-secondary font-bold">✓</span>
+              <span>Controleer altijd de batterij van je fietscomputer voor een lange rit</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-encox-secondary font-bold">✓</span>
+              <span>Download de route thuis via wifi om data te besparen</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-encox-secondary font-bold">✓</span>
+              <span>Heb je geen GPX-compatibel toestel? Volg gewoon de groep!</span>
+            </li>
+            <li class="flex items-start gap-2">
+              <span class="text-encox-secondary font-bold">✓</span>
+              <span>Voor Garmin Connect links: sync automatisch naar je Garmin toestel</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-gradient-to-br from-encox-primary to-green-600 text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h3 class="text-4xl font-heading font-bold mb-6">Rijd mee met WTC De Putters!</h3>
+        <p class="text-xl mb-8 opacity-90">
+          Word lid en ontdek wekelijks nieuwe routes met gelijkgestemde wielrenners
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/lid-worden"
+            class="px-10 py-4 bg-white text-encox-primary rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+          >
+            Word Lid
+          </a>
+          <a
+            href="/groepen"
+            class="px-10 py-4 bg-transparent border-2 border-white text-white rounded-full font-heading font-bold text-lg hover:bg-white hover:text-encox-primary transition-all duration-300"
+          >
+            Bekijk Groepen
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Initialize ScrollCue -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // @ts-ignore
+      if (typeof scrollCue !== 'undefined') {
+        // @ts-ignore
+        scrollCue.init({
+          duration: 600,
+          interval: -0.7,
+          percentage: 0.8
+        });
+      }
+    });
+  </script>
+
+  <!-- Filtering Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let activeGroupFilter = 'all';
+      let activeDistanceFilter = 'all';
+      let activeDifficultyFilter = 'all';
+
+      const ritItems = document.querySelectorAll('.rit-item');
+      const noResults = document.getElementById('no-results');
+
+      function filterRitten() {
+        let visibleCount = 0;
+
+        ritItems.forEach((item) => {
+          const groups = (item.getAttribute('data-groups') || '').split(',');
+          const distance = parseInt(item.getAttribute('data-distance') || '0');
+          const difficulty = item.getAttribute('data-difficulty') || '';
+
+          // Check group filter
+          const groupMatch = activeGroupFilter === 'all' || groups.includes(activeGroupFilter.replace('group-', ''));
+
+          // Check distance filter
+          let distanceMatch = true;
+          if (activeDistanceFilter !== 'all') {
+            const [min, max] = activeDistanceFilter.replace('distance-', '').split('-').map(Number);
+            distanceMatch = distance >= min && distance <= max;
+          }
+
+          // Check difficulty filter
+          const difficultyMatch = activeDifficultyFilter === 'all' || difficulty === activeDifficultyFilter.replace('difficulty-', '');
+
+          // Show/hide item
+          if (groupMatch && distanceMatch && difficultyMatch) {
+            (item as HTMLElement).style.display = 'block';
+            visibleCount++;
+          } else {
+            (item as HTMLElement).style.display = 'none';
+          }
+        });
+
+        // Show/hide no results message
+        if (noResults) {
+          noResults.classList.toggle('hidden', visibleCount > 0);
+        }
+      }
+
+      // Group filter buttons
+      document.querySelectorAll('.group-filter').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const target = e.currentTarget as HTMLElement;
+          document.querySelectorAll('.group-filter').forEach(b => {
+            b.classList.remove('active', 'bg-encox-primary', 'text-white');
+            b.classList.add('bg-encox-gray-bg', 'text-encox-text');
+          });
+          target.classList.add('active', 'bg-encox-primary', 'text-white');
+          target.classList.remove('bg-encox-gray-bg', 'text-encox-text');
+
+          activeGroupFilter = target.getAttribute('data-filter') || 'all';
+          filterRitten();
+        });
+      });
+
+      // Distance filter buttons
+      document.querySelectorAll('.distance-filter').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const target = e.currentTarget as HTMLElement;
+          document.querySelectorAll('.distance-filter').forEach(b => {
+            b.classList.remove('active', 'bg-encox-secondary', 'text-white');
+            b.classList.add('bg-encox-gray-bg', 'text-encox-text');
+          });
+          target.classList.add('active', 'bg-encox-secondary', 'text-white');
+          target.classList.remove('bg-encox-gray-bg', 'text-encox-text');
+
+          activeDistanceFilter = target.getAttribute('data-filter') || 'all';
+          filterRitten();
+        });
+      });
+
+      // Difficulty filter buttons
+      document.querySelectorAll('.difficulty-filter').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const target = e.currentTarget as HTMLElement;
+          document.querySelectorAll('.difficulty-filter').forEach(b => {
+            b.classList.remove('active', 'bg-encox-blue', 'text-white');
+            b.classList.add('bg-encox-gray-bg', 'text-encox-text');
+          });
+          target.classList.add('active', 'bg-encox-blue', 'text-white');
+          target.classList.remove('bg-encox-gray-bg', 'text-encox-text');
+
+          activeDifficultyFilter = target.getAttribute('data-filter') || 'all';
+          filterRitten();
+        });
+      });
+    });
+  </script>
+</BaseLayout>

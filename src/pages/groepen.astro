@@ -1,0 +1,194 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import GroupCard from '../components/GroupCard.astro';
+import { groups } from '../data/groups';
+---
+
+<BaseLayout title="Groepen - WTC De Putters">
+  <!-- Hero Section -->
+  <Hero
+    title="Onze Groepen"
+    subtitle="Vier groepen voor elk niveau - van recreatief tot sportief"
+    variant="default"
+  />
+
+  <!-- Groups Grid Section -->
+  <section class="section-padding bg-encox-gray-bg" data-cue="fadeIn">
+    <div class="container mx-auto px-4">
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        {groups.map((group, index) => (
+          <div data-cue="slideInUp" data-cue-delay={index * 100}>
+            <GroupCard group={group} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Comparison Table Section -->
+  <section class="section-padding bg-white" data-cue="fadeIn">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title">Groepen Vergelijking</h2>
+
+      <div class="max-w-5xl mx-auto overflow-x-auto">
+        <table class="w-full bg-white rounded-lg shadow-lg overflow-hidden">
+          <thead class="bg-gradient-to-r from-encox-primary to-encox-blue text-white">
+            <tr>
+              <th class="px-6 py-4 text-left font-heading font-bold">Aspect</th>
+              <th class="px-6 py-4 text-center font-heading font-bold">Groep A</th>
+              <th class="px-6 py-4 text-center font-heading font-bold">Groep B</th>
+              <th class="px-6 py-4 text-center font-heading font-bold">Groep C</th>
+              <th class="px-6 py-4 text-center font-heading font-bold">Groep D</th>
+            </tr>
+          </thead>
+          <tbody class="text-encox-text">
+            <tr class="border-b border-gray-200 hover:bg-encox-gray-bg transition-colors">
+              <td class="px-6 py-4 font-semibold">Gemiddelde Snelheid</td>
+              <td class="px-6 py-4 text-center">37+ km/h</td>
+              <td class="px-6 py-4 text-center">32 km/h</td>
+              <td class="px-6 py-4 text-center">29 km/h</td>
+              <td class="px-6 py-4 text-center">27 km/h</td>
+            </tr>
+            <tr class="border-b border-gray-200 bg-gray-50 hover:bg-encox-gray-bg transition-colors">
+              <td class="px-6 py-4 font-semibold">Afstand</td>
+              <td class="px-6 py-4 text-center">80+ km</td>
+              <td class="px-6 py-4 text-center">70-80 km</td>
+              <td class="px-6 py-4 text-center">60-70 km</td>
+              <td class="px-6 py-4 text-center">50-60 km</td>
+            </tr>
+            <tr class="border-b border-gray-200 hover:bg-encox-gray-bg transition-colors">
+              <td class="px-6 py-4 font-semibold">Woensdag Vertrek</td>
+              <td class="px-6 py-4 text-center">18:00</td>
+              <td class="px-6 py-4 text-center">18:00</td>
+              <td class="px-6 py-4 text-center">18:00</td>
+              <td class="px-6 py-4 text-center">18:00</td>
+            </tr>
+            <tr class="border-b border-gray-200 bg-gray-50 hover:bg-encox-gray-bg transition-colors">
+              <td class="px-6 py-4 font-semibold">Zondag Vertrek</td>
+              <td class="px-6 py-4 text-center">09:00</td>
+              <td class="px-6 py-4 text-center">09:00</td>
+              <td class="px-6 py-4 text-center">09:00</td>
+              <td class="px-6 py-4 text-center">09:00</td>
+            </tr>
+            <tr class="hover:bg-encox-gray-bg transition-colors">
+              <td class="px-6 py-4 font-semibold">Niveau</td>
+              <td class="px-6 py-4 text-center">Gevorderd</td>
+              <td class="px-6 py-4 text-center">Sportief</td>
+              <td class="px-6 py-4 text-center">Gemiddeld</td>
+              <td class="px-6 py-4 text-center">Recreatief</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Practical Info Cards Section -->
+  <section class="section-padding bg-encox-gray-bg" data-cue="fadeIn">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title">Praktische Informatie</h2>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <!-- Card 1: Tijden -->
+        <div class="bg-white rounded-lg shadow-md p-8" data-cue="slideInLeft">
+          <div class="flex items-start gap-4">
+            <div class="text-5xl">🕐</div>
+            <div>
+              <h3 class="text-2xl font-heading font-bold text-encox-heading mb-4">Rijtijden</h3>
+              <ul class="space-y-2 text-encox-text">
+                <li><strong>Woensdag:</strong> Vertrek om 18:00 uur</li>
+                <li><strong>Zondag:</strong> Vertrek om 09:00 uur</li>
+                <li><strong>Duur:</strong> 2 tot 3 uur (afhankelijk van groep)</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Vertrekpunt -->
+        <div class="bg-white rounded-lg shadow-md p-8" data-cue="slideInRight">
+          <div class="flex items-start gap-4">
+            <div class="text-5xl">📍</div>
+            <div>
+              <h3 class="text-2xl font-heading font-bold text-encox-heading mb-4">Vertrekpunt</h3>
+              <p class="text-encox-text mb-2">
+                <strong>Parking De Valkaart</strong><br>
+                Oostkamp, België
+              </p>
+              <p class="text-sm text-gray-600">
+                Ruime parking met voldoende plaats voor alle fietsers
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Aankomst -->
+        <div class="bg-white rounded-lg shadow-md p-8" data-cue="slideInLeft">
+          <div class="flex items-start gap-4">
+            <div class="text-5xl">🎯</div>
+            <div>
+              <h3 class="text-2xl font-heading font-bold text-encox-heading mb-4">Aankomst</h3>
+              <p class="text-encox-text mb-2">
+                <strong>Tennis Oostkamp - TC Orscamp</strong>
+              </p>
+              <p class="text-sm text-gray-600">
+                Mogelijkheid tot napraten en gezelligheid na de rit
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Veiligheid -->
+        <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-red-500" data-cue="slideInRight">
+          <div class="flex items-start gap-4">
+            <div class="text-5xl">🪖</div>
+            <div>
+              <h3 class="text-2xl font-heading font-bold text-encox-heading mb-4">Veiligheid</h3>
+              <p class="text-encox-text mb-2">
+                <strong class="text-red-600">HELM VERPLICHT</strong> voor alle groepen
+              </p>
+              <p class="text-sm text-gray-600">
+                Veiligheid staat bij ons voorop. Zorg voor een goede fietshelm en verlichting.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center bg-gradient-to-br from-encox-primary to-encox-blue text-white rounded-2xl p-12">
+        <h3 class="text-4xl font-heading font-bold mb-6">Vind Jouw Groep</h3>
+        <p class="text-xl mb-8 opacity-90">
+          Niet zeker welke groep bij je past? Kom een proefrit doen op zondag om 09:00!
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/lid-worden" class="px-10 py-4 bg-white text-encox-primary rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            Word Lid
+          </a>
+          <a href="/werking" class="px-10 py-4 bg-transparent border-2 border-white text-white rounded-full font-heading font-bold text-lg hover:bg-white hover:text-encox-primary transition-all duration-300">
+            Onze Werking
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Initialize ScrollCue -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // @ts-ignore
+      if (typeof scrollCue !== 'undefined') {
+        // @ts-ignore
+        scrollCue.init({
+          duration: 600,
+          interval: -0.7,
+          percentage: 0.8
+        });
+      }
+    });
+  </script>
+</BaseLayout>

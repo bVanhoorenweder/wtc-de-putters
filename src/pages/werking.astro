@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+---
+
+<BaseLayout title="Werking - WTC De Putters">
+  <!-- Hero Section -->
+  <Hero
+    title="Onze Werking"
+    subtitle="Ploeggeest boven alles - samen uit, samen thuis"
+    variant="default"
+  />
+
+  <!-- Filosofie Cards Section -->
+  <section class="section-padding bg-white" data-cue="fadeIn">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title">Onze Filosofie</h2>
+      <p class="section-subtitle max-w-2xl mx-auto">
+        Bij WTC De Putters staat de clubgeest centraal
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Card 1: Ploeggeest -->
+        <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-8 text-center" data-cue="slideInUp">
+          <div class="text-6xl mb-4">🤝</div>
+          <h3 class="text-2xl font-heading font-bold text-encox-heading mb-4">Ploeggeest</h3>
+          <p class="text-encox-text leading-relaxed">
+            De club staat boven individuele prestaties. We helpen elkaar en vieren samen successen.
+          </p>
+        </div>
+
+        <!-- Card 2: Samen Uit, Samen Thuis -->
+        <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-8 text-center" data-cue="slideInUp" data-cue-delay="100">
+          <div class="text-6xl mb-4">🚴‍♂️</div>
+          <h3 class="text-2xl font-heading font-bold text-encox-heading mb-4">Samen Uit, Samen Thuis</h3>
+          <p class="text-encox-text leading-relaxed">
+            Niemand wordt achtergelaten. Bij pech wachten we op elkaar en bieden we ondersteuning.
+          </p>
+        </div>
+
+        <!-- Card 3: Voor Iedereen -->
+        <div class="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 p-8 text-center" data-cue="slideInUp" data-cue-delay="200">
+          <div class="text-6xl mb-4">👥</div>
+          <h3 class="text-2xl font-heading font-bold text-encox-heading mb-4">Voor Iedereen</h3>
+          <p class="text-encox-text leading-relaxed">
+            Onze club is inclusief. Van beginner tot ervaren renner, iedereen is welkom bij ons.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Veiligheid Section -->
+  <section class="section-padding bg-gradient-to-br from-red-50 to-orange-50" data-cue="fadeIn">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title text-red-600">Veiligheid Eerst</h2>
+      <p class="section-subtitle max-w-2xl mx-auto">
+        Veilig fietsen is onze prioriteit
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <!-- Safety Card 1: Helm -->
+        <div class="bg-white rounded-lg shadow-md p-8 text-center border-t-4 border-red-500" data-cue="slideInUp">
+          <div class="text-6xl mb-4">🪖</div>
+          <h3 class="text-xl font-heading font-bold text-encox-heading mb-3">Helm Verplicht</h3>
+          <p class="text-encox-text">
+            Het dragen van een fietshelm is <strong class="text-red-600">VERPLICHT</strong> bij alle ritten.
+          </p>
+        </div>
+
+        <!-- Safety Card 2: Verkeersregels -->
+        <div class="bg-white rounded-lg shadow-md p-8 text-center border-t-4 border-orange-500" data-cue="slideInUp" data-cue-delay="100">
+          <div class="text-6xl mb-4">🚦</div>
+          <h3 class="text-xl font-heading font-bold text-encox-heading mb-3">Verkeersregels</h3>
+          <p class="text-encox-text">
+            We respecteren de verkeersregels en fietsen defensief om ongevallen te voorkomen.
+          </p>
+        </div>
+
+        <!-- Safety Card 3: Groepsdiscipline -->
+        <div class="bg-white rounded-lg shadow-md p-8 text-center border-t-4 border-yellow-500" data-cue="slideInUp" data-cue-delay="200">
+          <div class="text-6xl mb-4">📏</div>
+          <h3 class="text-xl font-heading font-bold text-encox-heading mb-3">Groepsdiscipline</h3>
+          <p class="text-encox-text">
+            We blijven bij de groep en communiceren duidelijk over obstakels en manoeuvres.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activiteiten Section -->
+  <section class="section-padding bg-white" data-cue="fadeIn">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="section-title">Onze Activiteiten</h2>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <!-- Left Column -->
+          <div class="space-y-6">
+            <div class="bg-encox-gray-bg rounded-lg p-6">
+              <h3 class="text-xl font-heading font-bold text-encox-heading mb-3 flex items-center gap-2">
+                <span class="text-encox-primary">📅</span>
+                Wekelijkse Ritten
+              </h3>
+              <ul class="space-y-2 text-encox-text">
+                <li><strong>Woensdag 18:00:</strong> Avondritten voor alle groepen</li>
+                <li><strong>Zondag 09:00:</strong> Ochtendritten voor alle groepen</li>
+                <li><strong>Vertrek:</strong> Parking De Valkaart, Oostkamp</li>
+                <li><strong>Aankomst:</strong> Tennis Oostkamp - TC Orscamp</li>
+              </ul>
+            </div>
+
+            <div class="bg-encox-gray-bg rounded-lg p-6">
+              <h3 class="text-xl font-heading font-bold text-encox-heading mb-3 flex items-center gap-2">
+                <span class="text-encox-secondary">🌅</span>
+                Ontbijtrit
+              </h3>
+              <p class="text-encox-text">
+                Een gezellige rit gevolgd door een ontbijt. Perfect om samen te genieten van fietsen en lekker eten.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column -->
+          <div class="space-y-6">
+            <div class="bg-encox-gray-bg rounded-lg p-6">
+              <h3 class="text-xl font-heading font-bold text-encox-heading mb-3 flex items-center gap-2">
+                <span class="text-encox-blue">🎉</span>
+                Events & Uitstappen
+              </h3>
+              <p class="text-encox-text">
+                Regelmatig organiseren we speciale events, wielertoeristische uitstappen en sociale activiteiten.
+              </p>
+            </div>
+
+            <div class="bg-encox-gray-bg rounded-lg p-6">
+              <h3 class="text-xl font-heading font-bold text-encox-heading mb-3 flex items-center gap-2">
+                <span class="text-encox-primary">🗺️</span>
+                Wielertoerisme
+              </h3>
+              <p class="text-encox-text">
+                We verkennen de mooiste routes in West-Vlaanderen en daarbuiten. Elke rit is een nieuwe ontdekking.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="mt-12 text-center bg-gradient-to-br from-encox-primary to-encox-blue text-white rounded-2xl p-10">
+          <h3 class="text-3xl font-heading font-bold mb-4">Overtuigd?</h3>
+          <p class="text-xl mb-6 opacity-90">
+            Sluit je aan bij WTC De Putters en ervaar de ploeggeest!
+          </p>
+          <a href="/lid-worden" class="inline-block px-10 py-4 bg-white text-encox-primary rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+            Word Lid
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Initialize ScrollCue -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // @ts-ignore
+      if (typeof scrollCue !== 'undefined') {
+        // @ts-ignore
+        scrollCue.init({
+          duration: 600,
+          interval: -0.7,
+          percentage: 0.8
+        });
+      }
+    });
+  </script>
+</BaseLayout>

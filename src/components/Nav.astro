@@ -1,0 +1,160 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/werking', label: 'Werking' },
+  { href: '/groepen', label: 'Groepen' },
+  { href: '/ritten', label: 'Ritten' },
+  { href: '/events', label: 'Events' },
+  { href: '/sponsors', label: 'Sponsors' },
+  { href: '/structuur', label: 'Structuur' },
+  { href: '/lid-worden', label: 'Lid worden' },
+];
+---
+
+<!-- Desktop Navigation -->
+<nav class="hidden lg:block">
+  <ul class="flex space-x-8 items-center">
+    {navLinks.map((link) => (
+      <li>
+        <a
+          href={link.href}
+          class={`font-semibold transition-colors hover:text-encox-primary relative ${
+            currentPath === link.href ? 'text-encox-primary' : 'text-encox-heading'
+          }`}
+        >
+          {link.label}
+          {currentPath === link.href && (
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-encox-primary"></span>
+          )}
+        </a>
+      </li>
+    ))}
+    <li>
+      <a
+        href="/lid-worden"
+        class="px-6 py-2 bg-encox-secondary text-white rounded-full font-semibold hover:bg-opacity-90 transition shadow-md hover:shadow-lg"
+      >
+        Lid worden
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Mobile Menu Button -->
+<button
+  id="mobile-menu-btn"
+  class="lg:hidden text-encox-heading p-2"
+  aria-label="Toggle menu"
+>
+  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+  </svg>
+</button>
+
+<!-- Mobile Menu (slide-in from right) -->
+<div
+  id="mobile-menu"
+  class="fixed top-0 right-0 h-full w-80 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out lg:hidden"
+>
+  <div class="p-6">
+    <!-- Close Button -->
+    <button
+      id="mobile-menu-close"
+      class="absolute top-4 right-4 text-encox-heading p-2"
+      aria-label="Close menu"
+    >
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+
+    <!-- Mobile Menu Header -->
+    <div class="mb-8 mt-4">
+      <div class="font-heading font-bold text-2xl text-encox-heading">Menu</div>
+    </div>
+
+    <!-- Mobile Navigation Links -->
+    <ul class="space-y-4">
+      {navLinks.map((link) => (
+        <li>
+          <a
+            href={link.href}
+            class={`block py-3 px-4 rounded-lg font-semibold transition-colors ${
+              currentPath === link.href
+                ? 'bg-encox-primary text-white'
+                : 'text-encox-heading hover:bg-encox-gray-bg'
+            }`}
+          >
+            {link.label}
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <!-- Mobile CTA Button -->
+    <div class="mt-8">
+      <a
+        href="/lid-worden"
+        class="block text-center px-6 py-3 bg-encox-secondary text-white rounded-full font-heading font-bold hover:bg-opacity-90 transition shadow-lg"
+      >
+        Lid worden
+      </a>
+    </div>
+
+    <!-- Mobile Social Links -->
+    <div class="mt-8 pt-8 border-t border-gray-200">
+      <div class="flex justify-center gap-6 text-encox-heading">
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="hover:text-encox-primary transition-colors">
+          <span class="sr-only">Facebook</span>
+          <span class="text-2xl">f</span>
+        </a>
+        <a href="https://twitter.com" target="_blank" rel="noopener" class="hover:text-encox-primary transition-colors">
+          <span class="sr-only">Twitter</span>
+          <span class="text-2xl">t</span>
+        </a>
+        <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-encox-primary transition-colors">
+          <span class="sr-only">Instagram</span>
+          <span class="text-2xl">i</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Mobile Menu Backdrop -->
+<div
+  id="mobile-menu-backdrop"
+  class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden lg:hidden"
+></div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenuBackdrop = document.getElementById('mobile-menu-backdrop');
+
+    const openMobileMenu = () => {
+      mobileMenu?.classList.remove('translate-x-full');
+      mobileMenuBackdrop?.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeMobileMenu = () => {
+      mobileMenu?.classList.add('translate-x-full');
+      mobileMenuBackdrop?.classList.add('hidden');
+      document.body.style.overflow = '';
+    };
+
+    mobileMenuBtn?.addEventListener('click', openMobileMenu);
+    mobileMenuClose?.addEventListener('click', closeMobileMenu);
+    mobileMenuBackdrop?.addEventListener('click', closeMobileMenu);
+
+    // Close on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobileMenu();
+    });
+  });
+</script>

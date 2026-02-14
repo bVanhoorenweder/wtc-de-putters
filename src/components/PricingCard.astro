@@ -1,0 +1,67 @@
+---
+interface Props {
+  title: string;
+  price: number;
+  period?: string;
+  features: string[];
+  highlighted?: boolean;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const {
+  title,
+  price,
+  period = 'jaar',
+  features,
+  highlighted = false,
+  ctaText = 'Word Lid',
+  ctaLink = '/lid-worden'
+} = Astro.props;
+---
+
+<div class={`relative bg-white rounded-2xl shadow-lg p-8 transition-all duration-300 hover:shadow-xl hover:scale-105 ${highlighted ? 'ring-4 ring-encox-secondary' : ''}`}>
+  <!-- Popular Badge -->
+  {highlighted && (
+    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+      <span class="bg-gradient-to-r from-encox-secondary to-pink-500 text-white px-6 py-2 rounded-full text-sm font-heading font-bold shadow-lg">
+        🏆 Meest Gekozen
+      </span>
+    </div>
+  )}
+
+  <!-- Title -->
+  <h3 class="text-2xl font-heading font-bold text-encox-heading mb-2 text-center">
+    {title}
+  </h3>
+
+  <!-- Price -->
+  <div class="text-center mb-6">
+    <div class="flex items-center justify-center gap-1">
+      <span class="text-5xl font-heading font-bold text-encox-primary">€{price}</span>
+      <span class="text-encox-text text-lg">/{period}</span>
+    </div>
+  </div>
+
+  <!-- Features List -->
+  <ul class="space-y-3 mb-8">
+    {features.map((feature) => (
+      <li class="flex items-start gap-3">
+        <span class="text-green-500 text-xl mt-0.5">✓</span>
+        <span class="text-encox-text">{feature}</span>
+      </li>
+    ))}
+  </ul>
+
+  <!-- CTA Button -->
+  <a
+    href={ctaLink}
+    class={`block text-center px-8 py-4 rounded-full font-heading font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 ${
+      highlighted
+        ? 'bg-encox-secondary text-white'
+        : 'bg-encox-primary text-white'
+    }`}
+  >
+    {ctaText}
+  </a>
+</div>

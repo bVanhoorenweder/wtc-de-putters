@@ -1,0 +1,79 @@
+---
+import { sponsors } from '../data/sponsors';
+---
+
+<section class="py-section-padding bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="section-title">Onze Sponsors</h2>
+    <p class="section-subtitle max-w-2xl mx-auto">
+      Bedankt aan onze trouwe sponsors die ons helpen om samen te fietsen
+    </p>
+
+    <!-- Swiper Carousel -->
+    <div class="swiper sponsor-carousel mt-8">
+      <div class="swiper-wrapper">
+        {sponsors.map((sponsor) => (
+          <div class="swiper-slide">
+            <div class="bg-white rounded-lg shadow-sm hover:shadow-md transition-all duration-300 p-8 flex items-center justify-center h-32 border border-gray-100">
+              <span class="text-center font-heading font-semibold text-encox-heading hover:text-encox-primary transition-colors">
+                {sponsor.name}
+              </span>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Pagination Dots -->
+      <div class="swiper-pagination mt-8"></div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // @ts-ignore - Swiper is loaded via CDN
+    if (typeof Swiper !== 'undefined') {
+      // @ts-ignore
+      new Swiper('.sponsor-carousel', {
+        slidesPerView: 2,
+        spaceBetween: 20,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+          pauseOnMouseEnter: true,
+        },
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 24,
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 30,
+          },
+        },
+      });
+    }
+  });
+</script>
+
+<style>
+  /* Swiper Pagination Styling */
+  :global(.sponsor-carousel .swiper-pagination-bullet) {
+    background: #24A19C;
+    opacity: 0.5;
+  }
+
+  :global(.sponsor-carousel .swiper-pagination-bullet-active) {
+    opacity: 1;
+  }
+</style>

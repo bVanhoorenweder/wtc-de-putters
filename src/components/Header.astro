@@ -1,0 +1,50 @@
+---
+import Nav from './Nav.astro';
+---
+
+<!-- Top Info Bar -->
+<div class="bg-encox-blue text-white py-2 text-sm hidden md:block">
+  <div class="container mx-auto flex justify-between items-center px-4">
+    <div class="flex items-center gap-6">
+      <span>📧 bestuur@wtcdeputters.be</span>
+      <span>📍 Oostkamp, België</span>
+    </div>
+    <div class="flex items-center gap-4">
+      <a href="https://facebook.com" target="_blank" rel="noopener" class="hover:text-encox-primary transition-colors">
+        <span class="sr-only">Facebook</span>
+        f
+      </a>
+      <a href="https://twitter.com" target="_blank" rel="noopener" class="hover:text-encox-primary transition-colors">
+        <span class="sr-only">Twitter</span>
+        t
+      </a>
+      <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-encox-primary transition-colors">
+        <span class="sr-only">Instagram</span>
+        i
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- Main Header -->
+<header class="bg-white shadow-md sticky top-0 z-50">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center py-4">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-3">
+        <img
+          src="/assets/logo.png"
+          alt="WTC De Putters logo"
+          class="h-12 w-auto"
+        />
+        <div class="hidden sm:block">
+          <div class="font-heading font-bold text-xl text-encox-heading">WTC De Putters</div>
+          <div class="text-xs text-encox-text">Wielertoeristenclub Oostkamp</div>
+        </div>
+      </a>
+
+      <!-- Navigation -->
+      <Nav />
+    </div>
+  </div>
+</header>

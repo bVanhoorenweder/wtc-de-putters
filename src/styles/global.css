@@ -1,1 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@500;700&family=Archivo:wght@400;600&display=swap');
 @import "tailwindcss";
+
+/* Encox Original Template Colors */
+@theme {
+  /* Exact colors from Encox template */
+  --color-encox-primary: #D45D79;        /* Pink - original */
+  --color-encox-secondary: #24A19C;      /* Teal - cycling theme */
+  --color-encox-blue: #293B5F;           /* Dark blue - original */
+  --color-encox-heading: #261C2C;        /* Dark purple - original */
+  --color-encox-text: #666666;           /* Gray text - original */
+  --color-encox-gray-bg: #f3f5fa;        /* Light gray - original */
+  --color-encox-footer: #0e293e;         /* Footer dark - original */
+
+  /* Fonts */
+  --font-heading: 'Lexend', sans-serif;
+  --font-body: 'Archivo', sans-serif;
+
+  /* Sizes */
+  --text-hero: 60px;
+  --text-h2: 45px;
+  --text-subtitle: 28px;
+}
+
+/* Base Typography - Original Encox */
+body {
+  font-family: 'Archivo', sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  color: #666;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lexend', sans-serif;
+  font-weight: 700;
+  color: #261C2C;
+  letter-spacing: -0.04em;
+}
+
+/* Encox Button Styles - Original */
+.btn-primary {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #D45D79;
+  color: white;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: all 300ms;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: scale(1.05);
+  background-color: #c24a68;
+}
+
+.btn-secondary {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #24A19C;
+  color: white;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: all 300ms;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.btn-secondary:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: scale(1.05);
+  background-color: #1e8a86;
+}
+
+.btn-outline {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: 2px solid #24A19C;
+  color: #24A19C;
+  background-color: transparent;
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: 1.125rem;
+  transition: all 300ms;
+}
+
+.btn-outline:hover {
+  background-color: #24A19C;
+  color: white;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: all 300ms;
+}
+
+.card-hover:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  transform: translateY(-0.5rem);
+}
+
+.card-image-zoom {
+  overflow: hidden;
+}
+
+.card-image-zoom img {
+  transition: transform 300ms;
+}
+
+.card-hover:hover .card-image-zoom img {
+  transform: scale(1.1);
+}
+
+/* Section Padding */
+.section-padding {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+/* Section Titles - Original Encox */
+.section-title {
+  font-family: 'Lexend', sans-serif;
+  font-size: 45px;
+  font-weight: 700;
+  color: #261C2C;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-family: 'Archivo', sans-serif;
+  font-size: 28px;
+  color: #666666;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* List with Checkmarks */
+.list-checkmark li {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.list-checkmark li::before {
+  content: "✓";
+  color: #22c55e;
+  font-weight: 700;
+  margin-right: 0.75rem;
+  font-size: 1.25rem;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+.breadcrumb a {
+  transition: color 300ms;
+}
+
+.breadcrumb a:hover {
+  color: #24A19C;
+}
+
+.breadcrumb span {
+  color: #9ca3af;
+}

@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import EventCard from '../components/EventCard.astro';
+import { events } from '../data/events';
+
+// Sort events by category and date
+const upcomingEvents = events.filter(e => e.category === 'upcoming').sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+const annualEvents = events.filter(e => e.category === 'annual').sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+---
+
+<BaseLayout title="Events - WTC De Putters">
+  <!-- Hero Section -->
+  <Hero
+    title="Onze Events"
+    subtitle="Beleef het hele jaar door sportieve en gezellige momenten"
+    variant="default"
+  />
+
+  <!-- Upcoming Events -->
+  {upcomingEvents.length > 0 && (
+    <section class="section-padding bg-white" data-cue="fadeIn">
+      <div class="container mx-auto px-4">
+        <h2 class="section-title">Binnenkort</h2>
+        <p class="section-subtitle max-w-2xl mx-auto">
+          Deze events staan binnenkort op de agenda
+        </p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {upcomingEvents.map((event, index) => (
+            <div data-cue="slideInUp" data-cue-delay={index * 100}>
+              <EventCard event={event} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Annual Events -->
+  <section class="section-padding bg-encox-gray-bg" data-cue="fadeIn">
+    <div class="container mx-auto px-4">
+      <h2 class="section-title">Jaarlijkse Evenementen</h2>
+      <p class="section-subtitle max-w-2xl mx-auto">
+        Deze events organiseren we elk jaar opnieuw
+      </p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        {annualEvents.map((event, index) => (
+          <div data-cue="slideInUp" data-cue-delay={index * 100}>
+            <EventCard event={event} />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Types Info -->
+  <section class="section-padding bg-white" data-cue="fadeIn">
+    <div class="container mx-auto px-4">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-h2 font-heading font-bold text-encox-heading text-center mb-12">
+          Verschillende Event Types
+        </h2>
+
+        <div class="grid md:grid-cols-3 gap-8">
+          <!-- Sportieve Events -->
+          <div class="text-center p-8 bg-gradient-to-br from-encox-primary/10 to-green-500/10 rounded-xl" data-cue="slideInUp">
+            <div class="text-6xl mb-4">🚴‍♂️</div>
+            <h3 class="text-xl font-heading font-bold text-encox-heading mb-3">Sportieve Ritten</h3>
+            <p class="text-encox-text">
+              Wielerweekends, club kampioenschappen en speciale uitdagende ritten voor de sportieve leden.
+            </p>
+          </div>
+
+          <!-- Sociale Events -->
+          <div class="text-center p-8 bg-gradient-to-br from-encox-secondary/10 to-pink-500/10 rounded-xl" data-cue="slideInUp" data-cue-delay="100">
+            <div class="text-6xl mb-4">🎉</div>
+            <h3 class="text-xl font-heading font-bold text-encox-heading mb-3">Sociale Evenementen</h3>
+            <p class="text-encox-text">
+              Nieuwjaarsrecepties, BBQ's en family days waar gezelligheid voorop staat.
+            </p>
+          </div>
+
+          <!-- Recreatieve Events -->
+          <div class="text-center p-8 bg-gradient-to-br from-encox-blue/10 to-blue-500/10 rounded-xl" data-cue="slideInUp" data-cue-delay="200">
+            <div class="text-6xl mb-4">🌄</div>
+            <h3 class="text-xl font-heading font-bold text-encox-heading mb-3">Ontspanning</h3>
+            <p class="text-encox-text">
+              Ontbijtritten en toeristische uitstappen waar geniet van fietsen centraal staat.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-gradient-to-br from-encox-primary to-green-600 text-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h3 class="text-4xl font-heading font-bold mb-6">Wil je meedoen?</h3>
+        <p class="text-xl mb-8 opacity-90">
+          Interesse in een van onze events? Neem contact op voor meer info of om in te schrijven!
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="mailto:bestuur@wtcdeputters.be?subject=Interesse%20in%20events"
+            class="px-10 py-4 bg-white text-encox-primary rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+          >
+            📧 Contact Bestuur
+          </a>
+          <a
+            href="/lid-worden"
+            class="px-10 py-4 bg-transparent border-2 border-white text-white rounded-full font-heading font-bold text-lg hover:bg-white hover:text-encox-primary transition-all duration-300"
+          >
+            Word Lid
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Initialize ScrollCue -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // @ts-ignore
+      if (typeof scrollCue !== 'undefined') {
+        // @ts-ignore
+        scrollCue.init({
+          duration: 600,
+          interval: -0.7,
+          percentage: 0.8
+        });
+      }
+    });
+  </script>
+</BaseLayout>

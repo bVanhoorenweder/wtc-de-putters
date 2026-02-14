@@ -1,0 +1,58 @@
+---
+import type { BoardMember } from '../data/board';
+
+interface Props {
+  member: BoardMember;
+}
+
+const { member } = Astro.props;
+---
+
+<div class="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 p-6 text-center">
+  <!-- Avatar Circle with Gradient -->
+  <div class="relative inline-block mb-4">
+    <div class={`w-24 h-24 bg-gradient-to-br ${member.color} rounded-full flex items-center justify-center mx-auto shadow-lg`}>
+      <span class="text-white font-heading font-bold text-2xl">{member.initials}</span>
+    </div>
+    <!-- Decorative ring -->
+    <div class={`absolute inset-0 rounded-full bg-gradient-to-br ${member.color} opacity-20 group-hover:scale-110 transition-transform duration-300`}></div>
+  </div>
+
+  <!-- Name & Role -->
+  <h3 class="text-xl font-heading font-bold text-encox-heading mb-1">
+    {member.name}
+  </h3>
+  <div class="text-encox-primary font-semibold mb-3">
+    {member.role}
+  </div>
+
+  <!-- Contact -->
+  {(member.email || member.stravaUrl) && (
+    <div class="pt-3 border-t border-gray-200">
+      <div class="flex items-center justify-center gap-4">
+        {member.email && (
+          <a
+            href={`mailto:${member.email}`}
+            class="text-sm text-encox-text hover:text-encox-primary transition-colors flex items-center gap-1"
+            title="Email"
+          >
+            <span>📧</span>
+          </a>
+        )}
+        {member.stravaUrl && (
+          <a
+            href={member.stravaUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-sm text-encox-text hover:text-encox-secondary transition-colors flex items-center gap-1"
+            title="Strava profiel"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M15.387 17.944l-2.089-4.116h-3.065L15.387 24l5.15-10.172h-3.066m-7.008-5.599l2.836 5.598h4.172L10.463 0l-7 13.828h4.169"/>
+            </svg>
+          </a>
+        )}
+      </div>
+    </div>
+  )}
+</div>
