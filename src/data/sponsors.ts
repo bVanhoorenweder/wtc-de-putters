@@ -14,16 +14,17 @@ export const sponsors: Sponsor[] = [
     name: 'Delta Bikes',
     category: 'Fietswinkel',
     description: 'Uw specialist voor fietsen, accessoires en professioneel onderhoud',
-    website: 'https://deltabikes.be',
+    website: 'https://www.deltabikes.be',
     facebook: 'https://facebook.com/deltabikes',
-    phone: '+32 50 12 34 56',
-    email: 'info@deltabikes.be'
+    phone: '+32 50 82 61 69',
+    email: 'info@deltabikes.be',
+    logo: '/assets/Delta_Bikes_Logo.svg'
   },
   {
     name: 'Keukens Goossens',
     category: 'Keukens',
     description: 'Maatwerk keukens op maat van uw dromen en budget',
-    website: 'https://keukensgoossens.be',
+    website: 'https://www.goossens-oostkamp.be',
     facebook: 'https://facebook.com/keukensgoossens',
     phone: '+32 50 23 45 67',
     email: 'info@keukensgoossens.be'
@@ -32,10 +33,11 @@ export const sponsors: Sponsor[] = [
     name: 'Stijn Voet',
     category: 'Immo',
     description: 'Vastgoedexpert die uw woning de aandacht geeft die het verdient',
-    website: 'https://stijnvoet-immo.be',
-    facebook: 'https://facebook.com/stijnvoetimmo',
-    phone: '+32 50 34 56 78',
-    email: 'stijn@voet-immo.be'
+    website: 'https://www.stijnvoet.be',
+    facebook: 'https://www.facebook.com/pg/stijnvoetimmo',
+    phone: '+32 050 78 20 20',
+    email: 'info@dumonvoet.be',
+    logo: '/assets/Dumon_Voet_Logo.png'
   },
   {
     name: 'Jeroen Spriet',

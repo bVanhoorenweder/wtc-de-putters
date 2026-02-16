@@ -2,37 +2,82 @@ export interface Group {
   name: string;
   description: string;
   speed: string;
-  wednesday: string;
-  sunday: string;
+  wednesday: {
+    time: string;
+    timeSummer: string;
+    distance: string;
+  };
+  sunday: {
+    time: string;
+    timeSummer: string;
+    timeWinter: string;
+    distance: string;
+  };
 }
 
 export const groups: Group[] = [
   {
     name: 'Groep A',
     description: 'Voor de snelle rijders die op zoek zijn naar uitdaging en hoge snelheden.',
-    speed: '37+ km/h',
-    wednesday: '18:00 - 80+ km',
-    sunday: '09:00 - 80+ km'
+    speed: '38+ km/h',
+    wednesday: {
+      time: '19:00',
+      timeSummer: '19:00',
+      distance: '70-90 km'
+    },
+    sunday: {
+      time: '09:00',
+      timeSummer: '08:30',
+      timeWinter: '09:00',
+      distance: '80-120 km'
+    }
   },
   {
     name: 'Groep B',
     description: 'Een sportieve groep voor gevorderde wielrenners met een goed niveau.',
-    speed: '32 km/h',
-    wednesday: '18:00 - 70-80 km',
-    sunday: '09:00 - 70-80 km'
+    speed: '33-38 km/h',
+    wednesday: {
+      time: '19:00',
+      timeSummer: '19:00',
+      distance: '70-90 km'
+    },
+    sunday: {
+      time: '09:00',
+      timeSummer: '08:30',
+      timeWinter: '09:00',
+      distance: '80-110 km'
+    }
   },
   {
     name: 'Groep C',
     description: 'Voor regelmatige fietsers die een goede ritsnelheid willen behouden.',
-    speed: '29 km/h',
-    wednesday: '18:00 - 60-70 km',
-    sunday: '09:00 - 60-70 km'
+    speed: '28-33 km/h',
+    wednesday: {
+      time: '19:00',
+      timeSummer: '19:00',
+      distance: '60-75 km'
+    },
+    sunday: {
+      time: '09:00',
+      timeSummer: '09:00',
+      timeWinter: '09:00',
+      distance: '75-90 km'
+    }
   },
   {
     name: 'Groep D',
     description: 'De recreatieve groep voor beginners en rustige fietsers.',
-    speed: '27 km/h',
-    wednesday: '18:00 - 50-60 km',
-    sunday: '09:00 - 50-60 km'
+    speed: '25-28 km/h',
+    wednesday: {
+      time: '19:00',
+      timeSummer: '19:00',
+      distance: '40-50 km'
+    },
+    sunday: {
+      time: '09:00',
+      timeSummer: '09:00',
+      timeWinter: '09:00',
+      distance: '60-75 km'
+    }
   }
 ];

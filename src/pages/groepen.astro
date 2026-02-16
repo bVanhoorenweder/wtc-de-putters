@@ -27,13 +27,13 @@ import { groups } from '../data/groups';
   </section>
 
   <!-- Comparison Table Section -->
-  <section class="section-padding bg-white" data-cue="fadeIn">
+  <section class="section-padding bg-white hidden lg:block" data-cue="fadeIn">
     <div class="container mx-auto px-4">
       <h2 class="section-title">Groepen Vergelijking</h2>
 
       <div class="max-w-5xl mx-auto overflow-x-auto">
         <table class="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-          <thead class="bg-gradient-to-r from-encox-primary to-encox-blue text-white">
+          <thead class="bg-gradient-to-r from-encox-primary to-encox-secondary text-white">
             <tr>
               <th class="px-6 py-4 text-left font-heading font-bold">Aspect</th>
               <th class="px-6 py-4 text-center font-heading font-bold">Groep A</th>
@@ -44,30 +44,43 @@ import { groups } from '../data/groups';
           </thead>
           <tbody class="text-encox-text">
             <tr class="border-b border-gray-200 hover:bg-encox-gray-bg transition-colors">
-              <td class="px-6 py-4 font-semibold">Gemiddelde Snelheid</td>
-              <td class="px-6 py-4 text-center">37+ km/h</td>
-              <td class="px-6 py-4 text-center">32 km/h</td>
-              <td class="px-6 py-4 text-center">29 km/h</td>
-              <td class="px-6 py-4 text-center">27 km/h</td>
+              <td class="px-6 py-4 font-semibold">Gemiddelde snelheid</td>
+              <td class="px-6 py-4 text-center">38+ km/h</td>
+              <td class="px-6 py-4 text-center">33-38 km/h</td>
+              <td class="px-6 py-4 text-center">28-33 km/h</td>
+              <td class="px-6 py-4 text-center">25-28 km/h</td>
             </tr>
             <tr class="border-b border-gray-200 bg-gray-50 hover:bg-encox-gray-bg transition-colors">
-              <td class="px-6 py-4 font-semibold">Afstand</td>
-              <td class="px-6 py-4 text-center">80+ km</td>
-              <td class="px-6 py-4 text-center">70-80 km</td>
-              <td class="px-6 py-4 text-center">60-70 km</td>
-              <td class="px-6 py-4 text-center">50-60 km</td>
+              <td class="px-6 py-4 font-semibold">Woensdag afstand</td>
+              <td class="px-6 py-4 text-center">70-90 km</td>
+              <td class="px-6 py-4 text-center">70-90 km</td>
+              <td class="px-6 py-4 text-center">60-75 km</td>
+              <td class="px-6 py-4 text-center">40-50 km</td>
             </tr>
             <tr class="border-b border-gray-200 hover:bg-encox-gray-bg transition-colors">
-              <td class="px-6 py-4 font-semibold">Woensdag Vertrek</td>
-              <td class="px-6 py-4 text-center">18:00</td>
-              <td class="px-6 py-4 text-center">18:00</td>
-              <td class="px-6 py-4 text-center">18:00</td>
-              <td class="px-6 py-4 text-center">18:00</td>
+              <td class="px-6 py-4 font-semibold">Zondag afstand</td>
+              <td class="px-6 py-4 text-center">80-120 km</td>
+              <td class="px-6 py-4 text-center">80-110 km</td>
+              <td class="px-6 py-4 text-center">75-90 km</td>
+              <td class="px-6 py-4 text-center">60-75 km</td>
             </tr>
             <tr class="border-b border-gray-200 bg-gray-50 hover:bg-encox-gray-bg transition-colors">
-              <td class="px-6 py-4 font-semibold">Zondag Vertrek</td>
-              <td class="px-6 py-4 text-center">09:00</td>
-              <td class="px-6 py-4 text-center">09:00</td>
+              <td class="px-6 py-4 font-semibold">Woensdag vertrek</td>
+              <td class="px-6 py-4 text-center">19:00</td>
+              <td class="px-6 py-4 text-center">19:00</td>
+              <td class="px-6 py-4 text-center">19:00</td>
+              <td class="px-6 py-4 text-center">19:00</td>
+            </tr>
+            <tr class="border-b border-gray-200 hover:bg-encox-gray-bg transition-colors">
+              <td class="px-6 py-4 font-semibold">Zondag vertrek</td>
+              <td class="px-6 py-4 text-center">
+                <div class="text-sm">Zomer: 08:30</div>
+                <div class="text-sm">Winter: 09:00</div>
+              </td>
+              <td class="px-6 py-4 text-center">
+                <div class="text-sm">Zomer: 08:30</div>
+                <div class="text-sm">Winter: 09:00</div>
+              </td>
               <td class="px-6 py-4 text-center">09:00</td>
               <td class="px-6 py-4 text-center">09:00</td>
             </tr>
@@ -97,9 +110,9 @@ import { groups } from '../data/groups';
             <div>
               <h3 class="text-2xl font-heading font-bold text-encox-heading mb-4">Rijtijden</h3>
               <ul class="space-y-2 text-encox-text">
-                <li><strong>Woensdag:</strong> Vertrek om 18:00 uur</li>
-                <li><strong>Zondag:</strong> Vertrek om 09:00 uur</li>
-                <li><strong>Duur:</strong> 2 tot 3 uur (afhankelijk van groep)</li>
+                <li><strong>Woensdag:</strong> Vertrek om 19:00 uur (zomer)</li>
+                <li><strong>Zondag:</strong> Vertrek om 08:30 uur (zomer) / 09:00 uur (winter)</li>
+                <li><strong>Duur:</strong> 2 tot 4 uur (afhankelijk van groep)</li>
               </ul>
             </div>
           </div>

@@ -6,13 +6,14 @@ export interface Event {
   description: string;
   distance?: string;
   price?: string;
+  url?: string;
   category: 'upcoming' | 'annual' | 'past';
   image?: string;
 }
 
 export const events: Event[] = [
   {
-    title: 'KBK (Kustpijlronde)',
+    title: 'KBK (Kuurne-Brussel-Kuurne)',
     date: '2026-02-28',
     time: '09:00',
     location: 'Kust, België',

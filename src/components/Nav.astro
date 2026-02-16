@@ -9,7 +9,6 @@ const navLinks = [
   { href: '/events', label: 'Events' },
   { href: '/sponsors', label: 'Sponsors' },
   { href: '/structuur', label: 'Structuur' },
-  { href: '/lid-worden', label: 'Lid worden' },
 ];
 ---
 
@@ -34,7 +33,7 @@ const navLinks = [
     <li>
       <a
         href="/lid-worden"
-        class="px-6 py-2 bg-encox-secondary text-white rounded-full font-semibold hover:bg-opacity-90 transition shadow-md hover:shadow-lg"
+        class="px-6 py-2 bg-gradient-to-r from-encox-primary to-encox-secondary text-white rounded-full font-semibold hover:opacity-90 transition shadow-md hover:shadow-lg hover:scale-105"
       >
         Lid worden
       </a>
@@ -97,7 +96,7 @@ const navLinks = [
     <div class="mt-8">
       <a
         href="/lid-worden"
-        class="block text-center px-6 py-3 bg-encox-secondary text-white rounded-full font-heading font-bold hover:bg-opacity-90 transition shadow-lg"
+        class="block text-center px-6 py-3 bg-gradient-to-r from-encox-primary to-encox-secondary text-white rounded-full font-heading font-bold hover:opacity-90 transition shadow-lg hover:scale-105"
       >
         Lid worden
       </a>
@@ -105,19 +104,22 @@ const navLinks = [
 
     <!-- Mobile Social Links -->
     <div class="mt-8 pt-8 border-t border-gray-200">
-      <div class="flex justify-center gap-6 text-encox-heading">
-        <a href="https://facebook.com" target="_blank" rel="noopener" class="hover:text-encox-primary transition-colors">
-          <span class="sr-only">Facebook</span>
-          <span class="text-2xl">f</span>
+      <div class="space-y-3 px-4">
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="flex items-center gap-3 text-encox-heading hover:text-encox-primary transition-colors">
+          <span class="w-10 h-10 bg-encox-gray-bg rounded-full flex items-center justify-center text-xl font-bold">
+            f
+          </span>
+          <span class="text-sm font-semibold">Facebook</span>
         </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener" class="hover:text-encox-primary transition-colors">
-          <span class="sr-only">Twitter</span>
-          <span class="text-2xl">t</span>
-        </a>
-        <a href="https://instagram.com" target="_blank" rel="noopener" class="hover:text-encox-primary transition-colors">
-          <span class="sr-only">Instagram</span>
-          <span class="text-2xl">i</span>
-        </a>
+        <div class="flex items-center gap-3 text-encox-text">
+          <span class="w-10 h-10 bg-encox-gray-bg rounded-full flex items-center justify-center text-xl">
+            💬
+          </span>
+          <div>
+            <div class="text-sm font-semibold">WhatsApp Groepen</div>
+            <div class="text-xs text-gray-500">Voor leden beschikbaar</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

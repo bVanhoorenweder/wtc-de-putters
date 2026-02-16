@@ -171,7 +171,7 @@ if (nextEvent) {
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
         {groups.map((group, index) => (
           <div data-cue="slideInUp" data-cue-delay={index * 100} class="h-full">
-            <GroupCard group={group} />
+            <GroupCard group={group} variant="compact" />
           </div>
         ))}
       </div>
@@ -211,45 +211,40 @@ if (nextEvent) {
 
   <!-- Section 4.5: Next Event -->
   {nextEvent && (
-    <section class="py-16 bg-white" data-cue="fadeIn">
+    <section class="py-16 bg-encox-gray-bg" data-cue="fadeIn">
       <div class="container mx-auto px-4">
         <div class="max-w-4xl mx-auto">
-          <!-- Header -->
-          <div class="text-center mb-8">
-            <div class="inline-block bg-gradient-to-r from-encox-secondary to-pink-500 text-white px-6 py-2 rounded-full font-heading font-bold text-sm uppercase tracking-wider mb-4">
-              📅 Volgend Event
-            </div>
-            <h2 class="text-h2 font-heading font-bold text-encox-heading mb-2">
-              {nextEvent.title}
-            </h2>
-            <p class="text-2xl text-encox-primary font-heading font-bold">
-              {nextEventDate}
-            </p>
-            {nextEvent.time && (
-              <p class="text-lg text-encox-text mt-2">
-                ⏰ {nextEvent.time}
+          <!-- Event Card -->
+          <div class="bg-white rounded-lg shadow-md p-8">
+            <!-- Header -->
+            <div class="mb-6 pb-6 border-b border-gray-200">
+              <div class="text-sm text-encox-primary font-heading font-semibold mb-2">Volgend Event</div>
+              <h3 class="text-3xl font-heading font-bold text-encox-heading mb-2">
+                {nextEvent.title}
+              </h3>
+              <p class="text-lg text-encox-text">
+                {nextEventDate}
+                {nextEvent.time && ` • ${nextEvent.time}`}
               </p>
-            )}
-          </div>
+            </div>
 
-          <!-- Event Details Card -->
-          <div class="bg-gradient-to-br from-encox-gray-bg to-white rounded-2xl shadow-xl p-8 border-2 border-encox-primary/20">
-            <div class="grid md:grid-cols-2 gap-6 mb-6">
+            <!-- Event Details Grid -->
+            <div class="grid md:grid-cols-2 gap-4 mb-6">
               <!-- Location -->
-              <div class="flex items-start gap-3">
-                <span class="text-3xl">📍</span>
+              <div class="flex items-start gap-2">
+                <span class="text-xl">📍</span>
                 <div>
-                  <div class="font-heading font-bold text-encox-heading mb-1">Locatie</div>
+                  <div class="text-sm font-semibold text-gray-600">Locatie</div>
                   <div class="text-encox-text">{nextEvent.location}</div>
                 </div>
               </div>
 
               <!-- Distance -->
               {nextEvent.distance && (
-                <div class="flex items-start gap-3">
-                  <span class="text-3xl">🚴</span>
+                <div class="flex items-start gap-2">
+                  <span class="text-xl">🚴</span>
                   <div>
-                    <div class="font-heading font-bold text-encox-heading mb-1">Afstand</div>
+                    <div class="text-sm font-semibold text-gray-600">Afstand</div>
                     <div class="text-encox-text">{nextEvent.distance}</div>
                   </div>
                 </div>
@@ -257,47 +252,51 @@ if (nextEvent) {
 
               <!-- Price -->
               {nextEvent.price && (
-                <div class="flex items-start gap-3">
-                  <span class="text-3xl">💰</span>
+                <div class="flex items-start gap-2">
+                  <span class="text-xl">💰</span>
                   <div>
-                    <div class="font-heading font-bold text-encox-heading mb-1">Prijs</div>
+                    <div class="text-sm font-semibold text-gray-600">Prijs</div>
                     <div class="text-encox-text">{nextEvent.price}</div>
                   </div>
                 </div>
               )}
 
               <!-- Category -->
-              <div class="flex items-start gap-3">
-                <span class="text-3xl">{nextEvent.category === 'annual' ? '🔄' : '✨'}</span>
+              <div class="flex items-start gap-2">
+                <span class="text-xl">{nextEvent.category === 'annual' ? '🔄' : '✨'}</span>
                 <div>
-                  <div class="font-heading font-bold text-encox-heading mb-1">Type</div>
+                  <div class="text-sm font-semibold text-gray-600">Type</div>
                   <div class="text-encox-text">
-                    {nextEvent.category === 'annual' ? 'Jaarlijks WTC Event' : 'Eenmalig Event'}
+                    {nextEvent.category === 'annual' ? 'Jaarlijks Event' : 'Eenmalig Event'}
                   </div>
                 </div>
               </div>
             </div>
 
             <!-- Description -->
-            <div class="mb-6 pt-6 border-t border-gray-200">
-              <p class="text-encox-text text-lg leading-relaxed">
-                {nextEvent.description}
-              </p>
-            </div>
+            {nextEvent.description && (
+              <div class="mb-6 pt-4 border-t border-gray-100">
+                <p class="text-encox-text leading-relaxed">
+                  {nextEvent.description}
+                </p>
+              </div>
+            )}
 
             <!-- CTA Buttons -->
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <div class="flex flex-col sm:flex-row gap-3 pt-4">
               <a
-                href={`mailto:bestuur@wtcdeputters.be?subject=Interesse%20in%20${encodeURIComponent(nextEvent.title)}`}
-                class="px-8 py-4 bg-gradient-to-r from-encox-secondary to-pink-500 text-white rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-center"
+                href={nextEvent.url || `mailto:bestuur@wtcdeputters.be?subject=Interesse%20in%20${encodeURIComponent(nextEvent.title)}`}
+                target={nextEvent.url ? '_blank' : undefined}
+                rel={nextEvent.url ? 'noopener' : undefined}
+                class="px-6 py-3 bg-encox-primary text-white rounded-lg font-heading font-semibold hover:bg-encox-primary/90 transition-colors text-center"
               >
-                📧 Inschrijven / Meer Info
+                Meer Info
               </a>
               <a
                 href="/events"
-                class="px-8 py-4 bg-transparent border-2 border-encox-primary text-encox-primary rounded-full font-heading font-bold text-lg hover:bg-encox-primary hover:text-white transition-all duration-300 text-center"
+                class="px-6 py-3 bg-white border border-gray-300 text-encox-text rounded-lg font-heading font-semibold hover:border-encox-primary hover:text-encox-primary transition-colors text-center"
               >
-                Bekijk Alle Events
+                Alle Events
               </a>
             </div>
           </div>
