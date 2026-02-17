@@ -7,6 +7,7 @@ export interface Event {
   distance?: string;
   price?: string;
   url?: string;
+  tag?: string;
   category: 'upcoming' | 'annual' | 'past';
   image?: string;
 }
@@ -48,10 +49,11 @@ export const events: Event[] = [
     title: 'Ronde van Vlaanderen',
     date: '2026-04-04',
     time: 'Hele dag',
-    location: 'Oost-Vlaanderen',
+    location: 'Oudenaarde (240 km: Antwerpen)',
     description: 'Meefietsen met de legendarische Ronde van Vlaanderen! Volg (delen van) het parcours van de profs en ervaar de hellingen.',
-    distance: 'Verschillende parcours mogelijk',
+    distance: '80 / 130 / 160 / 240 km',
     price: 'Zie organisator',
+    url: 'https://werideflanders.com',
     category: 'upcoming'
   },
   {
@@ -67,41 +69,48 @@ export const events: Event[] = [
   {
     title: 'Trois Ballons 2026',
     date: '2026-06-06',
-    time: 'Weekend',
-    location: 'Vogezen, Frankrijk',
-    description: 'Sportief wielerweekend in de prachtige Vogezen. Drie iconische cols en prachtige natuur. Uitdagend maar onvergetelijk!',
-    distance: '100-150 km met bergen',
-    price: 'Info volgt',
+    time: '07:00',
+    location: 'Ronchamp, Vogezen, Frankrijk',
+    description: 'Finish op de legendarische Planche des Belles Filles! Keuze uit Granfondo of Mediofondo door de prachtige Vogezen.',
+    distance: '95 km (Mediofondo) / 183 km (Granfondo)',
+    price: 'Zie organisator',
+    url: 'https://les3ballons.com',
+    tag: 'Granfondo',
     category: 'upcoming'
   },
   {
-    title: '8 uur van Spa-Francorchamps',
+    title: '8h Vélo de Spa',
     date: '2026-07-25',
     time: '09:00',
-    location: 'Circuit Spa-Francorchamps',
-    description: 'Fietsen op het legendarische F1-circuit van Spa! Een unieke ervaring met uitdagende hellingen zoals Eau Rouge en Raidillon.',
-    distance: 'Rondes op circuit',
+    location: 'Circuit Spa-Francorchamps, Stavelot',
+    description: '8 uur fietsen op het legendarische F1-circuit van Spa! Rondjes op een parcours van 7 km met 104 hoogtemeters per ronde, inclusief Eau Rouge en Raidillon.',
+    distance: '7 km per ronde (circuit)',
     price: 'Zie organisator',
+    url: 'https://www.8hvelodespa.be',
+    tag: 'Endurance',
     category: 'upcoming'
   },
   {
-    title: 'Criq (Criterium Ingooigem)',
+    title: 'Vélomédiane (La Crique)',
     date: '2026-08-22',
     time: '09:00',
-    location: 'Ingooigem',
-    description: 'Traditioneel wielerevenement in Ingooigem. Criteriumsfeer met meerdere parcoursmogelijkheden voor verschillende niveaus.',
-    distance: 'Verschillende afstanden',
+    location: 'La Roche-en-Ardenne, België',
+    description: 'Uitdagende wielertocht door de Ardennen vanuit La Roche-en-Ardenne. Keuze uit verschillende parcours inclusief gravel en grand challenge.',
+    distance: '86 / 93 / 134 / 165 km',
     price: 'Zie organisator',
+    url: 'https://www.velomediane.com',
     category: 'upcoming'
   },
   {
-    title: 'Picardie Weekend',
-    date: '2026-09-21',
-    time: 'Weekend',
-    location: 'Picardië, Frankrijk',
-    description: 'Wielerweekend in de Noord-Franse regio Picardië. Mooie landschappen, golvend parcours en Franse gezelligheid.',
-    distance: '80-120 km per dag',
-    price: 'Info volgt',
+    title: 'Ronde Picarde',
+    date: '2026-09-20',
+    time: '09:00',
+    location: 'Eaucourt-sur-Somme, Frankrijk',
+    description: 'Wielerevenement in de Noord-Franse Somme-regio. Keuze uit meerdere afstanden op zondag en een gravel op zaterdag.',
+    distance: '38 / 85 / 117 / 158 km (+ 77 km gravel)',
+    price: 'Zie organisator',
+    url: 'https://cyclosportive-rondepicarde.fr',
+    tag: 'Granfondo',
     category: 'upcoming'
   }
 ];
