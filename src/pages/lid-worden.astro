@@ -9,11 +9,12 @@ import PricingCard from '../components/PricingCard.astro';
   <Hero
     title="Word Lid van WTC De Putters"
     subtitle="Sluit je aan bij onze gezellige wielertoeristenclub"
-    variant="cta-focus"
+    variant="default"
+    showCta={false}
   />
 
   <!-- Pricing Cards Section -->
-  <section class="section-padding bg-white" data-cue="fadeIn">
+  <section class="section-padding bg-putters-gray-bg" data-cue="fadeIn">
     <div class="container mx-auto px-4">
       <h2 class="section-title">Lidgeld 2026</h2>
       <p class="section-subtitle max-w-2xl mx-auto">
@@ -26,11 +27,9 @@ import PricingCard from '../components/PricingCard.astro';
           <PricingCard
             title="Individueel"
             price={60}
+            ctaLink="https://www.mijnassist.be/NL/4a094922-59be-4215-a59c-fcc671ba3c26/waitinglist/subscribe"
             features={[
-              'Wekelijkse ritten (woensdag & zondag)',
-              'Toegang tot alle vier de groepen',
-              'Ondersteuning bij pech',
-              'Clubevenementen en activiteiten',
+              'Wekelijkse ritten (wo & zo)',
               'Verzekering tijdens ritten',
               'Toegang tot GPX routes'
             ]}
@@ -44,13 +43,11 @@ import PricingCard from '../components/PricingCard.astro';
             price={80}
             period="jaar"
             highlighted={true}
+            ctaLink="https://www.mijnassist.be/NL/4a094922-59be-4215-a59c-fcc671ba3c26/waitinglist/subscribe"
             features={[
-              'Alles van individueel lidmaatschap',
-              'Voor heel het gezin (2+ personen)',
-              'Voordelig tarief per persoon',
-              'Wekelijkse ritten voor alle leden',
-              'Ideaal voor fietsende gezinnen',
-              'Gezamenlijke familieactiviteiten'
+              'Alles van individueel',
+              'Voor heel het gezin',
+              'Voordelig tarief'
             ]}
           />
         </div>
@@ -70,18 +67,14 @@ import PricingCard from '../components/PricingCard.astro';
         <div class="grid md:grid-cols-3 gap-8">
           <!-- Step 1 -->
           <div class="relative" data-cue="slideInUp">
-            <div class="bg-white rounded-lg shadow-md p-8 text-center">
+            <div class="bg-white rounded-lg shadow-md p-8 text-center h-full">
               <div class="w-16 h-16 bg-gradient-to-br from-putters-primary to-putters-blue rounded-full flex items-center justify-center mx-auto mb-6 text-white font-heading font-bold text-3xl shadow-lg">
                 1
               </div>
               <h3 class="text-2xl font-heading font-bold text-putters-heading mb-4">Proefrit</h3>
-              <p class="text-putters-text leading-relaxed mb-4">
-                Kom een zondag om 09:00 langs voor een proefrit. Geen verplichtingen, gewoon kennismaken!
+              <p class="text-putters-text leading-relaxed">
+                Kom langs op zondag om 09:00 voor een vrijblijvende proefrit.
               </p>
-              <div class="text-sm text-gray-600">
-                <strong>Waar:</strong> Parking De Valkaart<br>
-                <strong>Wanneer:</strong> Elke zondag 09:00
-              </div>
             </div>
             <!-- Connecting Line (desktop only) -->
             <div class="hidden md:block absolute top-8 -right-4 w-8 h-0.5 bg-putters-primary"></div>
@@ -89,19 +82,21 @@ import PricingCard from '../components/PricingCard.astro';
 
           <!-- Step 2 -->
           <div class="relative" data-cue="slideInUp" data-cue-delay="100">
-            <div class="bg-white rounded-lg shadow-md p-8 text-center">
+            <div class="bg-white rounded-lg shadow-md p-8 text-center h-full">
               <div class="w-16 h-16 bg-gradient-to-br from-putters-primary to-putters-blue rounded-full flex items-center justify-center mx-auto mb-6 text-white font-heading font-bold text-3xl shadow-lg">
                 2
               </div>
               <h3 class="text-2xl font-heading font-bold text-putters-heading mb-4">Inschrijven</h3>
               <p class="text-putters-text leading-relaxed mb-4">
-                Overtuigd? Schrijf je in via email of tijdens een rit. We helpen je graag verder!
+                Overtuigd? Schrijf je in!
               </p>
               <a
-                href="mailto:bestuur@wtcdeputters.be"
+                href="https://www.mijnassist.be/NL/4a094922-59be-4215-a59c-fcc671ba3c26/waitinglist/subscribe"
+                target="_blank"
+                rel="noopener"
                 class="inline-block text-putters-primary hover:text-putters-secondary transition-colors font-semibold"
               >
-                📧 bestuur@wtcdeputters.be
+                Schrijf je in →
               </a>
             </div>
             <!-- Connecting Line (desktop only) -->
@@ -110,15 +105,14 @@ import PricingCard from '../components/PricingCard.astro';
 
           <!-- Step 3 -->
           <div data-cue="slideInUp" data-cue-delay="200">
-            <div class="bg-white rounded-lg shadow-md p-8 text-center">
+            <div class="bg-white rounded-lg shadow-md p-8 text-center h-full">
               <div class="w-16 h-16 bg-gradient-to-br from-putters-primary to-putters-blue rounded-full flex items-center justify-center mx-auto mb-6 text-white font-heading font-bold text-3xl shadow-lg">
                 3
               </div>
               <h3 class="text-2xl font-heading font-bold text-putters-heading mb-4">Genieten!</h3>
-              <p class="text-putters-text leading-relaxed mb-4">
-                Welkom bij de club! Geniet van wekelijkse ritten, events en de gezelligheid van onze ploeggeest.
+              <p class="text-putters-text leading-relaxed">
+                Welkom bij de club!
               </p>
-              <div class="text-4xl">🚴‍♂️🎉</div>
             </div>
           </div>
         </div>
@@ -126,119 +120,26 @@ import PricingCard from '../components/PricingCard.astro';
     </div>
   </section>
 
-  <!-- Important Info Banner -->
-  <section class="py-16 bg-gradient-to-r from-yellow-50 to-amber-50" data-cue="fadeIn">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl p-10 border-l-8 border-yellow-500">
-        <div class="flex items-start gap-6">
-          <div class="text-6xl">💡</div>
-          <div>
-            <h3 class="text-3xl font-heading font-bold mb-4 text-amber-600">Belangrijk om te weten</h3>
-            <ul class="space-y-3 text-putters-text">
-              <li class="flex items-start gap-2">
-                <span class="text-green-500 text-xl">✓</span>
-                <span><strong>Proefritten:</strong> Gratis en zonder verplichtingen - kom gerust meerdere keren!</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-green-500 text-xl">✓</span>
-                <span><strong>Helm verplicht:</strong> Voor je veiligheid en die van anderen</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-green-500 text-xl">✓</span>
-                <span><strong>Alle niveaus welkom:</strong> We hebben 4 groepen van 27 tot 37+ km/h</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span class="text-green-500 text-xl">✓</span>
-                <span><strong>Samen Uit, Samen Thuis:</strong> Niemand wordt achtergelaten</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Benefits Section -->
-  <section class="section-padding bg-white" data-cue="fadeIn">
-    <div class="container mx-auto px-4">
-      <h2 class="section-title">Wat krijg je als lid?</h2>
-
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-        <!-- Benefit 1 -->
-        <div class="text-center" data-cue="slideInUp">
-          <div class="text-6xl mb-4">🚴</div>
-          <h3 class="text-xl font-heading font-bold text-putters-heading mb-3">Wekelijkse Ritten</h3>
-          <p class="text-putters-text">
-            Twee ritten per week (woensdag & zondag) in jouw tempo en niveau
-          </p>
-        </div>
-
-        <!-- Benefit 2 -->
-        <div class="text-center" data-cue="slideInUp" data-cue-delay="100">
-          <div class="text-6xl mb-4">🤝</div>
-          <h3 class="text-xl font-heading font-bold text-putters-heading mb-3">Ploeggeest</h3>
-          <p class="text-putters-text">
-            Fietsen in een gezellige groep waar iedereen elkaar ondersteunt
-          </p>
-        </div>
-
-        <!-- Benefit 3 -->
-        <div class="text-center" data-cue="slideInUp" data-cue-delay="200">
-          <div class="text-6xl mb-4">🎉</div>
-          <h3 class="text-xl font-heading font-bold text-putters-heading mb-3">Events</h3>
-          <p class="text-putters-text">
-            Ontbijtrit, Putters Classic en andere leuke activiteiten het hele jaar door
-          </p>
-        </div>
-
-        <!-- Benefit 4 -->
-        <div class="text-center" data-cue="slideInUp" data-cue-delay="300">
-          <div class="text-6xl mb-4">🗺️</div>
-          <h3 class="text-xl font-heading font-bold text-putters-heading mb-3">GPX Routes</h3>
-          <p class="text-putters-text">
-            Toegang tot alle routes - ook handig om zelfstandig te verkennen
-          </p>
-        </div>
-
-        <!-- Benefit 5 -->
-        <div class="text-center" data-cue="slideInUp" data-cue-delay="400">
-          <div class="text-6xl mb-4">🛡️</div>
-          <h3 class="text-xl font-heading font-bold text-putters-heading mb-3">Verzekering</h3>
-          <p class="text-putters-text">
-            Verzekerd tijdens clubritten voor een veilige fietsomgeving
-          </p>
-        </div>
-
-        <!-- Benefit 6 -->
-        <div class="text-center" data-cue="slideInUp" data-cue-delay="500">
-          <div class="text-6xl mb-4">💪</div>
-          <h3 class="text-xl font-heading font-bold text-putters-heading mb-3">Ondersteuning</h3>
-          <p class="text-putters-text">
-            Hulp bij pech en ondersteuning van medefietsers tijdens elke rit
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- Final CTA Section -->
-  <section class="py-16 bg-putters-gray-bg">
+  <section class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto text-center bg-gradient-to-br from-putters-secondary to-pink-500 text-white rounded-2xl p-12">
+      <div class="max-w-4xl mx-auto text-center bg-gradient-to-br from-putters-primary to-putters-blue text-white rounded-2xl p-12">
         <h3 class="text-4xl font-heading font-bold mb-6">Klaar om te starten?</h3>
         <p class="text-xl mb-8 opacity-90">
           Kom zondag om 09:00 langs voor een proefrit en ontdek zelf wat WTC De Putters te bieden heeft!
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
-            href="mailto:bestuur@wtcdeputters.be?subject=Interesse%20in%20lidmaatschap"
-            class="px-10 py-4 bg-white text-putters-secondary rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            href="https://www.mijnassist.be/NL/4a094922-59be-4215-a59c-fcc671ba3c26/waitinglist/subscribe"
+            target="_blank"
+            rel="noopener"
+            class="px-10 py-4 bg-white text-putters-primary rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
           >
-            📧 Neem Contact Op
+            Word Lid
           </a>
           <a
             href="/groepen"
-            class="px-10 py-4 bg-transparent border-2 border-white text-white rounded-full font-heading font-bold text-lg hover:bg-white hover:text-putters-secondary transition-all duration-300"
+            class="px-10 py-4 bg-transparent border-2 border-white text-white rounded-full font-heading font-bold text-lg hover:bg-white hover:text-putters-primary transition-all duration-300"
           >
             Bekijk Groepen
           </a>
