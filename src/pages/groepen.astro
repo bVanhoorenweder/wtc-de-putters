@@ -14,7 +14,7 @@ import { groups } from '../data/groups';
   />
 
   <!-- Groups Grid Section -->
-  <section class="section-padding bg-encox-gray-bg" data-cue="fadeIn">
+  <section class="section-padding bg-putters-gray-bg" data-cue="fadeIn">
     <div class="container mx-auto px-4">
       <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
         {groups.map((group, index) => (
@@ -33,45 +33,45 @@ import { groups } from '../data/groups';
 
       <div class="max-w-5xl mx-auto overflow-x-auto">
         <table class="w-full bg-white rounded-lg shadow-lg overflow-hidden">
-          <thead class="bg-gradient-to-r from-encox-primary to-encox-secondary text-white">
-            <tr>
-              <th class="px-6 py-4 text-left font-heading font-bold">Aspect</th>
-              <th class="px-6 py-4 text-center font-heading font-bold">Groep A</th>
-              <th class="px-6 py-4 text-center font-heading font-bold">Groep B</th>
-              <th class="px-6 py-4 text-center font-heading font-bold">Groep C</th>
-              <th class="px-6 py-4 text-center font-heading font-bold">Groep D</th>
+          <thead>
+            <tr class="text-white" style="background: linear-gradient(to right, var(--color-putters-primary), var(--color-putters-secondary));">
+              <th class="px-6 py-4 text-left font-heading font-bold" style="background: none;">Aspect</th>
+              <th class="px-6 py-4 text-center font-heading font-bold" style="background: none;">Groep A</th>
+              <th class="px-6 py-4 text-center font-heading font-bold" style="background: none;">Groep B</th>
+              <th class="px-6 py-4 text-center font-heading font-bold" style="background: none;">Groep C</th>
+              <th class="px-6 py-4 text-center font-heading font-bold" style="background: none;">Groep D</th>
             </tr>
           </thead>
-          <tbody class="text-encox-text">
-            <tr class="border-b border-gray-200 hover:bg-encox-gray-bg transition-colors">
+          <tbody class="text-putters-text">
+            <tr class="border-b border-gray-200 hover:bg-putters-gray-bg transition-colors">
               <td class="px-6 py-4 font-semibold">Gemiddelde snelheid</td>
               <td class="px-6 py-4 text-center">38+ km/h</td>
               <td class="px-6 py-4 text-center">33-38 km/h</td>
               <td class="px-6 py-4 text-center">28-33 km/h</td>
               <td class="px-6 py-4 text-center">25-28 km/h</td>
             </tr>
-            <tr class="border-b border-gray-200 bg-gray-50 hover:bg-encox-gray-bg transition-colors">
+            <tr class="border-b border-gray-200 bg-gray-50 hover:bg-putters-gray-bg transition-colors">
               <td class="px-6 py-4 font-semibold">Woensdag afstand</td>
               <td class="px-6 py-4 text-center">70-90 km</td>
               <td class="px-6 py-4 text-center">70-90 km</td>
               <td class="px-6 py-4 text-center">60-75 km</td>
               <td class="px-6 py-4 text-center">40-50 km</td>
             </tr>
-            <tr class="border-b border-gray-200 hover:bg-encox-gray-bg transition-colors">
+            <tr class="border-b border-gray-200 hover:bg-putters-gray-bg transition-colors">
               <td class="px-6 py-4 font-semibold">Zondag afstand</td>
               <td class="px-6 py-4 text-center">80-120 km</td>
               <td class="px-6 py-4 text-center">80-110 km</td>
               <td class="px-6 py-4 text-center">75-90 km</td>
               <td class="px-6 py-4 text-center">60-75 km</td>
             </tr>
-            <tr class="border-b border-gray-200 bg-gray-50 hover:bg-encox-gray-bg transition-colors">
+            <tr class="border-b border-gray-200 bg-gray-50 hover:bg-putters-gray-bg transition-colors">
               <td class="px-6 py-4 font-semibold">Woensdag vertrek</td>
               <td class="px-6 py-4 text-center">19:00</td>
               <td class="px-6 py-4 text-center">19:00</td>
               <td class="px-6 py-4 text-center">19:00</td>
               <td class="px-6 py-4 text-center">19:00</td>
             </tr>
-            <tr class="border-b border-gray-200 hover:bg-encox-gray-bg transition-colors">
+            <tr class="border-b border-gray-200 hover:bg-putters-gray-bg transition-colors">
               <td class="px-6 py-4 font-semibold">Zondag vertrek</td>
               <td class="px-6 py-4 text-center">
                 <div class="text-sm">Zomer: 08:30</div>
@@ -84,7 +84,7 @@ import { groups } from '../data/groups';
               <td class="px-6 py-4 text-center">09:00</td>
               <td class="px-6 py-4 text-center">09:00</td>
             </tr>
-            <tr class="hover:bg-encox-gray-bg transition-colors">
+            <tr class="hover:bg-putters-gray-bg transition-colors">
               <td class="px-6 py-4 font-semibold">Niveau</td>
               <td class="px-6 py-4 text-center">Gevorderd</td>
               <td class="px-6 py-4 text-center">Sportief</td>
@@ -98,7 +98,7 @@ import { groups } from '../data/groups';
   </section>
 
   <!-- Practical Info Cards Section -->
-  <section class="section-padding bg-encox-gray-bg" data-cue="fadeIn">
+  <section class="section-padding bg-putters-gray-bg" data-cue="fadeIn">
     <div class="container mx-auto px-4">
       <h2 class="section-title">Praktische Informatie</h2>
 
@@ -108,8 +108,8 @@ import { groups } from '../data/groups';
           <div class="flex items-start gap-4">
             <div class="text-5xl">🕐</div>
             <div>
-              <h3 class="text-2xl font-heading font-bold text-encox-heading mb-4">Rijtijden</h3>
-              <ul class="space-y-2 text-encox-text">
+              <h3 class="text-2xl font-heading font-bold text-putters-heading mb-4">Rijtijden</h3>
+              <ul class="space-y-2 text-putters-text">
                 <li><strong>Woensdag:</strong> Vertrek om 19:00 uur (zomer)</li>
                 <li><strong>Zondag:</strong> Vertrek om 08:30 uur (zomer) / 09:00 uur (winter)</li>
                 <li><strong>Duur:</strong> 2 tot 4 uur (afhankelijk van groep)</li>
@@ -123,8 +123,8 @@ import { groups } from '../data/groups';
           <div class="flex items-start gap-4">
             <div class="text-5xl">📍</div>
             <div>
-              <h3 class="text-2xl font-heading font-bold text-encox-heading mb-4">Vertrekpunt</h3>
-              <p class="text-encox-text mb-2">
+              <h3 class="text-2xl font-heading font-bold text-putters-heading mb-4">Vertrekpunt</h3>
+              <p class="text-putters-text mb-2">
                 <strong>Parking De Valkaart</strong><br>
                 Oostkamp, België
               </p>
@@ -140,8 +140,8 @@ import { groups } from '../data/groups';
           <div class="flex items-start gap-4">
             <div class="text-5xl">🎯</div>
             <div>
-              <h3 class="text-2xl font-heading font-bold text-encox-heading mb-4">Aankomst</h3>
-              <p class="text-encox-text mb-2">
+              <h3 class="text-2xl font-heading font-bold text-putters-heading mb-4">Aankomst</h3>
+              <p class="text-putters-text mb-2">
                 <strong>Tennis Oostkamp - TC Orscamp</strong>
               </p>
               <p class="text-sm text-gray-600">
@@ -152,13 +152,13 @@ import { groups } from '../data/groups';
         </div>
 
         <!-- Card 4: Veiligheid -->
-        <div class="bg-white rounded-lg shadow-md p-8 border-l-4 border-red-500" data-cue="slideInRight">
+        <div class="bg-white rounded-lg shadow-md p-8" data-cue="slideInRight">
           <div class="flex items-start gap-4">
             <div class="text-5xl">🪖</div>
             <div>
-              <h3 class="text-2xl font-heading font-bold text-encox-heading mb-4">Veiligheid</h3>
-              <p class="text-encox-text mb-2">
-                <strong class="text-red-600">HELM VERPLICHT</strong> voor alle groepen
+              <h3 class="text-2xl font-heading font-bold text-putters-heading mb-4">Veiligheid</h3>
+              <p class="text-putters-text mb-2">
+                <strong>HELM VERPLICHT</strong> voor alle groepen
               </p>
               <p class="text-sm text-gray-600">
                 Veiligheid staat bij ons voorop. Zorg voor een goede fietshelm en verlichting.
@@ -173,16 +173,16 @@ import { groups } from '../data/groups';
   <!-- CTA Section -->
   <section class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto text-center bg-gradient-to-br from-encox-primary to-encox-blue text-white rounded-2xl p-12">
+      <div class="max-w-4xl mx-auto text-center bg-gradient-to-br from-putters-primary to-putters-blue text-white rounded-2xl p-12">
         <h3 class="text-4xl font-heading font-bold mb-6">Vind Jouw Groep</h3>
         <p class="text-xl mb-8 opacity-90">
           Niet zeker welke groep bij je past? Kom een proefrit doen op zondag om 09:00!
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/lid-worden" class="px-10 py-4 bg-white text-encox-primary rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+          <a href="/lid-worden" class="px-10 py-4 bg-white text-putters-primary rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
             Word Lid
           </a>
-          <a href="/werking" class="px-10 py-4 bg-transparent border-2 border-white text-white rounded-full font-heading font-bold text-lg hover:bg-white hover:text-encox-primary transition-all duration-300">
+          <a href="/werking" class="px-10 py-4 bg-transparent border-2 border-white text-white rounded-full font-heading font-bold text-lg hover:bg-white hover:text-putters-primary transition-all duration-300">
             Onze Werking
           </a>
         </div>

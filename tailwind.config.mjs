@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        'encox': {
+        'putters': {
           'primary': '#24A19C',      // Green
           'secondary': '#C2357B',    // WTC Pink
           'blue': '#293B5F',         // Dark blue

@@ -18,24 +18,24 @@ const difficulties = getDifficultyLevels();
   />
 
   <!-- Filters Section -->
-  <section class="py-12 bg-white border-b border-gray-200">
+  <section class="section-padding bg-white" data-cue="fadeIn">
     <div class="container mx-auto px-4">
-      <div class="max-w-7xl mx-auto">
+      <div class="max-w-5xl mx-auto">
         <!-- Distance Filters -->
-        <div class="mb-6">
-          <h3 class="font-heading font-bold text-encox-heading mb-3 text-sm uppercase tracking-wider">
-            Filter op Afstand:
+        <div class="mb-8">
+          <h3 class="text-lg font-heading font-bold text-putters-heading mb-4">
+            Filter op Afstand
           </h3>
           <div class="flex flex-wrap gap-3">
             <button
-              class="filter-btn distance-filter active px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-encox-secondary text-white"
+              class="filter-btn distance-filter active px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-primary text-white"
               data-filter="all"
             >
               Alle Afstanden
             </button>
             {distanceCategories.map(category => (
               <button
-                class="filter-btn distance-filter px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-encox-gray-bg text-encox-text hover:bg-encox-secondary hover:text-white"
+                class="filter-btn distance-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-gray-bg text-putters-text hover:bg-putters-primary hover:text-white"
                 data-filter={`distance-${category.min}-${category.max}`}
               >
                 {category.label}
@@ -46,19 +46,19 @@ const difficulties = getDifficultyLevels();
 
         <!-- Difficulty Filters -->
         <div>
-          <h3 class="font-heading font-bold text-encox-heading mb-3 text-sm uppercase tracking-wider">
-            Filter op Moeilijkheid:
+          <h3 class="text-lg font-heading font-bold text-putters-heading mb-4">
+            Filter op Moeilijkheid
           </h3>
           <div class="flex flex-wrap gap-3">
             <button
-              class="filter-btn difficulty-filter active px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-encox-blue text-white"
+              class="filter-btn difficulty-filter active px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-primary text-white"
               data-filter="all"
             >
               Alle Niveaus
             </button>
             {difficulties.map(difficulty => (
               <button
-                class="filter-btn difficulty-filter px-6 py-2 rounded-full font-semibold transition-all duration-300 bg-encox-gray-bg text-encox-text hover:bg-encox-blue hover:text-white"
+                class="filter-btn difficulty-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-gray-bg text-putters-text hover:bg-putters-primary hover:text-white"
                 data-filter={`difficulty-${difficulty}`}
               >
                 {difficulty}
@@ -71,7 +71,7 @@ const difficulties = getDifficultyLevels();
   </section>
 
   <!-- Ritten Grid -->
-  <section class="section-padding bg-encox-gray-bg" data-cue="fadeIn">
+  <section class="section-padding bg-putters-gray-bg" data-cue="fadeIn">
     <div class="container mx-auto px-4">
       <div class="max-w-7xl mx-auto">
         <div id="ritten-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -92,10 +92,10 @@ const difficulties = getDifficultyLevels();
         <!-- No Results Message -->
         <div id="no-results" class="hidden text-center py-16">
           <div class="text-6xl mb-4">🔍</div>
-          <h3 class="text-2xl font-heading font-bold text-encox-heading mb-3">
+          <h3 class="text-2xl font-heading font-bold text-putters-heading mb-3">
             Geen ritten gevonden
           </h3>
-          <p class="text-encox-text">
+          <p class="text-putters-text">
             Probeer een andere filtercombinatie
           </p>
         </div>
@@ -107,72 +107,70 @@ const difficulties = getDifficultyLevels();
   <section class="section-padding bg-white" data-cue="fadeIn">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
-        <h2 class="text-h2 font-heading font-bold text-encox-heading text-center mb-12">
-          Hoe GPX-bestanden gebruiken?
-        </h2>
+        <h2 class="section-title">Hoe GPX-bestanden gebruiken?</h2>
 
         <div class="grid md:grid-cols-3 gap-8">
           <!-- Step 1 -->
           <div class="text-center" data-cue="slideInUp">
-            <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-encox-primary to-green-500 text-white rounded-full flex items-center justify-center text-3xl font-heading font-bold">
+            <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-putters-primary to-green-500 text-white rounded-full flex items-center justify-center text-3xl font-heading font-bold">
               1
             </div>
-            <h3 class="font-heading font-bold text-encox-heading mb-3 text-lg">
+            <h3 class="font-heading font-bold text-putters-heading mb-3 text-lg">
               Download GPX
             </h3>
-            <p class="text-encox-text text-sm">
+            <p class="text-putters-text text-sm">
               Klik op de download knop bij de gewenste rit om het GPX-bestand op te slaan
             </p>
           </div>
 
           <!-- Step 2 -->
           <div class="text-center" data-cue="slideInUp" data-cue-delay="100">
-            <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-encox-secondary to-pink-500 text-white rounded-full flex items-center justify-center text-3xl font-heading font-bold">
+            <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-putters-secondary to-pink-500 text-white rounded-full flex items-center justify-center text-3xl font-heading font-bold">
               2
             </div>
-            <h3 class="font-heading font-bold text-encox-heading mb-3 text-lg">
+            <h3 class="font-heading font-bold text-putters-heading mb-3 text-lg">
               Upload naar Device
             </h3>
-            <p class="text-encox-text text-sm">
+            <p class="text-putters-text text-sm">
               Importeer het bestand in je Garmin, Wahoo of andere fietscomputer
             </p>
           </div>
 
           <!-- Step 3 -->
           <div class="text-center" data-cue="slideInUp" data-cue-delay="200">
-            <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-encox-blue to-blue-500 text-white rounded-full flex items-center justify-center text-3xl font-heading font-bold">
+            <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-putters-blue to-blue-500 text-white rounded-full flex items-center justify-center text-3xl font-heading font-bold">
               3
             </div>
-            <h3 class="font-heading font-bold text-encox-heading mb-3 text-lg">
+            <h3 class="font-heading font-bold text-putters-heading mb-3 text-lg">
               Start je Rit
             </h3>
-            <p class="text-encox-text text-sm">
+            <p class="text-putters-text text-sm">
               Volg de route op je device en geniet van een vlotte rit met de club
             </p>
           </div>
         </div>
 
         <!-- Additional Info -->
-        <div class="mt-12 bg-blue-50 border-l-4 border-encox-blue p-6 rounded-lg">
-          <h4 class="font-heading font-bold text-encox-heading mb-3 flex items-center gap-2">
+        <div class="mt-12 bg-putters-gray-bg p-6 rounded-lg">
+          <h4 class="font-heading font-bold text-putters-heading mb-3 flex items-center gap-2">
             <span class="text-2xl">💡</span>
             Tips voor GPX-gebruik
           </h4>
-          <ul class="space-y-2 text-encox-text text-sm">
+          <ul class="space-y-2 text-putters-text text-sm">
             <li class="flex items-start gap-2">
-              <span class="text-encox-secondary font-bold">✓</span>
+              <span class="text-putters-secondary font-bold">✓</span>
               <span>Controleer altijd de batterij van je fietscomputer voor een lange rit</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-encox-secondary font-bold">✓</span>
+              <span class="text-putters-secondary font-bold">✓</span>
               <span>Download de route thuis via wifi om data te besparen</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-encox-secondary font-bold">✓</span>
+              <span class="text-putters-secondary font-bold">✓</span>
               <span>Heb je geen GPX-compatibel toestel? Volg gewoon de groep!</span>
             </li>
             <li class="flex items-start gap-2">
-              <span class="text-encox-secondary font-bold">✓</span>
+              <span class="text-putters-secondary font-bold">✓</span>
               <span>Voor Garmin Connect links: sync automatisch naar je Garmin toestel</span>
             </li>
           </ul>
@@ -182,9 +180,9 @@ const difficulties = getDifficultyLevels();
   </section>
 
   <!-- CTA Section -->
-  <section class="py-16 bg-gradient-to-br from-encox-primary to-green-600 text-white">
+  <section class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto text-center">
+      <div class="max-w-4xl mx-auto text-center bg-gradient-to-br from-putters-primary to-putters-blue text-white rounded-2xl p-12">
         <h3 class="text-4xl font-heading font-bold mb-6">Rijd mee met WTC De Putters!</h3>
         <p class="text-xl mb-8 opacity-90">
           Word lid en ontdek wekelijks nieuwe routes met gelijkgestemde wielrenners
@@ -192,13 +190,13 @@ const difficulties = getDifficultyLevels();
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="/lid-worden"
-            class="px-10 py-4 bg-white text-encox-primary rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            class="px-10 py-4 bg-white text-putters-primary rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
           >
             Word Lid
           </a>
           <a
             href="/groepen"
-            class="px-10 py-4 bg-transparent border-2 border-white text-white rounded-full font-heading font-bold text-lg hover:bg-white hover:text-encox-primary transition-all duration-300"
+            class="px-10 py-4 bg-transparent border-2 border-white text-white rounded-full font-heading font-bold text-lg hover:bg-white hover:text-putters-primary transition-all duration-300"
           >
             Bekijk Groepen
           </a>
@@ -268,11 +266,11 @@ const difficulties = getDifficultyLevels();
         btn.addEventListener('click', (e) => {
           const target = e.currentTarget as HTMLElement;
           document.querySelectorAll('.distance-filter').forEach(b => {
-            b.classList.remove('active', 'bg-encox-secondary', 'text-white');
-            b.classList.add('bg-encox-gray-bg', 'text-encox-text');
+            b.classList.remove('active', 'bg-putters-primary', 'text-white');
+            b.classList.add('bg-putters-gray-bg', 'text-putters-text');
           });
-          target.classList.add('active', 'bg-encox-secondary', 'text-white');
-          target.classList.remove('bg-encox-gray-bg', 'text-encox-text');
+          target.classList.add('active', 'bg-putters-primary', 'text-white');
+          target.classList.remove('bg-putters-gray-bg', 'text-putters-text');
 
           activeDistanceFilter = target.getAttribute('data-filter') || 'all';
           filterRitten();
@@ -284,11 +282,11 @@ const difficulties = getDifficultyLevels();
         btn.addEventListener('click', (e) => {
           const target = e.currentTarget as HTMLElement;
           document.querySelectorAll('.difficulty-filter').forEach(b => {
-            b.classList.remove('active', 'bg-encox-blue', 'text-white');
-            b.classList.add('bg-encox-gray-bg', 'text-encox-text');
+            b.classList.remove('active', 'bg-putters-primary', 'text-white');
+            b.classList.add('bg-putters-gray-bg', 'text-putters-text');
           });
-          target.classList.add('active', 'bg-encox-blue', 'text-white');
-          target.classList.remove('bg-encox-gray-bg', 'text-encox-text');
+          target.classList.add('active', 'bg-putters-primary', 'text-white');
+          target.classList.remove('bg-putters-gray-bg', 'text-putters-text');
 
           activeDifficultyFilter = target.getAttribute('data-filter') || 'all';
           filterRitten();

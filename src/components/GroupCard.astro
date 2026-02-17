@@ -9,12 +9,12 @@ interface Props {
 const { group, variant = 'detailed' } = Astro.props;
 
 // Use same gradient as sponsors, events, and ritten for all groups
-const headerGradient = 'from-encox-primary to-encox-secondary';
+const headerGradient = 'from-putters-primary to-putters-secondary';
 ---
 
 <div class="h-full flex flex-col group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-2 overflow-hidden">
   <!-- Image/Icon Section -->
-  <div class="overflow-hidden h-48 bg-encox-gray-bg relative flex-shrink-0">
+  <div class="overflow-hidden h-48 bg-putters-gray-bg relative flex-shrink-0">
     <div class={`w-full h-full bg-gradient-to-r ${headerGradient} flex items-center justify-center transform group-hover:scale-110 transition-transform duration-300`}>
       <div class="text-center text-white">
         <span class="text-7xl font-heading font-bold drop-shadow-lg">{group.name.split(' ')[1]}</span>
@@ -24,51 +24,51 @@ const headerGradient = 'from-encox-primary to-encox-secondary';
 
     <!-- Speed Badge -->
     <div class="absolute top-4 right-4 bg-white rounded-full px-4 py-2 shadow-lg">
-      <span class="text-sm font-heading font-bold text-encox-primary">{group.speed}</span>
+      <span class="text-sm font-heading font-bold text-putters-primary">{group.speed}</span>
     </div>
   </div>
 
   <!-- Content Section -->
   <div class="flex-1 flex flex-col p-6">
-    <h3 class="text-2xl font-heading font-bold text-encox-heading mb-3">
+    <h3 class="text-2xl font-heading font-bold text-putters-heading mb-3">
       {group.name}
     </h3>
 
     {variant === 'detailed' && (
-      <p class="text-encox-text mb-6 leading-relaxed flex-1">{group.description}</p>
+      <p class="text-putters-text mb-6 leading-relaxed flex-1">{group.description}</p>
     )}
 
     <!-- Stats Grid -->
     <div class={`space-y-3 border-t border-gray-200 pt-4 ${variant === 'compact' ? 'mt-auto' : ''}`}>
       <div class="flex justify-between items-center">
         <span class="text-sm text-gray-600 flex items-center gap-2">
-          <span class="text-encox-primary">⚡</span>
+          <span class="text-putters-primary">⚡</span>
           Snelheid
         </span>
-        <span class="font-heading font-semibold text-encox-primary">{group.speed}</span>
+        <span class="font-heading font-semibold text-putters-primary">{group.speed}</span>
       </div>
 
       {variant === 'compact' ? (
         <>
           <div class="flex justify-between items-center">
             <span class="text-sm text-gray-600 flex items-center gap-2">
-              <span class="text-encox-blue">📅</span>
+              <span class="text-putters-blue">📅</span>
               Woensdag
             </span>
-            <span class="font-body text-encox-heading font-semibold">{group.wednesday.timeSummer}</span>
+            <span class="font-body text-putters-heading font-semibold">{group.wednesday.timeSummer}</span>
           </div>
 
           <div class="flex justify-between items-center">
             <span class="text-sm text-gray-600 flex items-center gap-2">
-              <span class="text-encox-secondary">☀️</span>
+              <span class="text-putters-secondary">☀️</span>
               Zondag
             </span>
             <div class="text-right">
               {group.sunday.timeSummer === group.sunday.timeWinter ? (
-                <span class="font-body text-encox-heading font-semibold">{group.sunday.timeSummer}</span>
+                <span class="font-body text-putters-heading font-semibold">{group.sunday.timeSummer}</span>
               ) : (
                 <>
-                  <div class="font-body text-encox-heading font-semibold">{group.sunday.timeSummer}</div>
+                  <div class="font-body text-putters-heading font-semibold">{group.sunday.timeSummer}</div>
                   <div class="text-xs text-gray-500">Winter: {group.sunday.timeWinter}</div>
                 </>
               )}
@@ -79,26 +79,26 @@ const headerGradient = 'from-encox-primary to-encox-secondary';
         <>
           <div class="flex justify-between items-center">
             <span class="text-sm text-gray-600 flex items-center gap-2">
-              <span class="text-encox-blue">📅</span>
+              <span class="text-putters-blue">📅</span>
               Woensdag
             </span>
-            <span class="font-body text-encox-heading font-semibold">{group.wednesday.timeSummer} - {group.wednesday.distance}</span>
+            <span class="font-body text-putters-heading font-semibold">{group.wednesday.timeSummer} - {group.wednesday.distance}</span>
           </div>
 
           <div class="flex justify-between items-start">
             <span class="text-sm text-gray-600 flex items-center gap-2 mt-1">
-              <span class="text-encox-secondary">☀️</span>
+              <span class="text-putters-secondary">☀️</span>
               Zondag
             </span>
             <div class="text-right">
               {group.sunday.timeSummer === group.sunday.timeWinter ? (
-                <div class="font-body text-encox-heading font-semibold">{group.sunday.timeSummer} - {group.sunday.distance}</div>
+                <div class="font-body text-putters-heading font-semibold">{group.sunday.timeSummer} - {group.sunday.distance}</div>
               ) : (
                 <>
-                  <div class="font-body text-encox-heading font-semibold">
+                  <div class="font-body text-putters-heading font-semibold">
                     <span class="text-xs text-gray-500 mr-1">Zomer:</span>{group.sunday.timeSummer} - {group.sunday.distance}
                   </div>
-                  <div class="font-body text-encox-heading font-semibold text-sm mt-1">
+                  <div class="font-body text-putters-heading font-semibold text-sm mt-1">
                     <span class="text-xs text-gray-500 mr-1">Winter:</span>{group.sunday.timeWinter} - {group.sunday.distance}
                   </div>
                 </>
@@ -111,13 +111,22 @@ const headerGradient = 'from-encox-primary to-encox-secondary';
 
     {variant === 'detailed' && (
       <div class="mt-4 pt-3 border-t border-gray-100">
-        <a
-          href="/lid-worden"
-          class="flex items-center justify-center gap-2 text-gray-500 hover:text-green-600 transition-colors text-sm group/whatsapp"
-        >
-          <span class="text-lg group-hover/whatsapp:scale-110 transition-transform">💬</span>
-          <span>WhatsApp groep voor leden</span>
-        </a>
+        {group.whatsappUrl ? (
+          <a
+            href={group.whatsappUrl}
+            target="_blank"
+            rel="noopener"
+            class="flex items-center justify-center gap-2 text-putters-secondary hover:text-putters-secondary/80 transition-colors text-sm font-semibold"
+          >
+            <span class="text-lg">💬</span>
+            <span>WhatsApp groep</span>
+          </a>
+        ) : (
+          <span class="flex items-center justify-center gap-2 text-gray-400 text-sm">
+            <span class="text-lg">💬</span>
+            <span>WhatsApp groep voor leden</span>
+          </span>
+        )}
       </div>
     )}
   </div>

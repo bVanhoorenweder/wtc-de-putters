@@ -15,21 +15,45 @@ const formattedDate = eventDate.toLocaleDateString('nl-BE', {
   year: 'numeric'
 });
 
+// Determine display category based on date
+const now = new Date();
+const oneMonthFromNow = new Date(now.getFullYear(), now.getMonth() + 1, now.getDate());
+const isPast = eventDate < now;
+const isSoon = !isPast && eventDate <= oneMonthFromNow;
+
+let displayCategory: string;
+if (event.category === 'annual') {
+  displayCategory = 'annual';
+} else if (isPast) {
+  displayCategory = 'past';
+} else if (isSoon) {
+  displayCategory = 'binnenkort';
+} else {
+  displayCategory = 'later';
+}
+
+const displayLabel = {
+  'annual': 'Putters Event',
+  'binnenkort': 'Binnenkort',
+  'later': 'Later dit jaar',
+  'past': 'Afgelopen'
+}[displayCategory];
+
 // Use same gradient as sponsors for all events
-const headerGradient = 'from-encox-primary to-encox-secondary';
+const headerGradient = 'from-putters-primary to-putters-secondary';
 ---
 
-<div class="h-full flex flex-col group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-400 overflow-hidden hover:-translate-y-2" data-category={event.category}>
+<div class="h-full flex flex-col group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-400 overflow-hidden hover:-translate-y-2" data-category={displayCategory}>
   <!-- Date Header with Gradient -->
   <div class={`bg-gradient-to-r ${headerGradient} text-white p-6 relative overflow-hidden flex-shrink-0`}>
     <div class="absolute top-0 right-0 text-9xl opacity-10 select-none">📅</div>
     <div class="relative z-10">
       <div class="flex items-center justify-between mb-2">
         <div class="text-sm font-semibold uppercase tracking-wider opacity-90">
-          {event.category === 'upcoming' ? 'Binnenkort' : event.category === 'annual' ? 'Jaarlijks Event' : 'Afgelopen'}
+          {displayLabel}
         </div>
         <div class="bg-white/20 px-3 py-1 rounded-full text-xs font-bold">
-          {event.category === 'annual' ? '🔄 WTC Event' : '✨ Extern'}
+          {event.category === 'annual' ? 'Putters Event' : 'Extern'}
         </div>
       </div>
       <div class="text-3xl font-heading font-bold mt-1">{formattedDate}</div>
@@ -41,20 +65,20 @@ const headerGradient = 'from-encox-primary to-encox-secondary';
 
   <!-- Content -->
   <div class="flex-1 flex flex-col p-6">
-    <h3 class="text-2xl font-heading font-bold text-encox-heading mb-3 group-hover:text-encox-primary transition-colors">
+    <h3 class="text-2xl font-heading font-bold text-putters-heading mb-3 group-hover:text-putters-primary transition-colors">
       {event.title}
     </h3>
 
     <div class="space-y-3 mb-6">
       <!-- Location -->
-      <div class="flex items-start gap-2 text-encox-text">
+      <div class="flex items-start gap-2 text-putters-text">
         <span class="text-xl">📍</span>
         <span>{event.location}</span>
       </div>
 
       <!-- Distance -->
       {event.distance && (
-        <div class="flex items-start gap-2 text-encox-text">
+        <div class="flex items-start gap-2 text-putters-text">
           <span class="text-xl">🚴</span>
           <span>{event.distance}</span>
         </div>
@@ -62,7 +86,7 @@ const headerGradient = 'from-encox-primary to-encox-secondary';
 
       <!-- Price -->
       {event.price && (
-        <div class="flex items-start gap-2 text-encox-text">
+        <div class="flex items-start gap-2 text-putters-text">
           <span class="text-xl">💰</span>
           <span>{event.price}</span>
         </div>
@@ -70,22 +94,29 @@ const headerGradient = 'from-encox-primary to-encox-secondary';
     </div>
 
     <!-- Description -->
-    <p class="text-encox-text leading-relaxed mb-6 flex-1">
+    <p class="text-putters-text leading-relaxed mb-6 flex-1">
       {event.description}
     </p>
 
     <!-- CTA -->
     <div class="mt-auto">
-      {event.category === 'upcoming' || event.category === 'annual' ? (
+      {displayCategory === 'past' ? (
+        <span class="text-gray-400 italic">Event afgelopen</span>
+      ) : event.category === 'annual' ? (
+        <span class="inline-flex items-center gap-2 text-putters-text text-sm">
+          <span>💬</span>
+          <span>Info via WhatsApp kanalen</span>
+        </span>
+      ) : (
         <a
-          href="mailto:bestuur@wtcdeputters.be?subject=Interesse%20in%20{encodeURIComponent(event.title)}"
-          class="inline-flex items-center gap-2 text-encox-primary font-bold hover:text-encox-secondary transition-colors group"
+          href={event.url || `mailto:bestuur@wtcdeputters.be?subject=Interesse%20in%20${encodeURIComponent(event.title)}`}
+          target={event.url ? '_blank' : undefined}
+          rel={event.url ? 'noopener' : undefined}
+          class="inline-flex items-center gap-2 text-putters-primary font-bold hover:text-putters-secondary transition-colors group"
         >
           <span>Meer info / Inschrijven</span>
           <span class="group-hover:translate-x-1 transition-transform">→</span>
         </a>
-      ) : (
-        <span class="text-gray-400 italic">Event afgelopen</span>
       )}
     </div>
   </div>

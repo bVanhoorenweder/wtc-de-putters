@@ -16,9 +16,11 @@ export const events: Event[] = [
     title: 'KBK (Kuurne-Brussel-Kuurne)',
     date: '2026-02-28',
     time: '09:00',
-    location: 'Kust, België',
-    description: 'Klassieke kustrit georganiseerd door de KBK. Een mooie uitdaging langs de Belgische kust met typisch vlak parcours.',
-    distance: 'Meerdere afstanden',
+    location: 'Kuurne, België',
+    description: 'Rijd zelf het legendarische KBK-parcours door de Vlaamse Ardennen, een dag voor de profs. Keuze uit 4 afstanden met après-bike in de Kubox.',
+    distance: '65 / 85 / 110 / 135 km',
+    price: 'Zie organisator',
+    url: 'https://kuurne-brussel-kuurne.be/cyclo/',
     category: 'upcoming'
   },
   {
@@ -28,16 +30,18 @@ export const events: Event[] = [
     location: 'Parking De Valkaart, Oostkamp',
     description: 'Traditionele ontbijtrit met aansluitend gezellig samenzijn en heerlijk ontbijt. Voor alle niveaus en perfect om het seizoen te starten.',
     distance: '40-80 km (meerdere routes)',
-    price: '€15 per persoon',
+    price: 'Gratis',
     category: 'annual'
   },
   {
     title: 'Jempi Monseré Classic',
     date: '2026-03-14',
     time: '09:00',
-    location: 'Zevekote / De Haan',
+    location: 'Roeselare, België',
     description: 'Eerbetoon aan Jempi Monseré, wereldkampioen wielrennen 1970. Mooie toeristische rit door West-Vlaanderen.',
-    distance: 'Verschillende afstanden',
+    distance: '40 / 65 / 90 / 105 / 135 / 155 km',
+    price: 'Zie organisator',
+    url: 'https://www.wheelsinaction.be/heuvelklassieker.html',
     category: 'upcoming'
   },
   {
@@ -47,6 +51,7 @@ export const events: Event[] = [
     location: 'Oost-Vlaanderen',
     description: 'Meefietsen met de legendarische Ronde van Vlaanderen! Volg (delen van) het parcours van de profs en ervaar de hellingen.',
     distance: 'Verschillende parcours mogelijk',
+    price: 'Zie organisator',
     category: 'upcoming'
   },
   {
@@ -56,6 +61,7 @@ export const events: Event[] = [
     location: 'Parking De Valkaart, Oostkamp',
     description: 'Dé dag van WTC De Putters! Jaarlijks clubevenement met ritten voor alle niveaus, gezelligheid en samenhorigheid.',
     distance: 'Meerdere routes beschikbaar',
+    price: 'Gratis',
     category: 'annual'
   },
   {
@@ -75,6 +81,7 @@ export const events: Event[] = [
     location: 'Circuit Spa-Francorchamps',
     description: 'Fietsen op het legendarische F1-circuit van Spa! Een unieke ervaring met uitdagende hellingen zoals Eau Rouge en Raidillon.',
     distance: 'Rondes op circuit',
+    price: 'Zie organisator',
     category: 'upcoming'
   },
   {
@@ -84,6 +91,7 @@ export const events: Event[] = [
     location: 'Ingooigem',
     description: 'Traditioneel wielerevenement in Ingooigem. Criteriumsfeer met meerdere parcoursmogelijkheden voor verschillende niveaus.',
     distance: 'Verschillende afstanden',
+    price: 'Zie organisator',
     category: 'upcoming'
   },
   {

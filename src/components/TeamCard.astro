@@ -19,10 +19,10 @@ const { member } = Astro.props;
   </div>
 
   <!-- Name & Role -->
-  <h3 class="text-xl font-heading font-bold text-encox-heading mb-1">
+  <h3 class="text-xl font-heading font-bold text-putters-heading mb-1">
     {member.name}
   </h3>
-  <div class="text-encox-primary font-semibold mb-3">
+  <div class="text-putters-primary font-semibold mb-3">
     {member.role}
   </div>
 
@@ -33,7 +33,7 @@ const { member } = Astro.props;
         {member.email && (
           <a
             href={`mailto:${member.email}`}
-            class="text-sm text-encox-text hover:text-encox-primary transition-colors flex items-center gap-1"
+            class="text-sm text-putters-text hover:text-putters-primary transition-colors flex items-center gap-1"
             title="Email"
           >
             <span>📧</span>
@@ -44,7 +44,7 @@ const { member } = Astro.props;
             href={member.stravaUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="text-sm text-encox-text hover:text-encox-secondary transition-colors flex items-center gap-1"
+            class="text-sm text-putters-text hover:text-putters-secondary transition-colors flex items-center gap-1"
             title="Strava profiel"
           >
             <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">

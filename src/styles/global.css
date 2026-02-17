@@ -1,16 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@500;700&family=Archivo:wght@400;600&display=swap');
 @import "tailwindcss";
 
-/* Encox Original Template Colors */
+/* WTC De Putters Theme Colors */
 @theme {
-  /* Exact colors from Encox template */
-  --color-encox-primary: #D45D79;        /* Pink - original */
-  --color-encox-secondary: #24A19C;      /* Teal - cycling theme */
-  --color-encox-blue: #293B5F;           /* Dark blue - original */
-  --color-encox-heading: #261C2C;        /* Dark purple - original */
-  --color-encox-text: #666666;           /* Gray text - original */
-  --color-encox-gray-bg: #f3f5fa;        /* Light gray - original */
-  --color-encox-footer: #0e293e;         /* Footer dark - original */
+  /* Theme colors */
+  --color-putters-primary: #D45D79;        /* Pink - original */
+  --color-putters-secondary: #24A19C;      /* Teal - cycling theme */
+  --color-putters-blue: #293B5F;           /* Dark blue - original */
+  --color-putters-heading: #261C2C;        /* Dark purple - original */
+  --color-putters-text: #666666;           /* Gray text - original */
+  --color-putters-gray-bg: #f3f5fa;        /* Light gray - original */
+  --color-putters-footer: #0e293e;         /* Footer dark - original */
 
   /* Fonts */
   --font-heading: 'Lexend', sans-serif;
@@ -22,7 +22,7 @@
   --text-subtitle: 28px;
 }
 
-/* Base Typography - Original Encox */
+/* Base Typography */
 body {
   font-family: 'Archivo', sans-serif;
   font-size: 16px;
@@ -37,7 +37,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.04em;
 }
 
-/* Encox Button Styles - Original */
+/* Button Styles */
 .btn-primary {
   display: inline-block;
   padding: 1rem 2rem;
@@ -126,7 +126,7 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* Section Titles - Original Encox */
+/* Section Titles */
 .section-title {
   font-family: 'Lexend', sans-serif;
   font-size: 45px;

@@ -2,6 +2,7 @@ export interface Group {
   name: string;
   description: string;
   speed: string;
+  whatsappUrl?: string;
   wednesday: {
     time: string;
     timeSummer: string;
@@ -20,6 +21,7 @@ export const groups: Group[] = [
     name: 'Groep A',
     description: 'Voor de snelle rijders die op zoek zijn naar uitdaging en hoge snelheden.',
     speed: '38+ km/h',
+    whatsappUrl: 'https://chat.whatsapp.com/Kskpm5n2nyD5St7dofkb0N',
     wednesday: {
       time: '19:00',
       timeSummer: '19:00',
@@ -36,6 +38,7 @@ export const groups: Group[] = [
     name: 'Groep B',
     description: 'Een sportieve groep voor gevorderde wielrenners met een goed niveau.',
     speed: '33-38 km/h',
+    whatsappUrl: 'https://chat.whatsapp.com/DWFBeN7bJBV2H9JhpAoHiu',
     wednesday: {
       time: '19:00',
       timeSummer: '19:00',

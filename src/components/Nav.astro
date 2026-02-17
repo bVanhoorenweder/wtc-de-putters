@@ -19,13 +19,13 @@ const navLinks = [
       <li>
         <a
           href={link.href}
-          class={`font-semibold transition-colors hover:text-encox-primary relative ${
-            currentPath === link.href ? 'text-encox-primary' : 'text-encox-heading'
+          class={`font-semibold transition-colors hover:text-putters-primary relative ${
+            currentPath === link.href ? 'text-putters-primary' : 'text-putters-heading'
           }`}
         >
           {link.label}
           {currentPath === link.href && (
-            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-encox-primary"></span>
+            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-putters-primary"></span>
           )}
         </a>
       </li>
@@ -33,7 +33,7 @@ const navLinks = [
     <li>
       <a
         href="/lid-worden"
-        class="px-6 py-2 bg-gradient-to-r from-encox-primary to-encox-secondary text-white rounded-full font-semibold hover:opacity-90 transition shadow-md hover:shadow-lg hover:scale-105"
+        class="px-6 py-2 bg-putters-primary text-white rounded-full font-semibold hover:bg-putters-primary/90 transition-colors shadow-md"
       >
         Lid worden
       </a>
@@ -44,7 +44,7 @@ const navLinks = [
 <!-- Mobile Menu Button -->
 <button
   id="mobile-menu-btn"
-  class="lg:hidden text-encox-heading p-2"
+  class="lg:hidden text-putters-heading p-2"
   aria-label="Toggle menu"
 >
   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -61,7 +61,7 @@ const navLinks = [
     <!-- Close Button -->
     <button
       id="mobile-menu-close"
-      class="absolute top-4 right-4 text-encox-heading p-2"
+      class="absolute top-4 right-4 text-putters-heading p-2"
       aria-label="Close menu"
     >
       <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -71,7 +71,7 @@ const navLinks = [
 
     <!-- Mobile Menu Header -->
     <div class="mb-8 mt-4">
-      <div class="font-heading font-bold text-2xl text-encox-heading">Menu</div>
+      <div class="font-heading font-bold text-2xl text-putters-heading">Menu</div>
     </div>
 
     <!-- Mobile Navigation Links -->
@@ -82,8 +82,8 @@ const navLinks = [
             href={link.href}
             class={`block py-3 px-4 rounded-lg font-semibold transition-colors ${
               currentPath === link.href
-                ? 'bg-encox-primary text-white'
-                : 'text-encox-heading hover:bg-encox-gray-bg'
+                ? 'bg-putters-primary text-white'
+                : 'text-putters-heading hover:bg-putters-gray-bg'
             }`}
           >
             {link.label}
@@ -96,7 +96,7 @@ const navLinks = [
     <div class="mt-8">
       <a
         href="/lid-worden"
-        class="block text-center px-6 py-3 bg-gradient-to-r from-encox-primary to-encox-secondary text-white rounded-full font-heading font-bold hover:opacity-90 transition shadow-lg hover:scale-105"
+        class="block text-center px-6 py-3 bg-putters-primary text-white rounded-full font-heading font-bold hover:bg-putters-primary/90 transition-colors shadow-md"
       >
         Lid worden
       </a>
@@ -105,14 +105,14 @@ const navLinks = [
     <!-- Mobile Social Links -->
     <div class="mt-8 pt-8 border-t border-gray-200">
       <div class="space-y-3 px-4">
-        <a href="https://facebook.com" target="_blank" rel="noopener" class="flex items-center gap-3 text-encox-heading hover:text-encox-primary transition-colors">
-          <span class="w-10 h-10 bg-encox-gray-bg rounded-full flex items-center justify-center text-xl font-bold">
+        <a href="https://facebook.com" target="_blank" rel="noopener" class="flex items-center gap-3 text-putters-heading hover:text-putters-primary transition-colors">
+          <span class="w-10 h-10 bg-putters-gray-bg rounded-full flex items-center justify-center text-xl font-bold">
             f
           </span>
           <span class="text-sm font-semibold">Facebook</span>
         </a>
-        <div class="flex items-center gap-3 text-encox-text">
-          <span class="w-10 h-10 bg-encox-gray-bg rounded-full flex items-center justify-center text-xl">
+        <div class="flex items-center gap-3 text-putters-text">
+          <span class="w-10 h-10 bg-putters-gray-bg rounded-full flex items-center justify-center text-xl">
             💬
           </span>
           <div>

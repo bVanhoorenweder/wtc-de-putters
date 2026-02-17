@@ -7,7 +7,6 @@ interface Props {
 
 const { rit } = Astro.props;
 
-// Difficulty config - now just for icons and badges
 const difficultyConfig = {
   'Makkelijk': { icon: '😊', badge: 'bg-green-500/20 text-green-700 border border-green-300' },
   'Gemiddeld': { icon: '💪', badge: 'bg-orange-500/20 text-orange-700 border border-orange-300' },
@@ -16,23 +15,22 @@ const difficultyConfig = {
 
 const config = difficultyConfig[rit.difficulty];
 
-// Use same gradient as sponsors and events
-const headerGradient = 'from-encox-primary to-encox-secondary';
+const headerGradient = 'from-putters-primary to-putters-secondary';
 ---
 
 <div class="h-full flex flex-col group bg-white rounded-xl shadow-lg hover:shadow-2xl transition-all duration-400 overflow-hidden hover:-translate-y-2">
-  <!-- Header with gradient - same style as sponsors/events -->
+  <!-- Header with gradient -->
   <div class={`bg-gradient-to-r ${headerGradient} text-white p-6 relative overflow-hidden flex-shrink-0`}>
     <div class="absolute top-0 right-0 text-9xl opacity-10 select-none">🚴</div>
 
     <!-- Difficulty badge -->
     <div class="absolute top-4 right-4">
-      <span class={`${config.badge} px-3 py-1 rounded-full text-xs font-bold`}>
+      <span class="bg-white/20 text-white px-3 py-1 rounded-full text-xs font-bold">
         {config.icon} {rit.difficulty}
       </span>
     </div>
 
-    <div class="relative z-10 mt-8">
+    <div class="relative z-10">
       <div class="text-3xl font-heading font-bold mb-3">{rit.title}</div>
       <div class="flex flex-wrap gap-3 text-sm opacity-90">
         <span class="bg-white/20 px-3 py-1 rounded-full">📏 {rit.distance} km</span>
@@ -42,20 +40,19 @@ const headerGradient = 'from-encox-primary to-encox-secondary';
     </div>
   </div>
 
-  <!-- Content - flexbox for equal height -->
+  <!-- Content -->
   <div class="flex-1 flex flex-col p-6">
-    <!-- Description -->
-    <p class="text-encox-text leading-relaxed mb-4 flex-1">
+    <p class="text-putters-text leading-relaxed mb-4 flex-1">
       {rit.description}
     </p>
 
     <!-- Highlights -->
     {rit.highlights && rit.highlights.length > 0 && (
       <div class="mb-6">
-        <h4 class="font-heading font-bold text-sm text-encox-heading mb-2 uppercase">Highlights:</h4>
+        <h4 class="font-heading font-bold text-sm text-putters-heading mb-2 uppercase">Highlights:</h4>
         <div class="flex flex-wrap gap-2">
           {rit.highlights.map(highlight => (
-            <span class="bg-encox-gray-bg text-encox-text px-3 py-1 rounded-full text-sm">
+            <span class="bg-putters-gray-bg text-putters-text px-3 py-1 rounded-full text-sm">
               ✓ {highlight}
             </span>
           ))}
@@ -65,25 +62,20 @@ const headerGradient = 'from-encox-primary to-encox-secondary';
 
     <!-- Download Buttons -->
     <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-gray-200 mt-auto">
-      <!-- GPX Download -->
       <a
         href={rit.gpxUrl}
         download
-        class="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-gradient-to-r from-encox-primary to-encox-secondary text-white rounded-lg font-semibold hover:opacity-90 transition-all hover:scale-105 shadow-md text-center"
+        class="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-putters-primary text-white rounded-lg font-semibold hover:bg-putters-primary/90 transition-colors text-center"
       >
-        <span>📥</span>
-        <span>Download GPX</span>
+        Download GPX
       </a>
-
-      <!-- Garmin Connect -->
       <a
         href={rit.garminUrl || '#'}
         target="_blank"
         rel="noopener"
-        class="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-encox-blue text-white rounded-lg font-semibold hover:bg-opacity-90 transition-all hover:scale-105 shadow-md text-center"
+        class="flex-1 flex items-center justify-center gap-2 px-4 py-3 bg-putters-blue text-white rounded-lg font-semibold hover:bg-putters-blue/90 transition-colors text-center"
       >
-        <span>📍</span>
-        <span>Garmin Connect</span>
+        Garmin Connect
       </a>
     </div>
   </div>

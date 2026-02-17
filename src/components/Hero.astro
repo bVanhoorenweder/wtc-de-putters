@@ -23,7 +23,7 @@ const {
 ---
 
 {variant === 'default' && (
-  <section class="relative bg-gradient-to-br from-encox-primary to-encox-blue text-white py-32 overflow-hidden">
+  <section class="relative bg-gradient-to-br from-putters-primary to-putters-blue text-white py-32 overflow-hidden">
     <!-- Background Pattern -->
     <div class="absolute inset-0 opacity-10">
       <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
@@ -51,11 +51,11 @@ const {
 )}
 
 {variant === 'minimal' && (
-  <section class="bg-gradient-to-r from-encox-gray-bg to-white py-16 border-b border-gray-200">
+  <section class="bg-gradient-to-r from-putters-gray-bg to-white py-16 border-b border-gray-200">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-h2 font-heading font-bold text-encox-heading mb-4">{title}</h1>
-        {subtitle && <p class="text-lg text-encox-text">{subtitle}</p>}
+        <h1 class="text-h2 font-heading font-bold text-putters-heading mb-4">{title}</h1>
+        {subtitle && <p class="text-lg text-putters-text">{subtitle}</p>}
       </div>
     </div>
   </section>
@@ -67,8 +67,8 @@ const {
       <div class="grid lg:grid-cols-2 gap-12 items-center">
         <!-- Content Left -->
         <div>
-          <h1 class="text-hero font-heading font-bold text-encox-heading mb-6 leading-tight">{title}</h1>
-          {subtitle && <p class="text-subtitle text-encox-text mb-8 leading-relaxed">{subtitle}</p>}
+          <h1 class="text-hero font-heading font-bold text-putters-heading mb-6 leading-tight">{title}</h1>
+          {subtitle && <p class="text-subtitle text-putters-text mb-8 leading-relaxed">{subtitle}</p>}
           {showCta && (
             <a href={ctaLink} class="btn-secondary">
               {ctaText}
@@ -78,12 +78,12 @@ const {
 
         <!-- Image Right -->
         <div class="relative">
-          <div class="bg-gradient-to-br from-encox-primary to-encox-blue rounded-2xl h-96 flex items-center justify-center shadow-2xl">
+          <div class="bg-gradient-to-br from-putters-primary to-putters-blue rounded-2xl h-96 flex items-center justify-center shadow-2xl">
             <span class="text-white text-8xl font-heading opacity-20">🚴</span>
           </div>
           <!-- Decorative circle -->
-          <div class="absolute -top-6 -right-6 w-24 h-24 bg-encox-secondary rounded-full opacity-20"></div>
-          <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-encox-primary rounded-full opacity-10"></div>
+          <div class="absolute -top-6 -right-6 w-24 h-24 bg-putters-secondary rounded-full opacity-20"></div>
+          <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-putters-primary rounded-full opacity-10"></div>
         </div>
       </div>
     </div>
@@ -91,17 +91,17 @@ const {
 )}
 
 {variant === 'cta-focus' && (
-  <section class="bg-gradient-to-br from-encox-secondary via-encox-primary to-encox-blue text-white py-24">
+  <section class="bg-gradient-to-br from-putters-secondary via-putters-primary to-putters-blue text-white py-24">
     <div class="container mx-auto px-4">
       <div class="max-w-5xl mx-auto text-center">
         <h1 class="text-hero font-heading font-bold mb-6 leading-tight">{title}</h1>
         {subtitle && <p class="text-subtitle mb-12 leading-relaxed">{subtitle}</p>}
 
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-          <a href="/lid-worden" class="px-10 py-5 bg-white text-encox-primary rounded-full font-heading font-bold text-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+          <a href="/lid-worden" class="px-10 py-5 bg-white text-putters-primary rounded-full font-heading font-bold text-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
             Word Lid - €60/jaar
           </a>
-          <a href="/groepen" class="px-10 py-5 bg-transparent border-2 border-white text-white rounded-full font-heading font-bold text-xl hover:bg-white hover:text-encox-primary transition-all duration-300">
+          <a href="/groepen" class="px-10 py-5 bg-transparent border-2 border-white text-white rounded-full font-heading font-bold text-xl hover:bg-white hover:text-putters-primary transition-all duration-300">
             Bekijk Groepen
           </a>
         </div>
@@ -111,7 +111,7 @@ const {
 )}
 
 {variant === 'breadcrumb' && (
-  <section class="bg-gradient-to-r from-encox-gray-bg to-white py-12 border-b border-gray-200">
+  <section class="bg-gradient-to-r from-putters-gray-bg to-white py-12 border-b border-gray-200">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
         {breadcrumbs.length > 0 && (
@@ -121,15 +121,15 @@ const {
                 {crumb.href ? (
                   <a href={crumb.href}>{crumb.label}</a>
                 ) : (
-                  <span class="text-encox-heading font-semibold">{crumb.label}</span>
+                  <span class="text-putters-heading font-semibold">{crumb.label}</span>
                 )}
                 {index < breadcrumbs.length - 1 && <span>/</span>}
               </>
             ))}
           </nav>
         )}
-        <h1 class="text-h2 font-heading font-bold text-encox-heading">{title}</h1>
-        {subtitle && <p class="text-lg text-encox-text mt-3">{subtitle}</p>}
+        <h1 class="text-h2 font-heading font-bold text-putters-heading">{title}</h1>
+        {subtitle && <p class="text-lg text-putters-text mt-3">{subtitle}</p>}
       </div>
     </div>
   </section>

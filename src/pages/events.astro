@@ -6,6 +6,18 @@ import { events } from '../data/events';
 
 // Sort all events by date
 const sortedEvents = events.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
+// Compute display categories based on date
+const now = new Date();
+const oneMonthFromNow = new Date(now.getFullYear(), now.getMonth() + 1, now.getDate());
+
+function getDisplayCategory(event: { date: string; category: string }) {
+  if (event.category === 'annual') return 'annual';
+  const eventDate = new Date(event.date);
+  if (eventDate < now) return 'past';
+  if (eventDate <= oneMonthFromNow) return 'binnenkort';
+  return 'later';
+}
 ---
 
 <BaseLayout title="Events - WTC De Putters">
@@ -20,31 +32,37 @@ const sortedEvents = events.sort((a, b) => new Date(a.date).getTime() - new Date
   <section class="section-padding bg-white" data-cue="fadeIn">
     <div class="container mx-auto px-4">
       <!-- Filter Buttons -->
-      <div class="flex flex-wrap justify-center gap-4 mb-12">
+      <div class="flex flex-wrap justify-center gap-3 mb-12">
         <button
-          class="event-filter px-8 py-3 rounded-full font-heading font-bold text-lg transition-all duration-300 bg-gradient-to-r from-encox-primary to-encox-secondary text-white shadow-lg hover:shadow-xl hover:scale-105"
+          class="event-filter active px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-primary text-white"
           data-filter="all"
         >
-          📅 Alle Events
+          Alle Events
         </button>
         <button
-          class="event-filter px-8 py-3 rounded-full font-heading font-bold text-lg transition-all duration-300 bg-white border-2 border-encox-primary text-encox-primary hover:bg-encox-primary hover:text-white"
-          data-filter="upcoming"
+          class="event-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-gray-bg text-putters-text hover:bg-putters-primary hover:text-white"
+          data-filter="binnenkort"
         >
-          ✨ Binnenkort
+          Binnenkort
         </button>
         <button
-          class="event-filter px-8 py-3 rounded-full font-heading font-bold text-lg transition-all duration-300 bg-white border-2 border-encox-secondary text-encox-secondary hover:bg-encox-secondary hover:text-white"
+          class="event-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-gray-bg text-putters-text hover:bg-putters-primary hover:text-white"
+          data-filter="later"
+        >
+          Later dit jaar
+        </button>
+        <button
+          class="event-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-gray-bg text-putters-text hover:bg-putters-primary hover:text-white"
           data-filter="annual"
         >
-          🔄 Jaarlijks WTC Events
+          Putters Events
         </button>
       </div>
 
       <!-- Events Grid -->
       <div id="events-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
         {sortedEvents.map((event, index) => (
-          <div data-cue="slideInUp" data-cue-delay={index * 50} class="h-full event-item" data-category={event.category}>
+          <div data-cue="slideInUp" data-cue-delay={index * 50} class="h-full event-item" data-category={getDisplayCategory(event)}>
             <EventCard event={event} />
           </div>
         ))}
@@ -53,38 +71,36 @@ const sortedEvents = events.sort((a, b) => new Date(a.date).getTime() - new Date
   </section>
 
   <!-- Event Types Info -->
-  <section class="section-padding bg-white" data-cue="fadeIn">
+  <section class="section-padding bg-putters-gray-bg" data-cue="fadeIn">
     <div class="container mx-auto px-4">
       <div class="max-w-5xl mx-auto">
-        <h2 class="text-h2 font-heading font-bold text-encox-heading text-center mb-12">
-          Verschillende Event Types
-        </h2>
+        <h2 class="section-title">Verschillende Events</h2>
 
         <div class="grid md:grid-cols-3 gap-8">
           <!-- Sportieve Events -->
-          <div class="text-center p-8 bg-gradient-to-br from-encox-primary/10 to-green-500/10 rounded-xl" data-cue="slideInUp">
-            <div class="text-6xl mb-4">🚴‍♂️</div>
-            <h3 class="text-xl font-heading font-bold text-encox-heading mb-3">Sportieve Ritten</h3>
-            <p class="text-encox-text">
+          <div class="text-center p-8 bg-white rounded-lg shadow-md" data-cue="slideInUp">
+            <div class="text-5xl mb-4">🚴‍♂️</div>
+            <h3 class="text-xl font-heading font-bold text-putters-heading mb-3">Sportieve Ritten</h3>
+            <p class="text-putters-text">
               Wielerweekends, club kampioenschappen en speciale uitdagende ritten voor de sportieve leden.
             </p>
           </div>
 
           <!-- Sociale Events -->
-          <div class="text-center p-8 bg-gradient-to-br from-encox-secondary/10 to-pink-500/10 rounded-xl" data-cue="slideInUp" data-cue-delay="100">
-            <div class="text-6xl mb-4">🎉</div>
-            <h3 class="text-xl font-heading font-bold text-encox-heading mb-3">Sociale Evenementen</h3>
-            <p class="text-encox-text">
-              Nieuwjaarsrecepties, BBQ's en family days waar gezelligheid voorop staat.
+          <div class="text-center p-8 bg-white rounded-lg shadow-md" data-cue="slideInUp" data-cue-delay="100">
+            <div class="text-5xl mb-4">🎉</div>
+            <h3 class="text-xl font-heading font-bold text-putters-heading mb-3">Sociale Evenementen</h3>
+            <p class="text-putters-text">
+              Nieuwjaarsreceptie, ontbijtritten en Puttersdag waar gezelligheid voorop staat.
             </p>
           </div>
 
           <!-- Recreatieve Events -->
-          <div class="text-center p-8 bg-gradient-to-br from-encox-blue/10 to-blue-500/10 rounded-xl" data-cue="slideInUp" data-cue-delay="200">
-            <div class="text-6xl mb-4">🌄</div>
-            <h3 class="text-xl font-heading font-bold text-encox-heading mb-3">Ontspanning</h3>
-            <p class="text-encox-text">
-              Ontbijtritten en toeristische uitstappen waar geniet van fietsen centraal staat.
+          <div class="text-center p-8 bg-white rounded-lg shadow-md" data-cue="slideInUp" data-cue-delay="200">
+            <div class="text-5xl mb-4">🌄</div>
+            <h3 class="text-xl font-heading font-bold text-putters-heading mb-3">Ontspanning</h3>
+            <p class="text-putters-text">
+              Samen genieten van het fietsen, de natuur en de gezelligheid onderweg. Zonder druk, op eigen tempo.
             </p>
           </div>
         </div>
@@ -93,9 +109,9 @@ const sortedEvents = events.sort((a, b) => new Date(a.date).getTime() - new Date
   </section>
 
   <!-- CTA Section -->
-  <section class="py-16 bg-gradient-to-br from-encox-primary to-green-600 text-white">
+  <section class="py-16 bg-white">
     <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto text-center">
+      <div class="max-w-4xl mx-auto text-center bg-gradient-to-br from-putters-primary to-putters-blue text-white rounded-2xl p-12">
         <h3 class="text-4xl font-heading font-bold mb-6">Wil je meedoen?</h3>
         <p class="text-xl mb-8 opacity-90">
           Interesse in een van onze events? Neem contact op voor meer info of om in te schrijven!
@@ -103,13 +119,13 @@ const sortedEvents = events.sort((a, b) => new Date(a.date).getTime() - new Date
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a
             href="mailto:bestuur@wtcdeputters.be?subject=Interesse%20in%20events"
-            class="px-10 py-4 bg-white text-encox-primary rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
+            class="px-10 py-4 bg-white text-putters-primary rounded-full font-heading font-bold text-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
           >
-            📧 Contact Bestuur
+            Contact Bestuur
           </a>
           <a
             href="/lid-worden"
-            class="px-10 py-4 bg-transparent border-2 border-white text-white rounded-full font-heading font-bold text-lg hover:bg-white hover:text-encox-primary transition-all duration-300"
+            class="px-10 py-4 bg-transparent border-2 border-white text-white rounded-full font-heading font-bold text-lg hover:bg-white hover:text-putters-primary transition-all duration-300"
           >
             Word Lid
           </a>
@@ -143,18 +159,11 @@ const sortedEvents = events.sort((a, b) => new Date(a.date).getTime() - new Date
           // Update button styles
           filterButtons.forEach(btn => {
             if (btn === button) {
-              btn.classList.remove('bg-white', 'border-2', 'border-encox-primary', 'border-encox-secondary', 'text-encox-primary', 'text-encox-secondary');
-              btn.classList.add('bg-gradient-to-r', 'from-encox-primary', 'to-encox-secondary', 'text-white', 'shadow-lg');
+              btn.classList.remove('bg-putters-gray-bg', 'text-putters-text');
+              btn.classList.add('active', 'bg-putters-primary', 'text-white');
             } else {
-              btn.classList.remove('bg-gradient-to-r', 'from-encox-primary', 'to-encox-secondary', 'text-white', 'shadow-lg');
-              const filterType = btn.getAttribute('data-filter');
-              if (filterType === 'upcoming') {
-                btn.classList.add('bg-white', 'border-2', 'border-encox-primary', 'text-encox-primary');
-              } else if (filterType === 'annual') {
-                btn.classList.add('bg-white', 'border-2', 'border-encox-secondary', 'text-encox-secondary');
-              } else {
-                btn.classList.add('bg-white', 'border-2', 'border-encox-primary', 'text-encox-primary');
-              }
+              btn.classList.remove('active', 'bg-putters-primary', 'text-white');
+              btn.classList.add('bg-putters-gray-bg', 'text-putters-text');
             }
           });
 

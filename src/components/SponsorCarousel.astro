@@ -2,14 +2,14 @@
 import { sponsors } from '../data/sponsors';
 ---
 
-<section class="section-padding bg-gradient-to-br from-encox-gray-bg to-white" data-cue="fadeIn">
+<section class="section-padding bg-gradient-to-br from-putters-gray-bg to-white" data-cue="fadeIn">
   <div class="container mx-auto px-4">
     <!-- Header with decorative elements -->
     <div class="text-center mb-16 relative">
       <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-8 text-8xl opacity-5">🤝</div>
-      <h2 class="text-h2 font-heading font-bold text-encox-heading mb-4 relative">Onze Sponsors</h2>
-      <div class="w-24 h-1 bg-gradient-to-r from-encox-primary to-encox-secondary mx-auto mb-4"></div>
-      <p class="text-lg text-encox-text max-w-2xl mx-auto">
+      <h2 class="text-h2 font-heading font-bold text-putters-heading mb-4 relative">Onze Sponsors</h2>
+      <div class="w-24 h-1 bg-gradient-to-r from-putters-primary to-putters-secondary mx-auto mb-4"></div>
+      <p class="text-lg text-putters-text max-w-2xl mx-auto">
         Met trots stellen we onze partners voor die ons helpen groeien
       </p>
     </div>
@@ -17,13 +17,16 @@ import { sponsors } from '../data/sponsors';
     <!-- Sponsors Grid with enhanced styling -->
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">
       {sponsors.map((sponsor, index) => (
-        <div
-          class="group relative bg-white rounded-xl p-8 flex flex-col items-center justify-center hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-encox-primary overflow-hidden min-h-[140px]"
+        <a
+          href={sponsor.website || sponsor.facebook || '#'}
+          target="_blank"
+          rel="noopener"
+          class="group relative bg-white rounded-xl p-8 flex flex-col items-center justify-center hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-putters-primary overflow-hidden min-h-[140px] cursor-pointer"
           data-cue="zoomIn"
           data-cue-delay={index * 75}
         >
           <!-- Decorative gradient background on hover -->
-          <div class="absolute inset-0 bg-gradient-to-br from-encox-primary/5 to-encox-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          <div class="absolute inset-0 bg-gradient-to-br from-putters-primary/5 to-putters-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
           <!-- Sponsor logo or name -->
           {sponsor.logo ? (
@@ -33,30 +36,25 @@ import { sponsors } from '../data/sponsors';
               class="relative max-h-16 max-w-[140px] object-contain group-hover:scale-105 transition-transform duration-300"
             />
           ) : (
-            <div class="relative text-center font-heading font-bold text-encox-heading group-hover:text-encox-primary transition-colors duration-300 text-base leading-snug">
+            <div class="relative text-center font-heading font-bold text-putters-heading group-hover:text-putters-primary transition-colors duration-300 text-base leading-snug">
               {sponsor.name}
             </div>
           )}
 
           <!-- Hover decoration -->
-          <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-encox-primary to-encox-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-        </div>
+          <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-putters-primary to-putters-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+        </a>
       ))}
     </div>
 
-    <!-- CTA with enhanced design -->
+    <!-- CTA -->
     <div class="text-center">
-      <div class="inline-block bg-gradient-to-r from-encox-primary/10 to-encox-secondary/10 rounded-full p-1">
-        <a
-          href="/sponsors"
-          class="block px-10 py-4 bg-white hover:bg-gradient-to-r hover:from-encox-primary hover:to-encox-secondary text-encox-primary hover:text-white rounded-full font-heading font-bold text-lg transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-        >
-          <span class="flex items-center gap-2">
-            <span>Bekijk Alle Sponsors</span>
-            <span class="text-xl">→</span>
-          </span>
-        </a>
-      </div>
+      <a
+        href="/sponsors"
+        class="inline-block px-10 py-4 bg-white text-putters-primary border-2 border-putters-primary rounded-full font-heading font-bold text-lg hover:bg-putters-primary hover:text-white transition-colors duration-300"
+      >
+        Bekijk Alle Sponsors
+      </a>
     </div>
   </div>
 </section>
