@@ -2,11 +2,11 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import RitCard from '../components/RitCard.astro';
-import { ritten, getAllGroups, getDistanceCategories, getDifficultyLevels } from '../data/ritten';
+import { ritten, getAllGroups, getDistanceCategories, getTypes } from '../data/ritten';
 
 const groups = getAllGroups();
 const distanceCategories = getDistanceCategories();
-const difficulties = getDifficultyLevels();
+const types = getTypes();
 ---
 
 <BaseLayout title="Ritten - WTC De Putters">
@@ -17,62 +17,44 @@ const difficulties = getDifficultyLevels();
     variant="default"
   />
 
-  <!-- Filters Section -->
+  <!-- Ritten Section -->
   <section class="section-padding bg-white" data-cue="fadeIn">
     <div class="container mx-auto px-4">
-      <div class="max-w-5xl mx-auto">
-        <!-- Distance Filters -->
-        <div class="mb-8">
-          <h3 class="text-lg font-heading font-bold text-putters-heading mb-4">
-            Filter op Afstand
-          </h3>
-          <div class="flex flex-wrap gap-3">
-            <button
-              class="filter-btn distance-filter active px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-primary text-white"
-              data-filter="all"
-            >
-              Alle Afstanden
-            </button>
-            {distanceCategories.map(category => (
-              <button
-                class="filter-btn distance-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-gray-bg text-putters-text hover:bg-putters-primary hover:text-white"
-                data-filter={`distance-${category.min}-${category.max}`}
-              >
-                {category.label}
-              </button>
-            ))}
-          </div>
-        </div>
-
-        <!-- Difficulty Filters -->
-        <div>
-          <h3 class="text-lg font-heading font-bold text-putters-heading mb-4">
-            Filter op Moeilijkheid
-          </h3>
-          <div class="flex flex-wrap gap-3">
-            <button
-              class="filter-btn difficulty-filter active px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-primary text-white"
-              data-filter="all"
-            >
-              Alle Niveaus
-            </button>
-            {difficulties.map(difficulty => (
-              <button
-                class="filter-btn difficulty-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-gray-bg text-putters-text hover:bg-putters-primary hover:text-white"
-                data-filter={`difficulty-${difficulty}`}
-              >
-                {difficulty}
-              </button>
-            ))}
-          </div>
-        </div>
+      <!-- Filters -->
+      <div class="flex flex-wrap justify-center gap-3 mb-4">
+        <button
+          class="filter-btn distance-filter active px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-primary text-white"
+          data-filter="all"
+        >
+          Alle Afstanden
+        </button>
+        {distanceCategories.map(category => (
+          <button
+            class="filter-btn distance-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-gray-bg text-putters-text hover:bg-putters-primary hover:text-white"
+            data-filter={`distance-${category.min}-${category.max}`}
+          >
+            {category.label}
+          </button>
+        ))}
       </div>
-    </div>
-  </section>
+      <div class="flex flex-wrap justify-center gap-3 mb-12">
+        <button
+          class="filter-btn type-filter active px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-primary text-white"
+          data-filter="all"
+        >
+          Alle Types
+        </button>
+        {types.map(type => (
+          <button
+            class="filter-btn type-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-gray-bg text-putters-text hover:bg-putters-primary hover:text-white"
+            data-filter={`type-${type}`}
+          >
+            {type}
+          </button>
+        ))}
+      </div>
 
-  <!-- Ritten Grid -->
-  <section class="section-padding bg-putters-gray-bg" data-cue="fadeIn">
-    <div class="container mx-auto px-4">
+      <!-- Ritten Grid -->
       <div class="max-w-7xl mx-auto">
         <div id="ritten-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {ritten.map((rit, index) => (
@@ -80,7 +62,7 @@ const difficulties = getDifficultyLevels();
               class="rit-item h-full"
               data-groups={rit.groups.join(',')}
               data-distance={rit.distance}
-              data-difficulty={rit.difficulty}
+              data-type={rit.type}
               data-cue="slideInUp"
               data-cue-delay={index * 100}
             >
@@ -104,14 +86,14 @@ const difficulties = getDifficultyLevels();
   </section>
 
   <!-- Download Info Section -->
-  <section class="section-padding bg-white" data-cue="fadeIn">
+  <section class="section-padding bg-putters-gray-bg" data-cue="fadeIn">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
         <h2 class="section-title">Hoe GPX-bestanden gebruiken?</h2>
 
         <div class="grid md:grid-cols-3 gap-8">
           <!-- Step 1 -->
-          <div class="text-center" data-cue="slideInUp">
+          <div class="text-center p-8 bg-white rounded-lg shadow-md" data-cue="slideInUp">
             <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-putters-primary to-green-500 text-white rounded-full flex items-center justify-center text-3xl font-heading font-bold">
               1
             </div>
@@ -124,7 +106,7 @@ const difficulties = getDifficultyLevels();
           </div>
 
           <!-- Step 2 -->
-          <div class="text-center" data-cue="slideInUp" data-cue-delay="100">
+          <div class="text-center p-8 bg-white rounded-lg shadow-md" data-cue="slideInUp" data-cue-delay="100">
             <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-putters-secondary to-pink-500 text-white rounded-full flex items-center justify-center text-3xl font-heading font-bold">
               2
             </div>
@@ -137,7 +119,7 @@ const difficulties = getDifficultyLevels();
           </div>
 
           <!-- Step 3 -->
-          <div class="text-center" data-cue="slideInUp" data-cue-delay="200">
+          <div class="text-center p-8 bg-white rounded-lg shadow-md" data-cue="slideInUp" data-cue-delay="200">
             <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-putters-blue to-blue-500 text-white rounded-full flex items-center justify-center text-3xl font-heading font-bold">
               3
             </div>
@@ -151,7 +133,7 @@ const difficulties = getDifficultyLevels();
         </div>
 
         <!-- Additional Info -->
-        <div class="mt-12 bg-putters-gray-bg p-6 rounded-lg">
+        <div class="mt-12 bg-white p-6 rounded-lg shadow-md">
           <h4 class="font-heading font-bold text-putters-heading mb-3 flex items-center gap-2">
             <span class="text-2xl">💡</span>
             Tips voor GPX-gebruik
@@ -224,7 +206,7 @@ const difficulties = getDifficultyLevels();
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       let activeDistanceFilter = 'all';
-      let activeDifficultyFilter = 'all';
+      let activeTypeFilter = 'all';
 
       const ritItems = document.querySelectorAll('.rit-item');
       const noResults = document.getElementById('no-results');
@@ -234,7 +216,7 @@ const difficulties = getDifficultyLevels();
 
         ritItems.forEach((item) => {
           const distance = parseInt(item.getAttribute('data-distance') || '0');
-          const difficulty = item.getAttribute('data-difficulty') || '';
+          const type = item.getAttribute('data-type') || '';
 
           // Check distance filter
           let distanceMatch = true;
@@ -243,11 +225,11 @@ const difficulties = getDifficultyLevels();
             distanceMatch = distance >= min && distance <= max;
           }
 
-          // Check difficulty filter
-          const difficultyMatch = activeDifficultyFilter === 'all' || difficulty === activeDifficultyFilter.replace('difficulty-', '');
+          // Check type filter
+          const typeMatch = activeTypeFilter === 'all' || type === activeTypeFilter.replace('type-', '');
 
           // Show/hide item
-          if (distanceMatch && difficultyMatch) {
+          if (distanceMatch && typeMatch) {
             (item as HTMLElement).style.display = 'block';
             visibleCount++;
           } else {
@@ -277,18 +259,18 @@ const difficulties = getDifficultyLevels();
         });
       });
 
-      // Difficulty filter buttons
-      document.querySelectorAll('.difficulty-filter').forEach(btn => {
+      // Type filter buttons
+      document.querySelectorAll('.type-filter').forEach(btn => {
         btn.addEventListener('click', (e) => {
           const target = e.currentTarget as HTMLElement;
-          document.querySelectorAll('.difficulty-filter').forEach(b => {
+          document.querySelectorAll('.type-filter').forEach(b => {
             b.classList.remove('active', 'bg-putters-primary', 'text-white');
             b.classList.add('bg-putters-gray-bg', 'text-putters-text');
           });
           target.classList.add('active', 'bg-putters-primary', 'text-white');
           target.classList.remove('bg-putters-gray-bg', 'text-putters-text');
 
-          activeDifficultyFilter = target.getAttribute('data-filter') || 'all';
+          activeTypeFilter = target.getAttribute('data-filter') || 'all';
           filterRitten();
         });
       });

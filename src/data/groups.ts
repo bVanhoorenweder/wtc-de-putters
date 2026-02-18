@@ -55,6 +55,7 @@ export const groups: Group[] = [
     name: 'Groep C',
     description: 'Voor regelmatige fietsers die een goede ritsnelheid willen behouden.',
     speed: '28-33 km/h',
+    whatsappUrl: 'https://chat.whatsapp.com/FqNAiJB7KkB7En8cqD4LT1',
     wednesday: {
       time: '19:00',
       timeSummer: '19:00',
@@ -71,6 +72,7 @@ export const groups: Group[] = [
     name: 'Groep D',
     description: 'De recreatieve groep voor beginners en rustige fietsers.',
     speed: '25-28 km/h',
+    whatsappUrl: 'https://chat.whatsapp.com/CtIOJnXwJKG3S8noxnDw7p',
     wednesday: {
       time: '19:00',
       timeSummer: '19:00',

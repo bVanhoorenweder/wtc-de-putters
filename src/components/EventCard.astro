@@ -103,10 +103,16 @@ const headerGradient = 'from-putters-primary to-putters-secondary';
       {displayCategory === 'past' ? (
         <span class="text-gray-400 italic">Event afgelopen</span>
       ) : event.category === 'annual' ? (
-        <span class="inline-flex items-center gap-2 text-putters-text text-sm">
+        <a
+          href="https://chat.whatsapp.com/LUoaT6E8uXgAveJzewR8aU"
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center gap-2 text-putters-primary font-bold hover:text-putters-secondary transition-colors group"
+        >
           <span>💬</span>
-          <span>Info via WhatsApp kanalen</span>
-        </span>
+          <span>Meer info / WhatsApp community</span>
+          <span class="group-hover:translate-x-1 transition-transform">→</span>
+        </a>
       ) : (
         <a
           href={event.url || `mailto:info@wtcdeputters.be?subject=Interesse%20in%20${encodeURIComponent(event.title)}`}

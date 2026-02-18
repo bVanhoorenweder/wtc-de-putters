@@ -7,13 +7,13 @@ interface Props {
 
 const { rit } = Astro.props;
 
-const difficultyConfig = {
-  'Makkelijk': { icon: '😊', badge: 'bg-green-500/20 text-green-700 border border-green-300' },
-  'Gemiddeld': { icon: '💪', badge: 'bg-orange-500/20 text-orange-700 border border-orange-300' },
-  'Zwaar': { icon: '🔥', badge: 'bg-red-500/20 text-red-700 border border-red-300' }
+const typeConfig = {
+  'Cyclo': { icon: '🚴', label: 'Cyclo' },
+  'MTB': { icon: '🚵', label: 'MTB' },
+  'Gravel': { icon: '🪨', label: 'Gravel' }
 };
 
-const config = difficultyConfig[rit.difficulty];
+const config = typeConfig[rit.type];
 
 const headerGradient = 'from-putters-primary to-putters-secondary';
 ---
@@ -23,10 +23,10 @@ const headerGradient = 'from-putters-primary to-putters-secondary';
   <div class={`bg-gradient-to-r ${headerGradient} text-white p-6 relative overflow-hidden flex-shrink-0`}>
     <div class="absolute top-0 right-0 text-9xl opacity-10 select-none">🚴</div>
 
-    <!-- Difficulty badge -->
+    <!-- Type badge -->
     <div class="absolute top-4 right-4">
       <span class="bg-white/20 text-white px-3 py-1 rounded-full text-xs font-bold">
-        {config.icon} {rit.difficulty}
+        {config.icon} {config.label}
       </span>
     </div>
 

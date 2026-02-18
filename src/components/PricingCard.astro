@@ -56,6 +56,8 @@ const {
   <!-- CTA Button -->
   <a
     href={ctaLink}
+    target={ctaLink.startsWith('/') ? undefined : '_blank'}
+    rel={ctaLink.startsWith('/') ? undefined : 'noopener'}
     class={`block text-center px-8 py-4 rounded-full font-heading font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 ${
       highlighted
         ? 'bg-putters-secondary text-white'

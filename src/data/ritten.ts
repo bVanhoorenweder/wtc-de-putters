@@ -4,7 +4,7 @@ export interface Rit {
   distance: number; // in km
   elevation?: number; // in meters
   groups: ('A' | 'B' | 'C' | 'D')[]; // Welke groepen
-  difficulty: 'Makkelijk' | 'Gemiddeld' | 'Zwaar';
+  type: 'Cyclo' | 'MTB' | 'Gravel';
   gpxUrl: string;
   garminUrl?: string;
   highlights?: string[]; // Bijzondere punten
@@ -18,7 +18,7 @@ export const ritten: Rit[] = [
     distance: 103,
     elevation: 200,
     groups: ['A', 'B'],
-    difficulty: 'Gemiddeld',
+    type: 'Cyclo',
     duration: '3u30 - 4u',
     gpxUrl: '/gpx/diksmuide-103km.gpx',
     garminUrl: 'https://connect.garmin.com/app/course/145131576',
@@ -30,7 +30,7 @@ export const ritten: Rit[] = [
     distance: 107,
     elevation: 154,
     groups: ['A', 'B'],
-    difficulty: 'Gemiddeld',
+    type: 'Cyclo',
     duration: '3u30 - 4u',
     gpxUrl: '/gpx/hoofdplaat-107km.gpx',
     garminUrl: 'https://connect.garmin.com/app/course/154806088',
@@ -48,4 +48,4 @@ export const getDistanceCategories = () => [
   { label: '> 100 km', min: 101, max: 999 }
 ];
 
-export const getDifficultyLevels = () => ['Makkelijk', 'Gemiddeld', 'Zwaar'] as const;
+export const getTypes = () => ['Cyclo', 'MTB', 'Gravel'] as const;
