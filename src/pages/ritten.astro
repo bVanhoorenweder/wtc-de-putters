@@ -18,7 +18,7 @@ const types = getTypes();
   />
 
   <!-- Ritten Section -->
-  <section class="section-padding bg-white" data-cue="fadeIn">
+  <section class="section-padding bg-putters-gray-bg" data-cue="fadeIn">
     <div class="container mx-auto px-4">
       <!-- Filters -->
       <div class="flex flex-wrap justify-center gap-3 mb-4">
@@ -30,7 +30,7 @@ const types = getTypes();
         </button>
         {distanceCategories.map(category => (
           <button
-            class="filter-btn distance-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-gray-bg text-putters-text hover:bg-putters-primary hover:text-white"
+            class="filter-btn distance-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-white text-putters-text shadow-sm hover:bg-putters-primary hover:text-white"
             data-filter={`distance-${category.min}-${category.max}`}
           >
             {category.label}
@@ -46,7 +46,7 @@ const types = getTypes();
         </button>
         {types.map(type => (
           <button
-            class="filter-btn type-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-gray-bg text-putters-text hover:bg-putters-primary hover:text-white"
+            class="filter-btn type-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-white text-putters-text shadow-sm hover:bg-putters-primary hover:text-white"
             data-filter={`type-${type}`}
           >
             {type}
@@ -86,14 +86,14 @@ const types = getTypes();
   </section>
 
   <!-- Download Info Section -->
-  <section class="section-padding bg-putters-gray-bg" data-cue="fadeIn">
+  <section class="section-padding bg-white" data-cue="fadeIn">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
         <h2 class="section-title">Hoe GPX-bestanden gebruiken?</h2>
 
         <div class="grid md:grid-cols-3 gap-8">
           <!-- Step 1 -->
-          <div class="text-center p-8 bg-white rounded-lg shadow-md" data-cue="slideInUp">
+          <div class="text-center p-8 bg-putters-gray-bg rounded-lg shadow-md" data-cue="slideInUp">
             <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-putters-primary to-green-500 text-white rounded-full flex items-center justify-center text-3xl font-heading font-bold">
               1
             </div>
@@ -106,7 +106,7 @@ const types = getTypes();
           </div>
 
           <!-- Step 2 -->
-          <div class="text-center p-8 bg-white rounded-lg shadow-md" data-cue="slideInUp" data-cue-delay="100">
+          <div class="text-center p-8 bg-putters-gray-bg rounded-lg shadow-md" data-cue="slideInUp" data-cue-delay="100">
             <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-putters-secondary to-pink-500 text-white rounded-full flex items-center justify-center text-3xl font-heading font-bold">
               2
             </div>
@@ -119,7 +119,7 @@ const types = getTypes();
           </div>
 
           <!-- Step 3 -->
-          <div class="text-center p-8 bg-white rounded-lg shadow-md" data-cue="slideInUp" data-cue-delay="200">
+          <div class="text-center p-8 bg-putters-gray-bg rounded-lg shadow-md" data-cue="slideInUp" data-cue-delay="200">
             <div class="w-20 h-20 mx-auto mb-4 bg-gradient-to-br from-putters-blue to-blue-500 text-white rounded-full flex items-center justify-center text-3xl font-heading font-bold">
               3
             </div>
@@ -133,7 +133,7 @@ const types = getTypes();
         </div>
 
         <!-- Additional Info -->
-        <div class="mt-12 bg-white p-6 rounded-lg shadow-md">
+        <div class="mt-12 bg-putters-gray-bg p-6 rounded-lg shadow-md">
           <h4 class="font-heading font-bold text-putters-heading mb-3 flex items-center gap-2">
             <span class="text-2xl">💡</span>
             Tips voor GPX-gebruik
@@ -162,7 +162,7 @@ const types = getTypes();
   </section>
 
   <!-- CTA Section -->
-  <section class="py-16 bg-white">
+  <section class="py-16 bg-putters-gray-bg">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center bg-gradient-to-br from-putters-primary to-putters-blue text-white rounded-2xl p-12">
         <h3 class="text-4xl font-heading font-bold mb-6">Rijd mee met WTC De Putters!</h3>
@@ -249,10 +249,10 @@ const types = getTypes();
           const target = e.currentTarget as HTMLElement;
           document.querySelectorAll('.distance-filter').forEach(b => {
             b.classList.remove('active', 'bg-putters-primary', 'text-white');
-            b.classList.add('bg-putters-gray-bg', 'text-putters-text');
+            b.classList.add('bg-white', 'text-putters-text', 'shadow-sm');
           });
           target.classList.add('active', 'bg-putters-primary', 'text-white');
-          target.classList.remove('bg-putters-gray-bg', 'text-putters-text');
+          target.classList.remove('bg-white', 'text-putters-text', 'shadow-sm');
 
           activeDistanceFilter = target.getAttribute('data-filter') || 'all';
           filterRitten();
@@ -265,10 +265,10 @@ const types = getTypes();
           const target = e.currentTarget as HTMLElement;
           document.querySelectorAll('.type-filter').forEach(b => {
             b.classList.remove('active', 'bg-putters-primary', 'text-white');
-            b.classList.add('bg-putters-gray-bg', 'text-putters-text');
+            b.classList.add('bg-white', 'text-putters-text', 'shadow-sm');
           });
           target.classList.add('active', 'bg-putters-primary', 'text-white');
-          target.classList.remove('bg-putters-gray-bg', 'text-putters-text');
+          target.classList.remove('bg-white', 'text-putters-text', 'shadow-sm');
 
           activeTypeFilter = target.getAttribute('data-filter') || 'all';
           filterRitten();

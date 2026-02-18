@@ -29,7 +29,7 @@ function getDisplayCategory(event: { date: string; category: string }) {
   />
 
   <!-- All Events Section -->
-  <section class="section-padding bg-white" data-cue="fadeIn">
+  <section class="section-padding bg-putters-gray-bg" data-cue="fadeIn">
     <div class="container mx-auto px-4">
       <!-- Filter Buttons -->
       <div class="flex flex-wrap justify-center gap-3 mb-12">
@@ -40,19 +40,19 @@ function getDisplayCategory(event: { date: string; category: string }) {
           Alle Events
         </button>
         <button
-          class="event-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-gray-bg text-putters-text hover:bg-putters-primary hover:text-white"
+          class="event-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-white text-putters-text shadow-sm hover:bg-putters-primary hover:text-white"
           data-filter="binnenkort"
         >
           Binnenkort
         </button>
         <button
-          class="event-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-gray-bg text-putters-text hover:bg-putters-primary hover:text-white"
+          class="event-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-white text-putters-text shadow-sm hover:bg-putters-primary hover:text-white"
           data-filter="later"
         >
           Later dit jaar
         </button>
         <button
-          class="event-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-putters-gray-bg text-putters-text hover:bg-putters-primary hover:text-white"
+          class="event-filter px-5 py-2 rounded-lg font-semibold transition-colors duration-300 bg-white text-putters-text shadow-sm hover:bg-putters-primary hover:text-white"
           data-filter="annual"
         >
           Putters Events
@@ -71,14 +71,14 @@ function getDisplayCategory(event: { date: string; category: string }) {
   </section>
 
   <!-- Event Types Info -->
-  <section class="section-padding bg-putters-gray-bg" data-cue="fadeIn">
+  <section class="section-padding bg-white" data-cue="fadeIn">
     <div class="container mx-auto px-4">
       <div class="max-w-5xl mx-auto">
         <h2 class="section-title">Verschillende Events</h2>
 
         <div class="grid md:grid-cols-3 gap-8">
           <!-- Sportieve Events -->
-          <div class="text-center p-8 bg-white rounded-lg shadow-md" data-cue="slideInUp">
+          <div class="text-center p-8 bg-putters-gray-bg rounded-lg shadow-md" data-cue="slideInUp">
             <div class="text-5xl mb-4">🚴‍♂️</div>
             <h3 class="text-xl font-heading font-bold text-putters-heading mb-3">Sportieve Ritten</h3>
             <p class="text-putters-text">
@@ -87,7 +87,7 @@ function getDisplayCategory(event: { date: string; category: string }) {
           </div>
 
           <!-- Sociale Events -->
-          <div class="text-center p-8 bg-white rounded-lg shadow-md" data-cue="slideInUp" data-cue-delay="100">
+          <div class="text-center p-8 bg-putters-gray-bg rounded-lg shadow-md" data-cue="slideInUp" data-cue-delay="100">
             <div class="text-5xl mb-4">🎉</div>
             <h3 class="text-xl font-heading font-bold text-putters-heading mb-3">Sociale Evenementen</h3>
             <p class="text-putters-text">
@@ -96,7 +96,7 @@ function getDisplayCategory(event: { date: string; category: string }) {
           </div>
 
           <!-- Recreatieve Events -->
-          <div class="text-center p-8 bg-white rounded-lg shadow-md" data-cue="slideInUp" data-cue-delay="200">
+          <div class="text-center p-8 bg-putters-gray-bg rounded-lg shadow-md" data-cue="slideInUp" data-cue-delay="200">
             <div class="text-5xl mb-4">🌄</div>
             <h3 class="text-xl font-heading font-bold text-putters-heading mb-3">Ontspanning</h3>
             <p class="text-putters-text">
@@ -109,7 +109,7 @@ function getDisplayCategory(event: { date: string; category: string }) {
   </section>
 
   <!-- CTA Section -->
-  <section class="py-16 bg-white">
+  <section class="py-16 bg-putters-gray-bg">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center bg-gradient-to-br from-putters-primary to-putters-blue text-white rounded-2xl p-12">
         <h3 class="text-4xl font-heading font-bold mb-6">Wil je meedoen?</h3>
@@ -153,11 +153,11 @@ function getDisplayCategory(event: { date: string; category: string }) {
           // Update button styles
           filterButtons.forEach(btn => {
             if (btn === button) {
-              btn.classList.remove('bg-putters-gray-bg', 'text-putters-text');
+              btn.classList.remove('bg-white', 'text-putters-text', 'shadow-sm');
               btn.classList.add('active', 'bg-putters-primary', 'text-white');
             } else {
               btn.classList.remove('active', 'bg-putters-primary', 'text-white');
-              btn.classList.add('bg-putters-gray-bg', 'text-putters-text');
+              btn.classList.add('bg-white', 'text-putters-text', 'shadow-sm');
             }
           });
 
