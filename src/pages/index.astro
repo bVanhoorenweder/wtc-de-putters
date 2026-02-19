@@ -36,6 +36,17 @@ if (nextEvent) {
     <!-- Swiper Container -->
     <div class="swiper hero-swiper relative z-10">
       <div class="swiper-wrapper">
+        <!-- Slide 0: 20 jaar jubileum -->
+        <div class="swiper-slide">
+          <div class="container mx-auto px-4">
+            <div class="max-w-4xl mx-auto text-center">
+              <h1 class="text-hero font-heading font-bold mb-4 leading-tight">20 Jaar WTC De Putters!</h1>
+              <p class="text-subtitle mb-8 leading-relaxed">Een bijzonder jubileumjaar — bedankt aan alle leden, vrijwilligers en sponsors!</p>
+              <a href="/werking" class="btn-primary">Ontdek Onze Club</a>
+            </div>
+          </div>
+        </div>
+
         <!-- Slide 1: Welcome -->
         <div class="swiper-slide">
           <div class="container mx-auto px-4">
@@ -81,8 +92,6 @@ if (nextEvent) {
       <div class="swiper-button-prev !text-white"></div>
       <div class="swiper-button-next !text-white"></div>
 
-      <!-- Pagination Dots -->
-      <div class="swiper-pagination !bottom-8"></div>
     </div>
 
     <!-- Bottom Wave -->
@@ -179,35 +188,85 @@ if (nextEvent) {
   </section>
 
   <!-- Section 4: Stats/Counter -->
-  <section class="section-padding bg-gradient-to-br from-putters-blue to-putters-primary text-white" data-cue="fadeIn">
+  <section id="stats-section" class="section-padding bg-gradient-to-br from-putters-blue to-putters-primary text-white">
     <div class="container mx-auto px-4">
       <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
         <!-- Stat 1 -->
         <div class="text-center">
-          <div class="text-6xl font-heading font-bold mb-2">15+</div>
+          <div class="text-6xl font-heading font-bold mb-2">
+            <span class="counter" data-target="20" data-suffix="">0</span>
+          </div>
           <div class="text-xl opacity-90">Jaar Actief</div>
         </div>
 
         <!-- Stat 2 -->
         <div class="text-center">
-          <div class="text-6xl font-heading font-bold mb-2">100+</div>
+          <div class="text-6xl font-heading font-bold mb-2">
+            <span class="counter" data-target="100" data-suffix="+">0</span>
+          </div>
           <div class="text-xl opacity-90">Leden</div>
         </div>
 
         <!-- Stat 3 -->
         <div class="text-center">
-          <div class="text-6xl font-heading font-bold mb-2">2x</div>
+          <div class="text-6xl font-heading font-bold mb-2">
+            <span class="counter" data-target="2" data-suffix="x">0</span>
+          </div>
           <div class="text-xl opacity-90">Per Week</div>
         </div>
 
         <!-- Stat 4 -->
         <div class="text-center">
-          <div class="text-6xl font-heading font-bold mb-2">10+</div>
+          <div class="text-6xl font-heading font-bold mb-2">
+            <span class="counter" data-target="10" data-suffix="+">0</span>
+          </div>
           <div class="text-xl opacity-90">Events/Jaar</div>
         </div>
       </div>
     </div>
   </section>
+
+  <script>
+    const counters = document.querySelectorAll('.counter');
+    let animated = false;
+
+    function animateCounters() {
+      if (animated) return;
+      animated = true;
+
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target') || '0');
+        const suffix = counter.getAttribute('data-suffix') || '';
+        const duration = 1800;
+        const startTime = performance.now();
+
+        function update(currentTime: number) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease out cubic
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = Math.floor(eased * target);
+          counter.textContent = current + (progress === 1 ? suffix : '');
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          }
+        }
+
+        requestAnimationFrame(update);
+      });
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateCounters();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    const statsSection = document.getElementById('stats-section');
+    if (statsSection) observer.observe(statsSection);
+  </script>
 
   <!-- Section 4.5: Next Event -->
   {nextEvent && (
@@ -343,7 +402,7 @@ if (nextEvent) {
 
   <!-- Initialize Swiper for Hero -->
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    function initPage() {
       // Initialize ScrollCue
       // @ts-ignore
       if (typeof scrollCue !== 'undefined') {
@@ -360,26 +419,25 @@ if (nextEvent) {
       if (typeof Swiper !== 'undefined') {
         // @ts-ignore
         new Swiper('.hero-swiper', {
-          effect: 'fade',
-          speed: 1000,
+          speed: 600,
           autoplay: {
             delay: 5000,
             disableOnInteraction: false,
-          },
-          pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
           },
           navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',
           },
-          fadeEffect: {
-            crossFade: true
-          },
         });
       }
-    });
+    }
+
+    // Use window.load to ensure all CDN scripts are loaded
+    if (document.readyState === 'complete') {
+      initPage();
+    } else {
+      window.addEventListener('load', initPage);
+    }
   </script>
 
   <style>

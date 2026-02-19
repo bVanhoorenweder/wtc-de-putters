@@ -12,48 +12,48 @@ export const board: BoardMember[] = [
     name: 'Hillewaere Dries',
     role: 'Voorzitter',
     email: 'dries@wtcdeputters.be',
-    stravaUrl: 'https://strava.com',
+    stravaUrl: 'https://www.strava.com/athletes/16587255',
     initials: 'HD',
-    color: 'from-blue-500 to-cyan-500'
+    color: 'from-putters-primary to-putters-blue'
   },
   {
     name: 'De Schacht Ramsey',
     role: 'Secretaris',
     email: 'ramsey@wtcdeputters.be',
-    stravaUrl: 'https://strava.com',
+    stravaUrl: 'https://www.strava.com/athletes/15709',
     initials: 'DR',
-    color: 'from-green-500 to-emerald-500'
+    color: 'from-putters-primary to-putters-blue'
   },
   {
     name: 'Talloen Esteban',
     role: 'Penningmeester',
     email: 'esteban@wtcdeputters.be',
-    stravaUrl: 'https://strava.com',
+    stravaUrl: 'https://www.strava.com/athletes/506979',
     initials: 'TE',
-    color: 'from-orange-500 to-red-500'
+    color: 'from-putters-primary to-putters-blue'
   },
   {
     name: 'Vander Plaetse Jan',
     role: 'Sportieve cel',
     email: 'jan@wtcdeputters.be',
-    stravaUrl: 'https://strava.com',
+    stravaUrl: 'https://www.strava.com/athletes/1775350',
     initials: 'JP',
-    color: 'from-purple-500 to-pink-500'
+    color: 'from-putters-primary to-putters-blue'
   },
   {
     name: 'Stijn Boel',
     role: 'Sportieve cel',
     email: 'stijn@wtcdeputters.be',
-    stravaUrl: 'https://strava.com',
+    stravaUrl: 'https://www.strava.com/athletes/16958513',
     initials: 'SB',
-    color: 'from-indigo-500 to-blue-500'
+    color: 'from-putters-primary to-putters-blue'
   },
   {
     name: 'Benjamin Vanhoorenweder',
     role: 'Sportieve cel',
     email: 'benjamin@wtcdeputters.be',
-    stravaUrl: 'https://strava.com',
+    stravaUrl: 'https://www.strava.com/athletes/11342450',
     initials: 'BV',
-    color: 'from-teal-500 to-cyan-500'
+    color: 'from-putters-primary to-putters-blue'
   }
 ];

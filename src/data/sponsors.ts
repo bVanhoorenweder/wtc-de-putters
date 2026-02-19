@@ -43,10 +43,10 @@ export const sponsors: Sponsor[] = [
     name: 'Jeroen Spriet',
     category: 'Aannemer',
     description: 'Vakmanschap in bouw- en verbouwingswerken met oog voor detail',
-    website: 'https://jeroenspriet.be',
-    facebook: 'https://facebook.com/jeroenspriet',
-    phone: '+32 50 45 67 89',
-    email: 'jeroen@spriet.be'
+    website: '-',
+    facebook: 'https://www.facebook.com/p/Bouwwerken-Jeroen-Spriet-100063764855046/',
+    phone: '+32 477 30 41 17',
+    email: 'jeroen@bouwjeroenspriet.be'
   },
   {
     name: 'Nicrack',
@@ -55,42 +55,44 @@ export const sponsors: Sponsor[] = [
     website: 'https://nicrack.be',
     facebook: 'https://facebook.com/nicrack',
     phone: '+32 50 56 78 90',
-    email: 'info@nicrack.be'
+    email: 'info@nicrack.be',
+    logo: '/assets/NickRack_Logo.svg'
   },
   {
     name: 'Marnick Van Waeleghem',
     category: 'Vloerder',
     description: 'Vakkundige plaatsing van alle soorten vloeren',
-    website: 'https://vanwaeleghem-vloeren.be',
-    facebook: 'https://facebook.com/vanwaeleghemvloeren',
-    phone: '+32 50 67 89 01',
-    email: 'marnick@vanwaeleghem.be'
+    website: '-',
+    facebook: 'https://www.facebook.com/VloerWerkenVanWaeleghemMarnick',
+    phone: '+32 495 51 50 01',
+    email: 'marnik.vanwaeleghem@gmail.com'
   },
   {
     name: 'Stefan Vandamme',
-    category: 'Vloerder',
-    description: 'Specialist in hoogwaardige vloerwerken voor elke ruimte',
-    website: 'https://vandamme-vloeren.be',
-    facebook: 'https://facebook.com/vandammevloeren',
-    phone: '+32 50 78 90 12',
-    email: 'stefan@vandamme.be'
+    category: 'Timmer- & schrijnwerk',
+    description: '-',
+    website: '-',
+    facebook: '-',
+    phone: '-',
+    email: '-'
   },
   {
     name: 'Mera Claeys',
     category: 'Automaten',
     description: 'Moderne snoep- en drankautomaten voor uw bedrijf',
-    website: 'https://meraclaeys.be',
+    website: 'https://www.mera-claeys.be',
     facebook: 'https://facebook.com/meraclaeys',
-    phone: '+32 50 89 01 23',
-    email: 'info@meraclaeys.be'
+    phone: '+32 50 67 01 23',
+    email: 'info@mera-claeys.be'
   },
   {
     name: 'Laurel en Hardy',
-    category: 'Restaurant',
+    category: 'Restauranst',
     description: 'Culinair genieten in een gezellige en warme sfeer',
-    website: 'https://laurelenhardy.be',
-    facebook: 'https://facebook.com/laurelenhardy',
-    phone: '+32 50 90 12 34',
-    email: 'info@laurelenhardy.be'
+    website: 'https://www.laurel-hardy.be',
+    facebook: 'https://www.facebook.com/LaurelHardy.Oostkamp',
+    phone: '+32 50 82 34 34',
+    email: 'info@laurel-hardy.be',
+    logo: '/assets/Laurel_Hardy_Logo.png'
   }
 ];

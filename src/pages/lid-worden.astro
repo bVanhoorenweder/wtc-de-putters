@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import PricingCard from '../components/PricingCard.astro';
+import FaqSection from '../components/FaqSection.astro';
 ---
 
 <BaseLayout title="Lid Worden - WTC De Putters">
@@ -120,8 +121,31 @@ import PricingCard from '../components/PricingCard.astro';
     </div>
   </section>
 
+  <!-- FAQ Section -->
+  <FaqSection
+    background="gray"
+    items={[
+      {
+        question: 'Kan ik eerst een proefrit doen voor ik me inschrijf?',
+        answer: 'Absoluut! Kom gewoon langs op zondag om 09:00 op parking De Valkaart in Oostkamp. Een proefrit is volledig vrijblijvend en de ideale manier om de club en de sfeer te leren kennen.'
+      },
+      {
+        question: 'Is een verzekering inbegrepen in het lidgeld?',
+        answer: 'Ja, als lid van WTC De Putters ben je verzekerd tijdens alle officiële clubritten op woensdag en zondag. De verzekering is inbegrepen in het jaarlijkse lidgeld.'
+      },
+      {
+        question: 'Moet ik een racefiets hebben?',
+        answer: 'Neen, een racefiets is niet verplicht. Je kan ook met een andere fiets meerijden. Belangrijk is wel dat je fiets in goede staat is en dat je een helm draagt — dat is verplicht.'
+      },
+      {
+        question: 'Wanneer kan ik lid worden?',
+        answer: 'Je kan het hele jaar door lid worden via mijnassist.be. Na inschrijving ben je meteen welkom op de wekelijkse ritten.'
+      }
+    ]}
+  />
+
   <!-- Final CTA Section -->
-  <section class="py-16 bg-putters-gray-bg">
+  <section class="py-16 bg-white">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center bg-gradient-to-br from-putters-primary to-putters-blue text-white rounded-2xl p-12">
         <h3 class="text-4xl font-heading font-bold mb-6">Klaar om te starten?</h3>

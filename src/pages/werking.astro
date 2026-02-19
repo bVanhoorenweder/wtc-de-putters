@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
+import FaqSection from '../components/FaqSection.astro';
 ---
 
 <BaseLayout title="Werking - WTC De Putters">
@@ -89,8 +90,57 @@ import Hero from '../components/Hero.astro';
     </div>
   </section>
 
-  <!-- Activiteiten Section -->
+  <!-- Clubkledij Section -->
   <section class="section-padding bg-putters-gray-bg" data-cue="fadeIn">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="section-title">Clubkledij</h2>
+        <p class="section-subtitle max-w-2xl mx-auto">
+          Rijd in de kleuren van WTC De Putters
+        </p>
+
+        <div class="grid md:grid-cols-2 gap-8 items-start">
+          <!-- Info -->
+          <div class="bg-white rounded-lg p-8" data-cue="slideInLeft">
+            <div class="text-5xl mb-4">👕</div>
+            <h3 class="text-xl font-heading font-bold text-putters-heading mb-3">Niet verplicht, wel aanbevolen</h3>
+            <p class="text-putters-text leading-relaxed mb-4">
+              Het rijden in Putters tenu is niet verplicht, maar we raden het wel aan. Het versterkt de clubgeest en zorgt voor herkenning onderling en in het verkeer.
+            </p>
+            <p class="text-putters-text leading-relaxed">
+              Wanneer de webshop open is voor bestellingen, wordt dit gecommuniceerd via onze
+              <a
+                href="https://chat.whatsapp.com/LUoaT6E8uXgAveJzewR8aU"
+                target="_blank"
+                rel="noopener"
+                class="text-putters-primary hover:text-putters-secondary font-semibold transition-colors"
+              >WhatsApp community</a>.
+            </p>
+          </div>
+
+          <!-- Webshop -->
+          <div class="bg-white rounded-lg p-8" data-cue="slideInRight">
+            <div class="text-5xl mb-4">🛒</div>
+            <h3 class="text-xl font-heading font-bold text-putters-heading mb-3">Webshop</h3>
+            <p class="text-putters-text leading-relaxed mb-6">
+              Kledij wordt besteld via de webshop van Vermarc Sport. Wil je eerst passen? Neem contact op met het bestuur — we hebben enkele stuks in stock als referentie.
+            </p>
+            <a
+              href="https://www.shop.vermarcsport.com/shop/wtcdeputters"
+              target="_blank"
+              rel="noopener"
+              class="inline-flex items-center gap-2 px-6 py-3 bg-putters-primary text-white rounded-full font-heading font-bold hover:bg-putters-secondary transition-colors duration-300"
+            >
+              Naar de webshop →
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activiteiten Section -->
+  <section class="section-padding bg-white" data-cue="fadeIn">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto">
         <h2 class="section-title">Onze Activiteiten</h2>
@@ -98,7 +148,7 @@ import Hero from '../components/Hero.astro';
         <div class="grid md:grid-cols-2 gap-8">
           <!-- Left Column -->
           <div class="space-y-6">
-            <div class="bg-white rounded-lg p-6">
+            <div class="bg-putters-gray-bg rounded-lg p-6">
               <h3 class="text-xl font-heading font-bold text-putters-heading mb-3 flex items-center gap-2">
                 <span class="text-putters-primary">📅</span>
                 Wekelijkse Ritten
@@ -111,7 +161,7 @@ import Hero from '../components/Hero.astro';
               </ul>
             </div>
 
-            <div class="bg-white rounded-lg p-6">
+            <div class="bg-putters-gray-bg rounded-lg p-6">
               <h3 class="text-xl font-heading font-bold text-putters-heading mb-3 flex items-center gap-2">
                 <span class="text-putters-secondary">🌅</span>
                 Ontbijtrit
@@ -124,7 +174,7 @@ import Hero from '../components/Hero.astro';
 
           <!-- Right Column -->
           <div class="space-y-6">
-            <div class="bg-white rounded-lg p-6">
+            <div class="bg-putters-gray-bg rounded-lg p-6">
               <h3 class="text-xl font-heading font-bold text-putters-heading mb-3 flex items-center gap-2">
                 <span class="text-putters-blue">🎉</span>
                 Events & Uitstappen
@@ -134,13 +184,23 @@ import Hero from '../components/Hero.astro';
               </p>
             </div>
 
-            <div class="bg-white rounded-lg p-6">
+            <div class="bg-putters-gray-bg rounded-lg p-6">
               <h3 class="text-xl font-heading font-bold text-putters-heading mb-3 flex items-center gap-2">
-                <span class="text-putters-primary">🗺️</span>
-                Wielertoerisme
+                <span class="text-putters-secondary">⚡</span>
+                60@30
               </h3>
               <p class="text-putters-text">
-                We verkennen de mooiste routes in West-Vlaanderen en daarbuiten. Elke rit is een nieuwe ontdekking.
+                Van eind april tot september organiseren we op maandagavond de 60@30 — een vaste rit van 60km aan 30km/u. Een initiatief van de sportieve cel, voor wie graag wat sportiever rijdt.
+              </p>
+            </div>
+
+            <div class="bg-putters-gray-bg rounded-lg p-6">
+              <h3 class="text-xl font-heading font-bold text-putters-heading mb-3 flex items-center gap-2">
+                <span class="text-putters-blue">🖥️</span>
+                Zwift Races
+              </h3>
+              <p class="text-putters-text">
+                Van december tot eind februari organiseert de sportieve cel elke donderdagavond een Zwift race. Ideaal om de wintermaanden actief door te komen op de rollen!
               </p>
             </div>
           </div>
@@ -159,6 +219,29 @@ import Hero from '../components/Hero.astro';
       </div>
     </div>
   </section>
+
+  <!-- FAQ Section -->
+  <FaqSection
+    background="gray"
+    items={[
+      {
+        question: 'Moet ik in Putters kledij rijden?',
+        answer: 'Neen, clubkledij is niet verplicht. We raden het wel aan om de groepsfeer en herkenbaarheid te bevorderen. Wanneer de webshop open is voor bestellingen, wordt dit aangekondigd via de WhatsApp community.'
+      },
+      {
+        question: 'Wat als ik een lekke band heb onderweg?',
+        answer: 'We wachten op elkaar — niemand wordt achtergelaten. Zorg dat je altijd een reserveband, binnenbanden en een pomp meebrengt. Andere leden helpen je graag.'
+      },
+      {
+        question: 'Zijn er ook ritten in de winter?',
+        answer: 'Ja, we rijden het hele jaar door, ook in de winter. Kleed je aan voor de weersomstandigheden en zorg voor goede verlichting bij donkere ritten.'
+      },
+      {
+        question: 'Moet ik altijd meerijden als ik lid ben?',
+        answer: 'Neen, je lidmaatschap verplicht je niet tot aanwezigheid. Je rijdt mee wanneer het jou past — op woensdag, zondag of bij speciale ritten.'
+      }
+    ]}
+  />
 
   <!-- Initialize ScrollCue -->
   <script>

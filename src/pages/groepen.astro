@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import GroupCard from '../components/GroupCard.astro';
+import FaqSection from '../components/FaqSection.astro';
 import { groups } from '../data/groups';
 ---
 
@@ -170,8 +171,27 @@ import { groups } from '../data/groups';
     </div>
   </section>
 
+  <!-- FAQ Section -->
+  <FaqSection
+    background="white"
+    items={[
+      {
+        question: 'Hoe weet ik in welke groep ik thuishoor?',
+        answer: 'Kom gewoon een proefrit doen op zondag om 09:00. Na de rit bespreken we samen welke groep het beste bij jou past op basis van jouw snelheid en conditie. Geen stress — iedereen begint ergens!'
+      },
+      {
+        question: 'Kan ik van groep wisselen?',
+        answer: 'Ja, dat kan altijd in overleg met de groepsleider. Of je nu een groep wil opschuiven omdat je sterker wordt, of een stapje terugzet na een blessure — we helpen je naar de juiste groep.'
+      },
+      {
+        question: 'Wat als ik niet kan bijbenen?',
+        answer: 'We hanteren het principe "samen uit, samen thuis". Als je problemen hebt onderweg, wacht de groep op je. Niemand wordt achtergelaten.'
+      }
+    ]}
+  />
+
   <!-- CTA Section -->
-  <section class="py-16 bg-white">
+  <section class="py-16 bg-putters-gray-bg">
     <div class="container mx-auto px-4">
       <div class="max-w-4xl mx-auto text-center bg-gradient-to-br from-putters-primary to-putters-blue text-white rounded-2xl p-12">
         <h3 class="text-4xl font-heading font-bold mb-6">Vind Jouw Groep</h3>

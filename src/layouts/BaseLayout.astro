@@ -28,6 +28,11 @@ const { title = 'WTC De Putters', description = 'WTC De Putters is een wielertoe
 
   <!-- ScrollCue CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/scrollcue@1.0.3/scrollCue.css" />
+
+  <!-- JS libraries: defer so they load early but don't block rendering -->
+  <script defer src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/scrollcue@1.0.3/scrollCue.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 </head>
 <body class="font-body text-putters-text bg-white antialiased">
   <Header />
@@ -37,14 +42,5 @@ const { title = 'WTC De Putters', description = 'WTC De Putters is een wielertoe
   </main>
 
   <Footer />
-
-  <!-- Swiper JS -->
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-
-  <!-- ScrollCue JS -->
-  <script src="https://cdn.jsdelivr.net/npm/scrollcue@1.0.3/scrollCue.min.js"></script>
-
-  <!-- GLightbox JS -->
-  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 </body>
 </html>

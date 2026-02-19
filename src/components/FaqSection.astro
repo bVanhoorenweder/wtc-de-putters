@@ -1,0 +1,76 @@
+---
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  items: FaqItem[];
+  title?: string;
+  background?: 'white' | 'gray';
+}
+
+const { items, title = 'Veelgestelde vragen', background = 'gray' } = Astro.props;
+const bg = background === 'gray' ? 'bg-putters-gray-bg' : 'bg-white';
+const cardBg = background === 'gray' ? 'bg-white' : 'bg-putters-gray-bg';
+---
+
+<section class={`section-padding ${bg}`} data-cue="fadeIn">
+  <div class="container mx-auto px-4">
+    <h2 class="section-title">{title}</h2>
+    <div class="max-w-3xl mx-auto space-y-3">
+      {items.map((item, index) => (
+        <div
+          class={`faq-item ${cardBg} rounded-lg overflow-hidden`}
+          data-cue="slideInUp"
+          data-cue-delay={index * 50}
+        >
+          <button
+            class="faq-trigger w-full flex items-center justify-between gap-4 p-6 text-left font-heading font-bold text-putters-heading hover:text-putters-primary transition-colors duration-200"
+            aria-expanded="false"
+          >
+            <span>{item.question}</span>
+            <span class="faq-icon flex-shrink-0 w-6 h-6 rounded-full bg-putters-primary text-white flex items-center justify-center text-lg font-bold leading-none transition-transform duration-300">+</span>
+          </button>
+          <div class="faq-answer hidden px-6 pb-6">
+            <p class="text-putters-text leading-relaxed">{item.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.faq-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const item = trigger.closest('.faq-item')!;
+      const answer = item.querySelector('.faq-answer')!;
+      const icon = trigger.querySelector('.faq-icon')!;
+      const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+
+      // Close all others
+      document.querySelectorAll('.faq-item').forEach(other => {
+        if (other !== item) {
+          other.querySelector('.faq-answer')!.classList.add('hidden');
+          other.querySelector('.faq-trigger')!.setAttribute('aria-expanded', 'false');
+          other.querySelector('.faq-icon')!.textContent = '+';
+          (other.querySelector('.faq-icon') as HTMLElement).style.transform = 'rotate(0deg)';
+        }
+      });
+
+      // Toggle current
+      if (isOpen) {
+        answer.classList.add('hidden');
+        trigger.setAttribute('aria-expanded', 'false');
+        icon.textContent = '+';
+        (icon as HTMLElement).style.transform = 'rotate(0deg)';
+      } else {
+        answer.classList.remove('hidden');
+        trigger.setAttribute('aria-expanded', 'true');
+        icon.textContent = '−';
+        (icon as HTMLElement).style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+</script>
