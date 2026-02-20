@@ -27,7 +27,7 @@ if (nextEvent) {
 
 <BaseLayout>
   <!-- Section 1: Hero with Swiper -->
-  <section class="relative bg-gradient-to-br from-putters-primary to-putters-blue text-white py-32 overflow-hidden">
+  <section class="relative bg-gradient-to-br from-putters-primary to-putters-blue text-white py-32 min-h-[520px] overflow-hidden">
     <!-- Background Pattern -->
     <div class="absolute inset-0 opacity-10">
       <div class="absolute inset-0" style="background-image: url('data:image/svg+xml,%3Csvg width=&quot;60&quot; height=&quot;60&quot; viewBox=&quot;0 0 60 60&quot; xmlns=&quot;http://www.w3.org/2000/svg&quot;%3E%3Cg fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;%3E%3Cg fill=&quot;%23ffffff&quot; fill-opacity=&quot;1&quot;%3E%3Cpath d=&quot;M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z&quot;/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
@@ -40,8 +40,8 @@ if (nextEvent) {
         <div class="swiper-slide">
           <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto text-center">
-              <h1 class="text-hero font-heading font-bold mb-4 leading-tight">20 Jaar WTC De Putters!</h1>
-              <p class="text-subtitle mb-8 leading-relaxed">Een bijzonder jubileumjaar — bedankt aan alle leden, vrijwilligers en sponsors!</p>
+              <h1 class="text-hero font-heading font-bold mb-6 leading-tight">20 Jaar WTC De Putters!</h1>
+              <p class="text-subtitle mb-8 leading-relaxed">Samen fietsen sinds 2006 — bedankt voor 20 jaar ploeggeest!</p>
               <a href="/werking" class="btn-primary">Ontdek Onze Club</a>
             </div>
           </div>
@@ -62,16 +62,9 @@ if (nextEvent) {
         <div class="swiper-slide">
           <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto text-center">
-              <h1 class="text-hero font-heading font-bold mb-6 leading-tight">Sluit je aan!</h1>
-              <p class="text-subtitle mb-8 leading-relaxed">Lidgeld 2026: €60 (individueel) / €80 (familie)</p>
-              <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="/lid-worden" class="px-10 py-5 bg-white text-putters-primary rounded-full font-heading font-bold text-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
-                  Meer Info
-                </a>
-                <a href="/groepen" class="px-10 py-5 bg-transparent border-2 border-white text-white rounded-full font-heading font-bold text-xl hover:bg-white hover:text-putters-primary transition-all duration-300">
-                  Bekijk Groepen
-                </a>
-              </div>
+              <h1 class="text-hero font-heading font-bold mb-6 leading-tight">Word lid in 2026</h1>
+              <p class="text-subtitle mb-8 leading-relaxed">Sluit je aan en fiets mee met onze gezellige club!</p>
+              <a href="/lid-worden" class="btn-primary">Meer Info</a>
             </div>
           </div>
         </div>
@@ -441,14 +434,12 @@ if (nextEvent) {
   </script>
 
   <style>
-    /* Swiper Pagination for Hero */
-    :global(.hero-swiper .swiper-pagination-bullet) {
-      background: white;
-      opacity: 0.5;
-    }
-
-    :global(.hero-swiper .swiper-pagination-bullet-active) {
-      opacity: 1;
+    /* Verberg navigatiepijltjes op mobiel */
+    @media (max-width: 640px) {
+      :global(.hero-swiper .swiper-button-prev),
+      :global(.hero-swiper .swiper-button-next) {
+        display: none;
+      }
     }
   </style>
 </BaseLayout>
