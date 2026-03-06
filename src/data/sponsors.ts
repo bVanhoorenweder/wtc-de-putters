@@ -21,48 +21,47 @@ export const sponsors: Sponsor[] = [
     logo: '/assets/Delta_Bikes_Logo.svg'
   },
   {
-    name: 'Keukens Goossens',
-    category: 'Keukens',
-    description: 'Maatwerk keukens op maat van uw dromen en budget',
+    name: 'Goossens',
+    category: 'Keukens en maatkasten',
+    description: 'Goossens is een Belgisch familiebedrijf dat al 4 generaties hoogwaardige keukens en maatkasten produceert voor projectontwikkelaars, overheden en particulieren. Wij combineren traditioneel vakmanschap met moderne productiecapaciteit om interieurprojecten op maat te realiseren.',
     website: 'https://www.goossens-oostkamp.be',
     facebook: 'https://facebook.com/keukensgoossens',
-    phone: '+32 50 23 45 67',
-    email: 'info@keukensgoossens.be'
+    phone: '+32 50 82 26 40',
+    email: 'info@keukensgoossens.be',
+    logo: '/assets/Goossens_Logo.svg'
   },
   {
     name: 'Stijn Voet',
     category: 'Immo',
-    description: 'Vastgoedexpert die uw woning de aandacht geeft die het verdient',
+    description: 'Verkoop en verhuur van vastgoed en projecten',
     website: 'https://www.stijnvoet.be',
     facebook: 'https://www.facebook.com/pg/stijnvoetimmo',
-    phone: '+32 050 78 20 20',
-    email: 'info@dumonvoet.be',
+    phone: '+32 497 97 70 56',
+    email: 'stijn@stijnvoet.be',
     logo: '/assets/Dumon_Voet_Logo.png'
   },
   {
     name: 'Jeroen Spriet',
     category: 'Aannemer',
     description: 'Vakmanschap in bouw- en verbouwingswerken met oog voor detail',
-    website: '-',
     facebook: 'https://www.facebook.com/p/Bouwwerken-Jeroen-Spriet-100063764855046/',
     phone: '+32 477 30 41 17',
     email: 'jeroen@bouwjeroenspriet.be'
   },
   {
-    name: 'Nicrack',
-    category: 'Magazijn Inrichting',
+    name: 'Nic-Rack',
+    category: 'Magazijninrichting en opslagoplossingen',
     description: 'Professionele magazijninrichting en logistieke oplossingen',
-    website: 'https://nicrack.be',
-    facebook: 'https://facebook.com/nicrack',
-    phone: '+32 50 56 78 90',
+    website: 'https://www.nicrack.be',
+    facebook: 'https://facebook.com/NicRackBV',
+    phone: '+32 472 92 32 46',
     email: 'info@nicrack.be',
-    logo: '/assets/NickRack_Logo.svg'
+    logo: '/assets/NickRack_Logo.png'
   },
   {
     name: 'Marnick Van Waeleghem',
     category: 'Vloerder',
     description: 'Vakkundige plaatsing van alle soorten vloeren',
-    website: '-',
     facebook: 'https://www.facebook.com/VloerWerkenVanWaeleghemMarnick',
     phone: '+32 495 51 50 01',
     email: 'marnik.vanwaeleghem@gmail.com'
@@ -70,20 +69,17 @@ export const sponsors: Sponsor[] = [
   {
     name: 'Stefan Vandamme',
     category: 'Timmer- & schrijnwerk',
-    description: '-',
-    website: '-',
-    facebook: '-',
-    phone: '-',
-    email: '-'
+    description: 'Timmer- en schrijnwerk op maat'
   },
   {
     name: 'Mera Claeys',
-    category: 'Automaten',
-    description: 'Moderne snoep- en drankautomaten voor uw bedrijf',
+    category: 'Vending Operator',
+    description: 'Mera Claeys BV is een Belgisch familiebedrijf dat sinds meer dan 25 jaar actief is in de vending-sector. Ze leveren en exploiteren snoep-, koffie- en drankautomaten voor bedrijven, scholen en andere organisaties. Het bedrijf plaatst de automaten, zorgt voor de bevoorrading, het onderhoud en de opvolging, en biedt kwalitatieve producten aan (o.a. frisdrank, koffie, snoep en water) in de automaten.',
     website: 'https://www.mera-claeys.be',
-    facebook: 'https://facebook.com/meraclaeys',
+    facebook: 'https://www.facebook.com/wecareaboutyourbreak',
     phone: '+32 50 67 01 23',
-    email: 'info@mera-claeys.be'
+    email: 'info@mera-claeys.be',
+    logo: '/assets/MeraClaeys_Logo.png'
   },
   {
     name: 'Laurel en Hardy',
@@ -92,7 +88,6 @@ export const sponsors: Sponsor[] = [
     website: 'https://www.laurel-hardy.be',
     facebook: 'https://www.facebook.com/LaurelHardy.Oostkamp',
     phone: '+32 50 82 34 34',
-    email: 'info@laurel-hardy.be',
-    logo: '/assets/Laurel_Hardy_Logo.png'
+    email: 'info@laurel-hardy.be'
   }
 ];

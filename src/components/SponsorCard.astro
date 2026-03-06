@@ -9,15 +9,13 @@ const { sponsor } = Astro.props;
 ---
 
 <div class="h-full flex flex-col group bg-white rounded-xl shadow-md hover:shadow-2xl transition-all duration-400 overflow-hidden hover:-translate-y-1 border-2 border-gray-100 hover:border-putters-primary">
-  <!-- Header with gradient -->
-  <div class="bg-gradient-to-r from-putters-primary to-putters-secondary p-5 text-white text-center relative overflow-hidden">
-    <div class="absolute inset-0 opacity-20 bg-pattern"></div>
-    <div class="relative z-10">
-      <div class="text-3xl mb-2">🤝</div>
-      <div class="text-sm font-heading font-bold uppercase tracking-wider">
-        Partner
-      </div>
-    </div>
+  <!-- Header with logo -->
+  <div class="bg-white p-6 flex items-center justify-center border-b border-gray-100 min-h-[120px]">
+    <img
+      src={sponsor.logo || '/assets/logo.png'}
+      alt={sponsor.name}
+      class="max-h-20 max-w-[200px] object-contain"
+    />
   </div>
 
   <!-- Content - flex-1 to fill space -->
@@ -33,7 +31,7 @@ const { sponsor } = Astro.props;
     </div>
 
     <!-- Description -->
-    <p class="text-putters-text text-sm leading-relaxed mb-6 text-center flex-1">
+    <p class="text-putters-text text-sm leading-relaxed mb-6 flex-1 text-justify">
       {sponsor.description}
     </p>
 
@@ -85,9 +83,3 @@ const { sponsor } = Astro.props;
     </div>
   </div>
 </div>
-
-<style>
-  .bg-pattern {
-    background-image: url('data:image/svg+xml,%3Csvg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23ffffff" fill-opacity="0.4"%3E%3Cpath d="M0 0h20L0 20z"/%3E%3C/g%3E%3C/svg%3E');
-  }
-</style>

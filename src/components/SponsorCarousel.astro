@@ -16,35 +16,39 @@ import { sponsors } from '../data/sponsors';
 
     <!-- Sponsors Grid with enhanced styling -->
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">
-      {sponsors.map((sponsor, index) => (
-        <a
-          href={sponsor.website || sponsor.facebook || '#'}
-          target="_blank"
-          rel="noopener"
-          class="group relative bg-white rounded-xl p-8 flex flex-col items-center justify-center hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-putters-primary overflow-hidden min-h-[140px] cursor-pointer"
-          data-cue="zoomIn"
-          data-cue-delay={index * 75}
-        >
-          <!-- Decorative gradient background on hover -->
-          <div class="absolute inset-0 bg-gradient-to-br from-putters-primary/5 to-putters-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+      {sponsors.map((sponsor, index) => {
+        const url = sponsor.website || sponsor.facebook || null;
+        const Tag = url ? 'a' : 'div';
+        return (
+          <Tag
+            href={url ?? undefined}
+            target={url ? '_blank' : undefined}
+            rel={url ? 'noopener' : undefined}
+            class={`group relative bg-white rounded-xl p-8 flex flex-col items-center justify-center hover:shadow-2xl transition-all duration-500 border-2 border-gray-100 hover:border-putters-primary overflow-hidden min-h-[140px] ${url ? 'cursor-pointer' : 'cursor-default'}`}
+            data-cue="zoomIn"
+            data-cue-delay={index * 75}
+          >
+            <!-- Decorative gradient background on hover -->
+            <div class="absolute inset-0 bg-gradient-to-br from-putters-primary/5 to-putters-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
-          <!-- Sponsor logo or name -->
-          {sponsor.logo ? (
-            <img
-              src={sponsor.logo}
-              alt={sponsor.name}
-              class="relative max-h-16 max-w-[140px] object-contain group-hover:scale-105 transition-transform duration-300"
-            />
-          ) : (
-            <div class="relative text-center font-heading font-bold text-putters-heading group-hover:text-putters-primary transition-colors duration-300 text-base leading-snug">
-              {sponsor.name}
-            </div>
-          )}
+            <!-- Sponsor logo or name -->
+            {sponsor.logo ? (
+              <img
+                src={sponsor.logo}
+                alt={sponsor.name}
+                class="relative max-h-16 max-w-[140px] object-contain group-hover:scale-105 transition-transform duration-300"
+              />
+            ) : (
+              <div class="relative text-center font-heading font-bold text-putters-heading group-hover:text-putters-primary transition-colors duration-300 text-base leading-snug">
+                {sponsor.name}
+              </div>
+            )}
 
-          <!-- Hover decoration -->
-          <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-putters-primary to-putters-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-        </a>
-      ))}
+            <!-- Hover decoration -->
+            <div class="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-putters-primary to-putters-secondary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
+          </Tag>
+        );
+      })}
     </div>
 
     <!-- CTA -->
